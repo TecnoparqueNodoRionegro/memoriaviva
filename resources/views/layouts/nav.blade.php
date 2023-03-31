@@ -1,4 +1,4 @@
-<div>
+<div class="fixed-top">
     <nav class="navbar navbar-expand-lg" style="height: 10rem; font-family: font-family: 'Roboto', sans-serif; background-color: black; box-shadow: 0 .125rem .25rem rgba(218, 218, 218, 0.25)">
         <div class="container-fluid fw-bold fs-5">
             <div class="col-2 d-flex">
@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse col-10" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 " style="margin-left: 20%;">
                     <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link text-white {{ request()->routeIs('index') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{ route('index') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Murales</a>
