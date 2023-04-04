@@ -3,7 +3,7 @@
         <div class="container-fluid fw-bold fs-5">
             <div class="col-2 d-flex">
                 <a class="navbar-brand " href="#">
-                    <img src="{{ URL::asset('storage/img/logo.png') }}" width="80%" class="mx-5">
+                    <img src="{{ URL::asset('storage/img/logo.png') }}" width="80%" class="mx-5" href="{{ url('/') }}">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse col-10" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 " style="margin-left: 20%;">
                     <li class="nav-item">
-                        <a class="nav-link text-white {{ request()->routeIs('index') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{ route('index') }}">Inicio</a>
+                        <a class="nav-link text-white {{ request()->routeIs('index') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{ url('/') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Murales</a>
