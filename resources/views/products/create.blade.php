@@ -14,7 +14,7 @@
 
     <div class="card mt-5 w-50 position-absolute top-50 start-50 translate-middle">
         <div class="card-body">
-            <h1 class="text-center">CREAR CURSO</h1>
+            <h1 class="text-center">PUBLICAR PRODUCTO</h1>
             <form action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
@@ -37,6 +37,9 @@
                 <div>
                     <label class="form-label mt-2">Precio:</label>
                     <input class="form-control" type="number" name="price" value="{{old('price')}}">
+                    @error('price')
+                        <small class="text-danger">*{{ $message }}</small>
+                    @enderror
                 </div>
 
                 <div>
