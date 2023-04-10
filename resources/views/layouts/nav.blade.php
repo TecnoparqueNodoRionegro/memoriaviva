@@ -15,7 +15,7 @@
                         <a class="nav-link text-white {{ request()->routeIs('/') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{ url('/') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="{{ url('gallery') }}">Murales</a>
+                        <a class="nav-link text-white " href="{{ route('galleries.index') }}">Murales</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Ruta cultural</a>

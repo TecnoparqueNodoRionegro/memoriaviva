@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryFileController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -19,11 +20,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/gallery', function () {
-    return view('gallery');
-});
-
-
 Route::get('/admin', function () {
     return view('admin');
 });
@@ -35,3 +31,5 @@ Route::post('products', [ProductController::class, 'store'])->name('products.sto
 Route::get('files/create', [FileController::class, 'create'])->name('files.create');
 Route::post('files', [FileController::class, 'store'])->name('files.store');
 Route::get('files/{id}', [FileController::class, 'show'])->name('files.show');
+
+Route::get('galleries', [CategoryFileController::class, 'index'])->name('galleries.index');
