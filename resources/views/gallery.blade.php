@@ -4,17 +4,21 @@
 
 @section('content')
 <div class="container">
-    <p class="justify-content-center">
-        <a class="btn btn-primary" data-bs-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="">
-          Link with href
-        </a>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          Galeria 1
-        </button>
-    </p>
+    <div class="d-flex justify-content-center">
+
+        <p class="justify-content-center">
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="">
+              Link with href
+            </a>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Galeria 1
+            </button>
+        </p>
+    </div>
     <div class="collapse" id="collapseExample">
         <div class="card card-body">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -43,4 +47,6 @@
         </div>
     </div>
   </div>
+
+  @include('')
 @endsection

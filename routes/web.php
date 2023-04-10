@@ -22,6 +22,10 @@ Route::get('/gallery', function () {
     return view('gallery');
 });
 
+Route::get('/artist', function () {
+    return view('artist');
+});
+
 
 
 
