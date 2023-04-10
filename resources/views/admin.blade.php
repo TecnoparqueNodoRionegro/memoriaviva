@@ -23,7 +23,7 @@
                     <a href="#" class="text-decoration-none text-white">
                         <div class="opcion">
                             <i class="fa-solid fa-newspaper lead" title="Artículos"></i>
-                            <h4>Artículos</h4>
+                            <h4>Contenido</h4>
                         </div>
                     </a>
 
@@ -40,7 +40,23 @@
                                 <hr class="linea"></li>
                                 <li style="text-decoration: none;"><a href="" class="text-white text-decoration-none fs-5 subMenu">Categoría</a></li>
                                 <li><hr class="linea"></li>
-                                <li><a href="" class="text-white text-decoration-none fs-5 subMenu">Multimedia</a></li>
+                            </ul>
+                        </div>
+                      </div>
+
+                      <a class="text-decoration-none text-white" data-bs-toggle="collapse" href="#collapseGaleria" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="opcion">
+                            <i class="fa-solid fa-photo-film lead" title="Tienda"></i>
+                            <h4>Galería</h4>
+                        </div>
+                    </a>
+                      <div class="collapse" id="collapseGaleria">
+                        <div class="card card-body bg-black">
+                            <ul class="style-none">
+                                <li class=""> <a href="" class="text-white text-decoration-none  fs-5 subMenu">Multimedia</a></li>
+                                <hr class="linea"></li>
+                                <li style="text-decoration: none;"><a href="" class="text-white text-decoration-none fs-5 subMenu">Categoría</a></li>
+                                <li><hr class="linea"></li>
                             </ul>
                         </div>
                       </div>
@@ -106,7 +122,7 @@
                                                 </div>
                                             </div>
                                                 
-                                            {{--titulo card--}}
+                                            {{--Boton--}}
                                             <div class="card-body">
                                                 <a class="btn btn-secondary w-100 btnAdmin text-black">
                                                     <div class="row">
@@ -123,16 +139,16 @@
                                             <div class="card-header">
                                                 <div class="row">
                                                     <div class="d-flex justify-content-between d-inline-block">
-                                                        <h6 class="font-weight-bold ">Artículos</h6> <i class="fa-solid fa-newspaper me-2 lead d-flex align-self-center"></i>
+                                                        <h6 class="font-weight-bold ">Contenido</h6> <i class="fa-solid fa-newspaper me-2 lead d-flex align-self-center"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                                 
-                                            {{--titulo card--}}
+                                            {{--Boton--}}
                                             <div class="card-body">
                                                 <a class="btn btn-secondary w-100 btnAdmin text-black">
                                                     <div class="row">
-                                                        <div class="d-flex justify-content-between d-inline-block">Artículo <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                        <div class="d-flex justify-content-between d-inline-block">Contenido <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
                                                     </div>
                                                 </a>
                                             </div>
@@ -149,10 +165,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                                
-                                            {{--titulo card--}}
+                                            {{--Botones--}}    
                                             <div class="card-body">
-                                                <div class="row mb-3">
+                                                <div class="row">
                                                     <div class="col-lg-6 mb-3">
                                                         <a class="btn btn-secondary w-100 btnAdmin text-black">
                                                             <div class="row">
@@ -169,20 +184,44 @@
                                                         </a>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                                <div class="row mb-1">
-                                                    <div class="col-lg-6">
+                                    <div class="col-lg-6 col-md-6 col-md-12">
+                                        <div class="card shadow border-0  mb-4">
+                                            {{--titulo card--}}
+                                            <div class="card-header">
+                                                <div class="row">
+                                                    <div class="d-flex justify-content-between d-inline-block">
+                                                        <h6 class="font-weight-bold ">Galería</h6> <i class="fa-solid fa-photo-film me-2 lead d-flex align-self-center"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                
+                                            {{--Botones--}}    
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-6 mb-3">
                                                         <a class="btn btn-secondary w-100 btnAdmin text-black">
                                                             <div class="row">
                                                                 <div class="d-flex justify-content-between d-inline-block">Multimedia <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
                                                             </div>
                                                         </a>
                                                     </div>
+
+                                                    <div class="col-lg-6">
+                                                        <a class="btn btn-secondary w-100 btnAdmin text-black">
+                                                            <div class="row">
+                                                                <div class="d-flex justify-content-between d-inline-block">Categoría <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </section>
