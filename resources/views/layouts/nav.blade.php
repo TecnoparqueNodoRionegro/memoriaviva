@@ -18,9 +18,6 @@
                         <a class="nav-link text-white " href="{{ url('gallery') }}">Murales</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ url('artist') }}">Artistas</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link text-white" href="#">Ruta cultural</a>
                     </li>
                     <li class="nav-item">
