@@ -12,10 +12,10 @@
             <div class="collapse navbar-collapse col-10" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 " style="margin-left: 20%;">
                     <li class="nav-item">
-                        <a class="nav-link text-white {{ request()->routeIs('index') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{ url('/') }}">Inicio</a>
+                        <a class="nav-link text-white {{ request()->routeIs('/') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{ url('/') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Murales</a>
+                        <a class="nav-link text-white " href="{{ url('gallery') }}">Murales</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Artistas</a>
