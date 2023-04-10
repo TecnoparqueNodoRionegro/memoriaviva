@@ -168,7 +168,7 @@
                                             {{--Botones--}}    
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-6 mb-3">
                                                         <a class="btn btn-secondary w-100 btnAdmin text-black">
                                                             <div class="row">
                                                                 <div class="d-flex justify-content-between d-inline-block">Producto <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
@@ -188,7 +188,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-md-12">
                                         <div class="card shadow border-0  mb-4">
                                             {{--titulo card--}}
                                             <div class="card-header">
@@ -202,7 +202,7 @@
                                             {{--Botones--}}    
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-6 mb-3">
                                                         <a class="btn btn-secondary w-100 btnAdmin text-black">
                                                             <div class="row">
                                                                 <div class="d-flex justify-content-between d-inline-block">Multimedia <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
@@ -219,9 +219,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-
-                                            
                                         </div>
                                     </div>
 
