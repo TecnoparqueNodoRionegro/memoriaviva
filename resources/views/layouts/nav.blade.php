@@ -32,8 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>
+                  
                     <li class="nav-item" style="">
-                        <a class="nav-link text-white" href="#">Ingresar</a>
+                        <a class="nav-link text-white" href="{{ url('/login') }}">Iniciar</a>
                     </li>
                 </ul>
             </div>

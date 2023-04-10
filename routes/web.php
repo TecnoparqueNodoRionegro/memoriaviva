@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,10 @@ Route::get('/', function () {
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('products', [ProductController::class, 'store'])->name('products.store');
+
+Route::get('/login', function () {
+    return view('loginAndUsers/login');
+});
+
+
+Route::resource('user', UserController::class);
