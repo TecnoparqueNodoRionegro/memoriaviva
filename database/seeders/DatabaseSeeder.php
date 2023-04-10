@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoryFileSeeder::class);
         $this->call(StateSeeder::class);
         $this->call(FileTypeSeeder::class);
+        $this->call(FileSeeder::class);
     }
 }

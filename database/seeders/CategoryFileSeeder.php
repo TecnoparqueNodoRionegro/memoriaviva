@@ -16,7 +16,15 @@ class CategoryFileSeeder extends Seeder
     public function run()
     {
         $categoryFile = new CategoryFile();
-        $categoryFile->description = "Murales";
+        $categoryFile->description = "Murales 1";
         $categoryFile->save();
+
+        $categoryFile2 = new CategoryFile();
+        $categoryFile2->description = "Murales 2";
+        $categoryFile2->save();
+
+        $categoryFile3 = new CategoryFile();
+        $categoryFile3->description = "Murales 3";
+        $categoryFile3->save();
     }
 }

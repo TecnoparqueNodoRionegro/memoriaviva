@@ -12,7 +12,7 @@
             <img src="{{ $file->route }}">
             @break
         @case(2)
-            <iframe width="560" height="315" src="{{ $file->route }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="{{ $file->route }}" frameborder="0" allowfullscreen></iframe>
             @break
         @case(3)
             <audio src="{{ $file->route }}"></audio>
