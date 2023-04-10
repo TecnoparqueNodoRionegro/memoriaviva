@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,7 @@ Route::get('/admin', function () {
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('products', [ProductController::class, 'store'])->name('products.store');
+
+Route::get('files/create', [FileController::class, 'create'])->name('files.create');
+Route::post('files', [FileController::class, 'store'])->name('files.store');
+Route::get('files/{id}', [FileController::class, 'show'])->name('files.show');
