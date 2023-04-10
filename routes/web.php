@@ -27,7 +27,9 @@ Route::get('/artist', function () {
 });
 
 
-
+Route::get('/admin', function () {
+    return view('admin');
+});
 
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
