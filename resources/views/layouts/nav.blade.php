@@ -34,7 +34,7 @@
                     </li>
                   
                     <li class="nav-item" style="">
-                        <a class="nav-link text-white" href="{{ url('/login') }}">Iniciar</a>
+                        <a class="nav-link text-white" href="{{ url('auth/login') }}">Iniciar</a>
                     </li>
                 </ul>
             </div>

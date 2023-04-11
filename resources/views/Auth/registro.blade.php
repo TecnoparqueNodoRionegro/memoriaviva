@@ -11,7 +11,7 @@
           <h2 class="text-center">Registrate</h2>
         </div>
         <div class="card-body">
-        <form class="needs-validation" method="post" action="{{ url('user')}}" novalidate>
+        <form class="needs-validation" method="post" action="{{ url('auth/registroVerify')}}" novalidate>
         @csrf
   <div class="mb-3">
     <label for="email">Correo electrónico:</label>
@@ -29,7 +29,7 @@
   </div>
   <div class="mb-3">
     <label for="password2">Confirmar contraseña:</label>
-    <input type="password" class="form-control" name="password" id="password2" placeholder="Confirme su contraseña" required data-match="#password1">
+    <input type="password" class="form-control" name="passwordConfirmation" id="password2" placeholder="Confirme su contraseña" required data-match="#password1">
     <div class="invalid-feedback">
       Por favor confirme su contraseña.
     </div>

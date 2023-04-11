@@ -10,8 +10,18 @@
         <div class="card-header bg-dark text-white">
           <h2 class="text-center">Inicio de sesión</h2>
         </div>
+        @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
         <div class="card-body">
-          <form action="" method="POST">
+          <form action="{{ route('auth.loginVerify')}}" method="POST">
             @csrf
             <div class="mb-3">
               <label for="email" class="form-label">Correo electrónico</label>
@@ -25,7 +35,7 @@
           </form>
         </div>
         <div class="card-footer">
-          <p class="text-center">¿No tienes cuenta? <a href="{{ url('user')}}">Regístrate aquí</a></p>
+          <p class="text-center">¿No tienes cuenta? <a href="{{ url('auth/registro')}}">Regístrate aquí</a></p>
         </div>
       </div>
     </div>

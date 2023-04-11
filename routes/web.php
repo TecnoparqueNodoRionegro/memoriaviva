@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -18,18 +19,27 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('index');
 });
-
-Route::get('/admin', function () {
-    return view('admin');
+Route::middleware('auth')->group(function(){
+    Route::get('/admin', function () {
+        return view('admin');
+    });
 });
+
 
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('products', [ProductController::class, 'store'])->name('products.store');
 
-Route::get('/login', function () {
-    return view('loginAndUsers/login');
+// auth
+
+Route::prefix('auth')->group(function(){
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('loginVerify', [AuthController::class, 'loginVerify'])->name('auth.loginVerify');
+    Route::get('registro', [AuthController::class, 'register']);
+    Route::post('registroVerify', [AuthController::class, 'registerVerify']);
+    Route::get('continuarRegistro', [AuthController::class, 'continuarRegistro'])->name('continuarRegistro');
+    Route::get('signOut', [AuthController::class, 'signOut'])->name('signOut');
 });
 
 
-Route::resource('user', UserController::class);
+

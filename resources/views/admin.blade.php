@@ -92,7 +92,7 @@
                                                 <img src="{{asset('img/user.png')}}" class="avatar mx-2" alt="">Jóse López</a>
                                             <ul class="dropdown-menu" style="background: black">
                                                 <li class="nav-item">
-                                                    <a class="nav-link  text-white" aria-current="page" href="#">Cerrar Sesión <i class="fa-solid fa-right-from-bracket mx-1 text-white"></i></a>
+                                                    <a class="nav-link  text-white" aria-current="page" href="{{ route('signOut')}}">Cerrar Sesión <i class="fa-solid fa-right-from-bracket mx-1 text-white"></i></a>
                                                 </li>
                                             {{-- <li><hr class="dropdown-divider"></li> --}}
                                             </ul>
