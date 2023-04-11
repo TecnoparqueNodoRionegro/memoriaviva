@@ -4,23 +4,17 @@
 
 @section('content')
 <div class="container">
+   
     @foreach ($categories as $category)
-        <div class="accordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ $category->id }}" aria-expanded="true" aria-controls="collapseOne">
-                        {{ $category->description }}
-                    </button>
-                </h2>
-                <div id="{{ $category->id }}" class="accordion-collapse collapse show">
-                    <div class="accordion-body">
-                        @foreach ($category->file as $file)
-                            <img src="{{ $file->route }}">
-                        @endforeach
-                    </div>
-                </div>
-            </div>
+
+    <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
+    </div>
     @endforeach
 </div>
 @include('layouts.footer')

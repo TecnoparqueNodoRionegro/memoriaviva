@@ -1,9 +1,9 @@
 <div class="fixed-top">
-    <nav class="navbar navbar-expand-lg" style="height: 10rem; font-family: font-family: 'Roboto', sans-serif; background-color: black; box-shadow: 0 .125rem .25rem rgba(218, 218, 218, 0.25)">
+    <nav class="navbar navbar-expand-lg" style="height: 7rem; font-family: font-family: 'Roboto', sans-serif; background-color: black; box-shadow: 0 .125rem .25rem rgba(218, 218, 218, 0.25)">
         <div class="container-fluid fw-bold fs-5">
             <div class="col-2 d-flex">
                 <a class="navbar-brand " href="#">
-                    <img src="{{ URL::asset('storage/img/logo.png') }}" width="80%" class="mx-5" href="{{ url('/') }}">
+                    <img src="{{ URL::asset('storage/img/logo.png') }}" width="50%" class="mx-5" href="{{ url('/') }}">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,7 @@
                         <a class="nav-link text-white {{ request()->routeIs('/') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{ url('/') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="{{ route('galleries.index') }}">Murales</a>
+                        <a class="nav-link text-white " href="http://127.0.0.1:8000/galleries/1?q=algo_en_mi_vida">Murales</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Ruta cultural</a>

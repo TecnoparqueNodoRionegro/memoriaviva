@@ -24,6 +24,7 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
+
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('products', [ProductController::class, 'store'])->name('products.store');
@@ -32,4 +33,6 @@ Route::get('files/create', [FileController::class, 'create'])->name('files.creat
 Route::post('files', [FileController::class, 'store'])->name('files.store');
 Route::get('files/{id}', [FileController::class, 'show'])->name('files.show');
 
-Route::get('galleries', [CategoryFileController::class, 'index'])->name('galleries.index');
+// Route::get('galleries/1/2', [CategoryFileController::class, 'index'])->name('galleries.show');
+
+Route::get('galleries/{category}', [CategoryFileController::class, 'show'])->name('galleries.show');
