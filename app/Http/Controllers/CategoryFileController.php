@@ -15,7 +15,9 @@ class CategoryFileController extends Controller
     public function index()
     {
         //
-        return view('admin.galleries.index');
+
+        $datos ['categorias'] = CategoryFile::paginate(10);
+        return view('admin.galleries.index', $datos);
        
     }
 
@@ -55,7 +57,7 @@ class CategoryFileController extends Controller
         
         $categoryFile->save();
 
-        return redirect()->route('galleries.show');
+        return redirect()->route('galleries.index');
     }
 
     /**
@@ -76,9 +78,12 @@ class CategoryFileController extends Controller
      * @param  \App\Models\CategoryFile  $categoryFile
      * @return \Illuminate\Http\Response
      */
-    public function edit(CategoryFile $categoryFile)
+    public function edit($id)
     {
         //
+        $category = CategoryFile::findOrFail($id);
+
+        return view('admin.galleries.edit', compact('category'));
     }
 
     /**
@@ -88,19 +93,28 @@ class CategoryFileController extends Controller
      * @param  \App\Models\CategoryFile  $categoryFile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CategoryFile $categoryFile)
+    public function update(Request $request,  $id)
     {
         //
-    }
 
+        
+
+        $datoCategoria = request()->except(['_token', '_method']);
+        CategoryFile::where('id', '=' , $id)->update($datoCategoria);
+        return redirect()->route('galleries.index');
+    
+    }
+    
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\CategoryFile  $categoryFile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CategoryFile $categoryFile)
+    public function destroy($id)
     {
         //
+        CategoryFile::destroy($id);
+        return redirect()->route('galleries.index');
     }
 }

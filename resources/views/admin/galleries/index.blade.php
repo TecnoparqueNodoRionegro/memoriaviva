@@ -24,32 +24,47 @@
 
                             <div class="container d-flex justify-content-center">
                                                                                                
-                                <div class="card w-75 border">
+                                <div class=" w-100">
                                    
-                                    <div class="card-header d-flex justify-content-center">
+                                    <div class="card-header d-flex justify-content-center mb-4">
                                         <h1 class="fs-2">Categorías</h1>
                                     </div>
-                                    <div class="d-flex justify-content-center">
-                                        <table class="table table-hover ">
-                                            <thead>
-                                                <tr>
+                                    <div >
+                                        <table class="table table-hover bg-white rounded">
+                                            <thead class="bg-light">
+                                                <tr class="">
                                                     <th >#</th>
                                                     <th>Nombre</th>
                                                     <th>Estado</th>
+                                                    <th></th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
     
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Prueba</td>
-                                                    <td>
-                                                        <div class="form-check form-switch">
-                                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                            {{-- <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> --}}
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                @foreach ($categorias as $categoria)
+                                                    
+                                                
+                                                    <tr>
+                                                        <td class="m-5 p-3">{{$loop->iteration}}</td>
+                                                        <td>{{$categoria->description}}</td>
+                                                        <td>
+                                                          
+                                                            <div class="form-check form-switch">
+                                                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                                                {{-- <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> --}}
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <form action="{{route('galleries.destroy', $categoria->id)}}" method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn" type="submit" onclick="return confirm('¿Desea eliminar la Categoría?');">Eliminar</button>
+                                                            </form>
+                                                        </td>
+                                                        <td><a href="{{url('galleries/'. $categoria->id. '/edit')}}">Editar</a></td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

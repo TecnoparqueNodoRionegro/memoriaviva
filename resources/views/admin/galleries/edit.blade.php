@@ -23,11 +23,11 @@
                                     </div>
 
                                     <div class="card-body">
-                                        <form action="{{route('galleries.store')}}" method="POST">
+                                        <form action="{{url('galleries/'.$category->id)}}" method="POST">
                                             @csrf
+                                            @method('PATCH')
 
-
-                                            @include('admin.galleries.form', ['Modo'=>'crear'])
+                                            @include('admin.galleries.form', ['Modo'=>'editar'])
                                             
                                         </form>
                                     </div>
