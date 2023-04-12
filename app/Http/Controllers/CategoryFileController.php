@@ -14,11 +14,8 @@ class CategoryFileController extends Controller
 
         return view('galleries.index', compact('categories'));
     }
-    public function show(CategoryFile $category, Request $request ){
-        $files = File::all();
-        $q= $request->query('q');
-        
-
-        return view('galleries.show', compact('category', 'files', 'q'));
+    public function show(CategoryFile $category){
+        $files = File::all();   
+        return view('galleries.show', compact('category', 'files'));
     }
 }
