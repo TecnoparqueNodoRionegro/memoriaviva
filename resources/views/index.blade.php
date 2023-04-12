@@ -59,5 +59,26 @@
         </div>
 
     </div>
+
+    {{--fotter--}}
+    <div>
+        <h1>contactanos</h1>
+        <form action="{{route('contactanos.store')}}" method="POST">
+            @csrf
+            <label for="nombre">
+                <input type="text" name="nombre" id="">
+            </label>
+            
+            <label for="correo">
+                <input type="email" name="correo" id="">
+            </label>
+            <label for="mensaje">
+                <br>
+                <textarea  name="mensaje" placeholder="mensaje" id="mensaje"></textarea>
+            </label>
+
+            <button type="submit">enviar mensaje</button>
+        </form>
+    </div>
 </div>
 @endsection
