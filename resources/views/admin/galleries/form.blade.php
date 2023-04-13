@@ -10,6 +10,6 @@
 
     <div class="d-flex justify-content-center col-sm-12">
         <input class="btn btn-primary me-4" type="submit" value="{{$Modo=='crear' ? 'Agregar': 'Modificar'}}">
-        <a href="{{route('galleries.index')}}" class="btn btn-secondary text-dark">Regresar</a>
+        <a href="{{route('admin.galleries.index')}}" class="btn btn-secondary text-dark">Regresar</a>
     </div>
 </div>

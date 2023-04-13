@@ -1,15 +1,15 @@
 @extends('layouts.templateAdmin')
 
 @section('title', 'Crear Categoría')
-    
+
 @section('content')
     <div class="contenedor" id="contenedor">
-        
+
         <div class="d-flex">
 
             {{--Menú Lateral--}}
             <div class="menuLateral" id="menuLateral">
-              
+
                 <header>@include('layouts.navAdmin')</header>
 
 
@@ -23,16 +23,16 @@
                                     </div>
 
                                     <div class="card-body">
-                                        <form action="{{url('galleries/'.$category->id)}}" method="POST">
+                                        <form action="{{url('admin/galleries/'.$category->id)}}" method="POST">
                                             @csrf
                                             @method('PATCH')
 
                                             @include('admin.galleries.form', ['Modo'=>'editar'])
-                                            
+
                                         </form>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </section>
                         {{-- contenido --}}
