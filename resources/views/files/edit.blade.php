@@ -16,7 +16,7 @@
         @csrf
         
         <div class="card mt-5 w-50 position-absolute top-50 start-50 translate-middle">
-            <h1 class="text-center mt-1">SUBIR ARCHIVO</h1>
+            <h1 class="text-center mt-1">ACTUALIZAR ARCHIVO</h1>
             <div class="card-body">
 
                 <div>
@@ -42,8 +42,8 @@
                     <label class="form-label mt-2">Categoría:</label>
                     <select class="form-select" name="categoryFile">
                         <option disabled selected>Selecciona...</option>
-                        @foreach ($categoryFiles as $category)
-                            <option value="{{$loop->iteration}}">{{$category->description}}</option>
+                        @foreach ($categoryFiles as $categoryFile)
+                            <option value="{{$loop->iteration}}">{{$categoryFile->description}}</option>
                         @endforeach
                     </select>
                 </div>
