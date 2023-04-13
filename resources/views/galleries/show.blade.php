@@ -10,67 +10,84 @@
     @endforeach --}}
 
 
+    {{-- Galeria --}}
     <section class="gallery ">
 		<div class="container-lg">
 			<div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3 ">
 
-				<div class="col">
-					<img src="{{ URL::asset('storage/img/sliders02.png') }}" class="gallery-item w-100 rounded" alt="Gallery1">
+				<div class="col prueba">
+					<img src="{{ URL::asset('storage/img/sliders01.png') }}" class="gallery-item w-100 h-100 rounded prueba1" alt="Gallery1">
 				</div>
 
-				<div class="col">
-					<img src="{{ URL::asset('storage/img/sliders01.png') }}" class="gallery-item w-100 rounded" alt="Gallery2">
+				<div class="col prueba">
+					<img src="{{ URL::asset('storage/img/sliders02.png') }}" class="gallery-item w-100 h-100 rounded prueba1" alt="Gallery2">
 				</div>
 
-				<div class="col">
-					<img src="{{ URL::asset('storage/img/sliders03.png') }}" class="gallery-item w-100 rounded" alt="Gallery2">
+				<div class="col prueba">
+					<img src="{{ URL::asset('storage/img/sliders03.png') }}" class="gallery-item w-100 h-100 rounded prueba1" alt="Gallery2">
 				</div>
 
-				<div class="col">
-					<img src="{{ URL::asset('storage/img/sliders03.png') }}" class="gallery-item w-100 rounded" alt="Gallery2">
+				<div class="col prueba">
+					<img src="{{ URL::asset('storage/img/sliders04.png') }}" class="gallery-item w-100 h-100 rounded prueba1" alt="Gallery2">
 				</div>
 
-				<div class="col">
-					<img src="{{ URL::asset('storage/img/1.jpg') }}" class="gallery-item w-100 rounded" alt="Gallery2">
+				<div class="col prueba">
+					<img src="{{ URL::asset('storage/img/1.jpg') }}" class="gallery-item w-100 rounded prueba1" alt="Gallery2">
+				</div>
+
+				<div class="col prueba">
+					<img src="{{ URL::asset('storage/img/2.jpg') }}" class="gallery-item w-100 rounded prueba1" alt="Gallery2">
+				</div>
+
+				<div class="col prueba">
+					<img src="{{ URL::asset('storage/img/2.jpg') }}" class="gallery-item w-100 rounded prueba1" alt="Gallery2">
 				</div>
 
 
 			</div>
 		</div>
 	</section>
-    <div class="modal fade" id="gallery-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    </style>
+    {{-- Modal --}}
+    <div class="modal fade" id="gallery-popup" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content  bg-grey">
             <div class="modal-header">
               <button type="button" class="btn-close btn btn-light"  data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body ">
+
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="{{ URL::asset('storage/img/sliders01.png') }}" class="modal-img w-100 rounded" alt="Modal Image">
-                      </div>
-                      <div class="carousel-item active">
-                        <img src="{{ URL::asset('storage/img/sliders02.png') }}" class="modal-img w-100 rounded" alt="Modal Image">
-                      </div>
-                      <div class="carousel-item active">
-                        <img src="{{ URL::asset('storage/img/sliders03.png') }}" class="modal-img w-100 rounded" alt="Modal Image">
+
+                      <div class="carousel-item active ">
+                        <img src="{{ URL::asset('storage/img/sliders01.png') }}" class="modal-img w-100 rounded " alt="Modal Image">
                       </div>
 
                       <div class="carousel-item active">
-                        <img src="{{ URL::asset('storage/img/sliders03.png') }}" class="modal-img w-100 rounded" alt="Modal Image">
+                        <img src="{{ URL::asset('storage/img/sliders02.png') }}" class="modal-img w-100 rounded " alt="Modal Image">
                       </div>
+
+                      <div class="carousel-item active">
+                        <img src="{{ URL::asset('storage/img/sliders03.png') }}" class="modal-img w-100 rounded " alt="Modal Image">
+                      </div>
+
+                      {{-- <div class="carousel-item active">
+                        <img src="{{ URL::asset('storage/img/1.jpg') }}" class="modal-img w-100 rounded " alt="Modal Image">
+                      </div> --}}
                     </div>
+
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Previous</span>
                     </button>
+
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Next</span>
                     </button>
                   </div>
-
 
             </div>
           </div>
