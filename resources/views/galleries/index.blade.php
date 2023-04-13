@@ -4,7 +4,6 @@
 
 @section('content')
 <div class="container">
-   
     @foreach ($categories as $category)
 
     <div class="card" style="width: 18rem;">
