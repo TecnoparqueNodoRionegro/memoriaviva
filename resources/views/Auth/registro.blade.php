@@ -13,30 +13,29 @@
         <div class="card-body">
         <form class="needs-validation" method="post" action="{{ url('auth/registroVerify')}}" novalidate>
         @csrf
-  <div class="mb-3">
-    <label for="email">Correo electrónico:</label>
-    <input type="email" class="form-control" name="email" id="email" placeholder="Ingrese su correo electrónico" required>
-    <div class="invalid-feedback">
-      Por favor ingrese una dirección de correo electrónico válida.
-    </div>
-  </div>
-  <div class="mb-3">
-    <label for="password1">Contraseña:</label>
-    <input type="password" class="form-control" name="password" id="password1" placeholder="Ingrese su contraseña" required>
-    <div class="invalid-feedback">
-      Por favor ingrese una contraseña.
-    </div>
-  </div>
-  <div class="mb-3">
-    <label for="password2">Confirmar contraseña:</label>
-    <input type="password" class="form-control" name="passwordConfirmation" id="password2" placeholder="Confirme su contraseña" required data-match="#password1">
-    <div class="invalid-feedback">
-      Por favor confirme su contraseña.
-    </div>
-  </div>
-  <button type="submit" class="btn btn-dark btn-block">Registrate</button>
-</form>
-
+              <div class="mb-3">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Ingrese su correo electrónico" required>
+                <div class="invalid-feedback">
+                  Por favor ingrese una dirección de correo electrónico válida.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="password1">Contraseña:</label>
+                <input type="password" class="form-control" name="password" id="password1" placeholder="Ingrese su contraseña" required>
+                <div class="invalid-feedback">
+                  Por favor ingrese una contraseña.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="password2">Confirmar contraseña:</label>
+                <input type="password" class="form-control" name="passwordConfirmation" id="password2" placeholder="Confirme su contraseña" required data-match="#password1">
+                <div class="invalid-feedback">
+                  Por favor confirme su contraseña.
+                </div>
+              </div>
+              <button type="submit" class="btn btn-dark btn-block">Registrate</button>
+            </form>
         </div>
       </div>
     </div>

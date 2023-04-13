@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\UserTypesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,14 @@ Route::prefix('auth')->group(function(){
     Route::get('continuarRegistro', [AuthController::class, 'continuarRegistro'])->name('continuarRegistro');
     Route::get('signOut', [AuthController::class, 'signOut'])->name('signOut');
 });
+
+// registrar tipo usuario
+Route::prefix('users')->group(function(){
+    Route::get('user_types', [UserTypesController::class, 'index'])->name('user_types');
+    Route::post('user_types_register', [UserTypesController::class, 'store'])->name('user_types_register');
+    Route::get('user_types_consult', [UserTypesController::class, 'consult'])->name('user_types_consult');
+});
+
 
 
 
