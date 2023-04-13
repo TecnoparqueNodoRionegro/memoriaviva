@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactanosController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryFileController;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,8 @@ Route::post('products', [ProductController::class, 'store'])->name('products.sto
 
 // Route::get('email', [ContactanosController::class, 'index'])->name('email.contactanos');
 Route::post('/', [ContactanosController::class, 'store'])->name('contactanos.store');
+
+Route::get('files', [FileController::class, 'index'])->name('files.index');
+Route::get('files/create', [FileController::class, 'create'])->name('files.create');
+Route::post('files', [FileController::class, 'store'])->name('files.store');
+Route::get('files/{file}/edit', [FileController::class, 'edit'])->name('files.edit');

@@ -32,7 +32,6 @@
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
 
-
                 <div class="carousel-inner rounded mb-3">
                     <div class="carousel-item active">
                         <img src="{{ URL::asset('storage/img/sliders01.png') }}" class="d-block w-100" alt="...">
