@@ -8,52 +8,39 @@
     <title>Publica un producto</title>
 </head>
 <body class="bg-dark">
-    <div class="text-center mt-3">
-        <img class="img-fluid" src="{{URL::asset('storage/img/logo.png')}}" style="width: 280px;">
-    </div>
-
-    <form action="{{route('files.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('files.update', $file)}}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('put')
         
-        <div class="card mt-5 w-50 position-absolute top-50 start-50 translate-middle">
+        <div class="card w-50 position-absolute top-50 start-50 translate-middle">
             <h1 class="text-center mt-1">ACTUALIZAR ARCHIVO</h1>
             <div class="card-body">
-
-                <div>
-                    <label class="form-label mt-2">Tipo de recurso:</label>
-                    <select class="form-select" id="resource_type">
-                        <option value="0" selected disabled>Selecciona...</option>
-                        <option value="1">Archivo</option>
-                        <option value="2">URL externa</option>
-                    </select>
-                </div>
-
-                <div id="file">
-                    <label class="form-label mt-2">Archivo:</label>
-                    <input class="form-control" type="file" name="routeFile" accept="image/*, video/*, audio/*">
-                </div>
-
-                <div id="url">
-                    <label class="form-label mt-2">URL:</label>
-                    <input class="form-control" type="text" name="routeUrl">
+                <div class="text-center"> 
+                    @switch($file->file_type_id)
+                        @case(1)
+                        <div>
+                            <img class="w-25" src="{{ $file->route }}">
+                        </div>
+                            @break
+                        @case(2)
+                            <a href="{{ $file->route }}" target="_blank">Video</a>
+                            @break
+                        @case(3)
+                                <audio src="{{ $file->route }}"></audio>
+                            @break
+                        @default
+                    @endswitch
                 </div>
 
                 <div>
                     <label class="form-label mt-2">Categoría:</label>
                     <select class="form-select" name="categoryFile">
-                        <option disabled selected>Selecciona...</option>
                         @foreach ($categoryFiles as $categoryFile)
-                            <option value="{{$loop->iteration}}">{{$categoryFile->description}}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div>
-                    <label class="form-label mt-2">Tipo de archivo:</label>
-                    <select class="form-select" name="fileType">
-                        <option disabled selected>Selecciona...</option>
-                        @foreach ($fileTypes as $fileType)
-                            <option value="{{$loop->iteration}}">{{$fileType->description}}</option>
+                            @if ($categoryFile->id == $file->categories->id)
+                                <option value="{{$categoryFile->id}}" selected>{{ $file->categories->description }}</option>
+                            @else
+                                <option value="{{$categoryFile->id}}">{{$categoryFile->description}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
@@ -61,9 +48,12 @@
                 <div>
                     <label class="form-label mt-2">Estado:</label>
                     <select class="form-select" name="state">
-                        <option disabled selected>Selecciona...</option>
                         @foreach ($states as $state)
-                            <option value="{{$loop->iteration}}">{{$state->description}}</option>
+                            @if ($state->id == $file->states->id)
+                                <option value="{{$state->id}}" selected>{{ $file->states->description }}</option>
+                            @else
+                                <option value="{{$state->id}}">{{$state->description}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
@@ -78,28 +68,5 @@
     </form>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
-    {{-- JQuery --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-    <script>
-        $(document).ready(function(){
-
-            $("#file").hide();
-            $("#url").hide();
-
-            $("#resource_type").change(function(){
-
-                resourceType = $("#resource_type").val();
-
-                if(resourceType == 1){
-                    $("#file").show();
-                    $("#url").hide();
-                } else if(resourceType == 2){
-                    $("#file").hide();
-                    $("#url").show();
-                }
-            });
-        });
-    </script>
 </body>
 </html>

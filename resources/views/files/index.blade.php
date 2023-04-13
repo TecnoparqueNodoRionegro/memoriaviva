@@ -25,7 +25,7 @@
                                 @switch($file->file_type_id)
                                     @case(1)
                                         <td>
-                                            <img class="w-50 h-50" src="{{ $file->route }}">
+                                            <img width="300" src="{{ $file->route }}">
                                         </td>
                                         @break
                                     @case(2)
@@ -43,21 +43,24 @@
                                 <td>{{ $file->fileTypes->description }}</td>
                                 <td>{{ $file->categories->description }}</td>
                                 <td>{{ $file->states->description}}</td>
-                                <td>
-                                    <button class="btn btn-primary w-100 mb-1">Editar</button>
-                                    <button class="btn btn-danger w-100">Eliminar</button>
+                                <td width="320">
+                                    <form action="{{ route('files.destroy', $file) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        
+                                        <a class="btn btn-primary w-25" href="{{ route('files.edit', $file) }}">Editar</a>
+                                        <button class="btn btn-danger w-25" type="submit">Eliminar</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-                <div class="row w-50">
-                    <div class="col-4">
-                        {{ $files->links() }}
-                    </div>
-                    <a class="btn btn-dark mb-2 col-3" href="{{ route('files.create') }}">Subir un archivo</a>
-                </div>
+        <div class="row w-50">
+            <div class="col-4">
+                {{ $files->links() }}
             </div>
-        </div>  
+            <a class="btn btn-dark mb-2 col-3" href="{{ route('files.create') }}">Subir un archivo</a>
+        </div>
     </body>
 @endsection

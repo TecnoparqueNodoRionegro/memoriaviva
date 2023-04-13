@@ -47,9 +47,27 @@ class FileController extends Controller
         return redirect()->route('files.index');
     }
 
-    public function edit($id){
-        $file = File::find($id);
+    public function edit(File $file){
+        $categoryFiles = CategoryFile::all();
+        $fileTypes = FileType::all();
+        $states = State::all();
 
-        return view('files.edit', compact('file'));
+        return view('files.edit', compact('file', 'categoryFiles', 'fileTypes', 'states'));
+    }
+
+    public function update(Request $request, File $file){
+
+        $file->category_file_id = $request->categoryFile;
+        $file->state_id = $request->state;
+
+        $file->save();
+
+        return redirect()->route('files.index');
+    }
+
+    public function destroy(File $file){
+        $file->delete();
+
+        return redirect()->route('files.index');
     }
 }

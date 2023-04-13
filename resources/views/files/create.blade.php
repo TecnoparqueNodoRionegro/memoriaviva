@@ -8,14 +8,10 @@
     <title>Publica un producto</title>
 </head>
 <body class="bg-dark">
-    <div class="text-center mt-3">
-        <img class="img-fluid" src="{{URL::asset('storage/img/logo.png')}}" style="width: 280px;">
-    </div>
-
     <form action="{{route('files.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         
-        <div class="card mt-5 w-50 position-absolute top-50 start-50 translate-middle">
+        <div class="card w-50 position-absolute top-50 start-50 translate-middle">
             <h1 class="text-center mt-1">SUBIR ARCHIVO</h1>
             <div class="card-body">
 
@@ -43,7 +39,7 @@
                     <select class="form-select" name="categoryFile">
                         <option disabled selected>Selecciona...</option>
                         @foreach ($categoryFiles as $category)
-                            <option value="{{$loop->iteration}}">{{$category->description}}</option>
+                            <option value="{{$category->id}}">{{$category->description}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -53,7 +49,7 @@
                     <select class="form-select" name="fileType">
                         <option disabled selected>Selecciona...</option>
                         @foreach ($fileTypes as $fileType)
-                            <option value="{{$loop->iteration}}">{{$fileType->description}}</option>
+                            <option value="{{$fileType->id}}">{{$fileType->description}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -63,7 +59,7 @@
                     <select class="form-select" name="state">
                         <option disabled selected>Selecciona...</option>
                         @foreach ($states as $state)
-                            <option value="{{$loop->iteration}}">{{$state->description}}</option>
+                            <option value="{{$state->id}}">{{$state->description}}</option>
                         @endforeach
                     </select>
                 </div>
