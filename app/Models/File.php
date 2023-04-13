@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class File extends Model
 {
     use HasFactory;
+    
+    public function fileTypes(){
+        return $this->belongsTo(FileType::class, 'file_type_id');
+    }
+
+    public function categories(){
+        return $this->belongsTo(CategoryFile::class, 'category_file_id');
+    }
+
+
+    public function states(){
+        return $this->belongsTo(State::class, 'state_id');
+    }
 }

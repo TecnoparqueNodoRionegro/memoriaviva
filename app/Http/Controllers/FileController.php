@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
+    public function index(){
+        $files = File::orderBy('id', 'DESC')->paginate(5);
+
+        return view('files.index', compact('files'));
+    }
+
     public function create(){
         $categoryFiles = CategoryFile::all();
         $fileTypes = FileType::all();
@@ -38,13 +44,12 @@ class FileController extends Controller
 
         $file->save();
 
-        return redirect()->route('files.show', $file);
+        return redirect()->route('files.index');
     }
 
-    public function show($id){
+    public function edit($id){
         $file = File::find($id);
 
-        return view('files.show', compact('file'));
-
+        return view('files.edit', compact('file'));
     }
 }
