@@ -16,7 +16,6 @@ class CategoryFileController extends Controller
     }
     public function show(CategoryFile $category){
         $files = File::all();
-
-        return view('galleries.show', compact('category', 'files', 'q'));
+        return view('galleries.show', compact('category', 'files'));
     }
 }

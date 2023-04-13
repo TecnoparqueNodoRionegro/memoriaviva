@@ -34,5 +34,4 @@ Route::post('files', [FileController::class, 'store'])->name('files.store');
 Route::get('files/{id}', [FileController::class, 'show'])->name('files.show');
 
 Route::get('galleries', [CategoryFileController::class, 'index'])->name('galleries.index');
-
 Route::get('galleries/{category}', [CategoryFileController::class, 'show'])->name('galleries.show');

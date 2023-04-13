@@ -3,18 +3,24 @@
 @section('title', 'Murales')
 
 @section('content')
-<div class="container">
-    @foreach ($categories as $category)
+<div class="container mb-5">
+    <div>
+        <div class="row">
 
-    <div class="card" style="width: 18rem;">
-        <img src="" class="card-img-top">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            @foreach ($categories as $category)
+                <div class="col-md-4 mb-4"   >
+
+                        <a href="#" class="btn text-white fs-4" style="font-family: font-family: 'Roboto', sans-serif;">
+                            <img src="{{ URL::asset('storage/img/sliders02.png') }}" class="card-img-top w-100">
+                            <i class="fa-solid fa-folder"></i>
+                            <span>Galería 1  </span>
+                        </a>
+                    </div>
+            @endforeach
+
+
         </div>
     </div>
-    @endforeach
 </div>
 @include('layouts.footer')
 @endsection
