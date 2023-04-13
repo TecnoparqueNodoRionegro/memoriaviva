@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CategoryFileController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryFileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,17 +23,29 @@ Route::get('/', function () {
 });
 
 Route::get('/admin', function () {
-    return view('admin');
+    return view('admin.admin');
 });
 
+Route::get('galleries', [CategoryFileController::class, 'index'])->name('galleries.index');
+Route::get('galleries/create', [CategoryFileController::class, 'create'])->name('galleries.create');
+Route::post('galleries', [CategoryFileController::class, 'store'])->name('galleries.store');
+Route::get('galleries/show', [CategoryFileController::class, 'show'])->name('galleries.show');
+Route::delete('galleries/destroy/{id}', [CategoryFileController::class, 'destroy'])->name('galleries.destroy');
+Route::get('galleries/{id}/edit', [CategoryFileController::class, 'edit'])->name('galleries.edit');
+Route::patch('galleries/{id}', [CategoryFileController::class, 'update'])->name('galleries.update');
 
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('products', [ProductController::class, 'store'])->name('products.store');
 
+
+// Route::get('email', [ContactanosController::class, 'index'])->name('email.contactanos');
+Route::post('/', [ContactanosController::class, 'store'])->name('contactanos.store');
+
 Route::get('files', [FileController::class, 'index'])->name('files.index');
 Route::get('files/create', [FileController::class, 'create'])->name('files.create');
 Route::post('files', [FileController::class, 'store'])->name('files.store');
+Route::get('files/{file}/edit', [FileController::class, 'edit'])->name('files.edit');
 Route::get('files/{id}', [FileController::class, 'show'])->name('files.show');
 Route::get('files/{file}/edit', [FileController::class, 'edit'])->name('files.edit');
 
