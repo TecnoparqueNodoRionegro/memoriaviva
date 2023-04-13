@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactanosController;
-use App\Http\Controllers\CategoryFileController;
+use App\Http\Controllers\CategoryFileAdminController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryFileController;
@@ -26,13 +26,13 @@ Route::get('/admin', function () {
     return view('admin.admin');
 });
 
-Route::get('galleries', [CategoryFileController::class, 'index'])->name('galleries.index');
-Route::get('galleries/create', [CategoryFileController::class, 'create'])->name('galleries.create');
-Route::post('galleries', [CategoryFileController::class, 'store'])->name('galleries.store');
-Route::get('galleries/show', [CategoryFileController::class, 'show'])->name('galleries.show');
-Route::delete('galleries/destroy/{id}', [CategoryFileController::class, 'destroy'])->name('galleries.destroy');
-Route::get('galleries/{id}/edit', [CategoryFileController::class, 'edit'])->name('galleries.edit');
-Route::patch('galleries/{id}', [CategoryFileController::class, 'update'])->name('galleries.update');
+Route::get('admin/galleries', [CategoryFileAdminController::class, 'index'])->name('admin.galleries.index');
+Route::get('admin/galleries/create', [CategoryFileAdminController::class, 'create'])->name('admin.galleries.create');
+Route::post('admin/galleries', [CategoryFileAdminController::class, 'store'])->name('admin.galleries.store');
+Route::get('admin/galleries/show', [CategoryFileAdminController::class, 'show'])->name('admin.galleries.show');
+Route::delete('admin/galleries/destroy/{id}', [CategoryFileAdminController::class, 'destroy'])->name('admin.galleries.destroy');
+Route::get('admin/galleries/{id}/edit', [CategoryFileAdminController::class, 'edit'])->name('admin.galleries.edit');
+Route::patch('admin/galleries/{id}', [CategoryFileAdminController::class, 'update'])->name('admin.galleries.update');
 
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/create', [ProductController::class, 'create'])->name('products.create');

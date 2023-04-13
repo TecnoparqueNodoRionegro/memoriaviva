@@ -9,11 +9,6 @@ class File extends Model
 {
     use HasFactory;
 
-    public function categories()
-    {
-        return $this->belongsTo(CategoryFile::class, 'category_file_id');
-    }
-    
     public function fileTypes(){
         return $this->belongsTo(FileType::class, 'file_type_id');
     }
