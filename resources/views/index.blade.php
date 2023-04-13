@@ -14,7 +14,7 @@
     <div class=" row">
 
 
-        <div class="bg-5 col-md-4 ">
+        <div class="bg-5 col-md-4 d-flex justify-content-center align-items-center">
 
             {{-- <p class="murales text-white">MURALES</p>
             <p class="con text-white">CON COLORES DE</p>
@@ -59,4 +59,5 @@
 
     </div>
 </div>
+@include('layouts.footer')
 @endsection
