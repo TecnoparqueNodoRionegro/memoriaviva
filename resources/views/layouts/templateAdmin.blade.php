@@ -26,7 +26,7 @@
 <body  style="background-color: #F0F0F0; overflow:hidden; font-family: 'Roboto';, sans-serif; font-weight:900; text-decoration: none;">
 
     <!-- header -->
-    {{-- <header>@include('layouts.nav')</header> --}}
+    
 
     <!-- body -->
     @yield('content')

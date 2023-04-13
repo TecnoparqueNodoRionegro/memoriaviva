@@ -14,7 +14,7 @@
     <div class=" row">
 
 
-        <div class="bg-5 col-md-4 ">
+        <div class="bg-5 col-md-4 d-flex justify-content-center align-items-center">
 
             {{-- <p class="murales text-white">MURALES</p>
             <p class="con text-white">CON COLORES DE</p>
@@ -31,7 +31,6 @@
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-
 
                 <div class="carousel-inner rounded mb-3">
                     <div class="carousel-item active">
@@ -59,5 +58,27 @@
         </div>
 
     </div>
+
+    {{--fotter--}}
+    <div>
+        <h1>contactanos</h1>
+        <form action="{{route('contactanos.store')}}" method="POST">
+            @csrf
+            <label for="nombre">
+                <input type="text" name="nombre" id="">
+            </label>
+            
+            <label for="correo">
+                <input type="email" name="correo" id="">
+            </label>
+            <label for="mensaje">
+                <br>
+                <textarea  name="mensaje" placeholder="mensaje" id="mensaje"></textarea>
+            </label>
+
+            <button type="submit">enviar mensaje</button>
+        </form>
+    </div>
 </div>
+@include('layouts.footer')
 @endsection
