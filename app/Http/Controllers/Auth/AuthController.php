@@ -21,7 +21,7 @@ class AuthController extends Controller
         //
     }
     public function register(){
-        return view('Auth.registro'); 
+        return view('Auth.registro');
     }
     public function login(){
         return view('Auth.login');
@@ -50,7 +50,7 @@ class AuthController extends Controller
         ]);
 
         if(Auth::attempt(['email'=> $request->email, 'password' => $request->password, 'user_type_id' => 1])){
-            return view('/admin');
+            return View('/admin');
         }elseif(Auth::attempt(['email'=> $request->email, 'password' => $request->password, 'user_type_id' => 2])){
             return ('Usuario');
         }

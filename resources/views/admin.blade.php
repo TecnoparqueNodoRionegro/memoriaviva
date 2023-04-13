@@ -85,7 +85,7 @@
                                 <div class="d-flex me-5" >
                                     <ul class="navbar-nav me-auto mb-2" >
                                         <li class="nav-item mt-2">
-                                            <a class="nav-link text-white" aria-current="page" href="#">Inicio <i class="fa-solid fa-house mx-1 text-white"></i></a>
+                                            <a class="nav-link text-white" aria-current="page" href="{{ route('')}}">Inicio <i class="fa-solid fa-house mx-1 text-white"></i></a>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
@@ -242,7 +242,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="col-lg-6 mb-3">
-                                                        <a href="{{ route('user_types_consult')}}" class="btn btn-secondary w-100 btnAdmin text-black">
+                                                        <a href="{{ route('user_types')}}" class="btn btn-secondary w-100 btnAdmin text-black">
                                                             <div class="row">
                                                                 <div class="d-flex justify-content-between d-inline-block">Actualizar tipos de usuarios<i class="fa-solid fa-plus d-flex align-self-center "></i></div>
                                                             </div>

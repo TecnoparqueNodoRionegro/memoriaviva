@@ -10,8 +10,8 @@ class UserTypesController extends Controller
     
     public function index()
     {
-        
-        return View('user_types.register');
+       $user_types = user_types::all();
+        return View('user_types.consult', ['user_types' => $user_types]);
     }
 
     

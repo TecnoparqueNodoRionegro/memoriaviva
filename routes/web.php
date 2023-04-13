@@ -20,11 +20,6 @@ use App\Http\Controllers\UserTypesController;
 Route::get('/', function () {
     return view('index');
 });
-Route::middleware('auth')->group(function(){
-    Route::get('/admin', function () {
-        return view('admin');
-    });
-});
 
 
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
@@ -48,7 +43,12 @@ Route::prefix('users')->group(function(){
     Route::post('user_types_register', [UserTypesController::class, 'store'])->name('user_types_register');
     Route::get('user_types_consult', [UserTypesController::class, 'consult'])->name('user_types_consult');
 });
+Route::get('/admin', function () {
+    return view('admin');
+});
 
-
+Route::middleware('auth')->group(function(){
+    
+});
 
 
