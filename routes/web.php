@@ -30,6 +30,7 @@ Route::get('/admin', function () {
     return view('admin.admin');
 });
 
+
 Route::get('admin/galleries', [CategoryFileAdminController::class, 'index'])->name('admin.galleries.index');
 Route::get('admin/galleries/create', [CategoryFileAdminController::class, 'create'])->name('admin.galleries.create');
 Route::post('admin/galleries', [CategoryFileAdminController::class, 'store'])->name('admin.galleries.store');
@@ -51,9 +52,9 @@ Route::prefix('auth')->group(function(){
     Route::post('registroVerify', [AuthController::class, 'registerVerify']);
     Route::get('continuarRegistro', [AuthController::class, 'continuarRegistro'])->name('continuarRegistro');
     Route::get('signOut', [AuthController::class, 'signOut'])->name('signOut');
-    
+    Route::post('dataUsers', [DataUsersController::class, 'store'])->name('dataUsers');
 });
-Route::post('dataUsers', [DataUsersController::class, 'store'])->name('dataUsers');
+
 // registrar tipo usuario
 Route::prefix('users')->group(function(){
     Route::get('user_types', [UserTypesController::class, 'index'])->name('user_types');
@@ -62,6 +63,9 @@ Route::prefix('users')->group(function(){
     Route::get('user_types_consult', [UserTypesController::class, 'consult'])->name('user_types_consult');
     Route::get('user_types/{id}/Edit', [UserTypesController::class, 'edit'])->name('user_types_edit');
     Route::put('user_types/{id}', [UserTypesController::class, 'update'])->name('user_types_update');
+    Route::get('data_users_consult', [UserTypesController::class, 'indexUsers'])->name('data_users_consult');
+    Route::get('data_users/{id}/Edit', [UserTypesController::class, 'editUsers'])->name('data_users_edit');
+    Route::put('data_users/{id}', [UserTypesController::class, 'updateUsers'])->name('data_users_update');
 });
 
 Route::middleware('auth')->group(function(){

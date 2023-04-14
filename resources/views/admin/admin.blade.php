@@ -153,6 +153,13 @@
                                                             </div>
                                                         </a>
                                                     </div>
+                                                    <div class="col-lg-6 mb-3">
+                                                        <a href="{{ route('data_users_consult')}}" class="btn btn-secondary w-100 btnAdmin text-black">
+                                                            <div class="row">
+                                                                <div class="d-flex justify-content-between d-inline-block">Usuarios registrados en el sistema<i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
                                             </div>
                                     </div>
 
