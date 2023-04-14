@@ -17,18 +17,24 @@ class ContactanosController extends Controller
 
     public function store(Request $request){
         
-        $datos = request()->validate([
-            'nombre' =>'required',
-            'correo' =>'required',
-            'mensaje' =>'required',
-        ],[
-            'nombre.required' => ('Campo de nombre obligatorio')
-        ]
-        );
-        
-    $correo = ($request->all());
-    Mail::to('yudyrh17@gmail.com')->send(new ContactanosMailable($datos));
+        $rules = [
+            'nombre' =>['required'],
+            'correo' =>['required'],
+            'mensaje' =>['required', 'max:200']
+        ];
 
-    return view('index');
+        $customMessages = [
+            'nombre.required' => 'Este campo es obligatorio',
+            'correo.required' => 'Este campo es obligatorio',
+            'mensaje.required' => 'Este campo es obligatorio',
+            'mensaje.max' => 'El mensaje no puede tener más de 200 caracteres '
+
+        ];
+        $datos = $request->validate($rules, $customMessages);
+
+        $correo = ($request->all());
+        Mail::to('yudyrh17@gmail.com')->send(new ContactanosMailable($datos));
+
+        return redirect('/')->with('enviar', 'ok');
     }
 }
