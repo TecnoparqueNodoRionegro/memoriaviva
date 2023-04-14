@@ -33,7 +33,7 @@ class AuthController extends Controller
             'passwordConfirmation' => 'required|same:password'
         ]);
 
-        User::create([
+        $registro = User::create([
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'state_id' => 1,
@@ -41,8 +41,10 @@ class AuthController extends Controller
         ]);
         
 
-        return redirect()->route('login')->with('success', 'Usuario registrado Correctamente');
+        return redirect()->route('continuarRegistro')->with('id', $registro->id);
     }
+
+
     public function loginVerify(Request $request){
         $request->validate([
             'email' => 'required|email',
@@ -50,15 +52,21 @@ class AuthController extends Controller
         ]);
 
         if(Auth::attempt(['email'=> $request->email, 'password' => $request->password, 'user_type_id' => 1])){
-            return View('/admin');
+            return view('admin.admin');
         }elseif(Auth::attempt(['email'=> $request->email, 'password' => $request->password, 'user_type_id' => 2])){
             return ('Usuario');
         }
         return back()->withErrors(['invalid_credentials'=> 'Usuario o Contraseña no valida'])->withInput();
     }
+
+
+
     public function continuarRegistro(){
+        $id = User::all();
         return view('Auth.continuarRegistro');
     }
+
+    
     public function signOut(){
         Auth::logout();
         return redirect()->route('login')->with('success', 'session cerrada correctamente');

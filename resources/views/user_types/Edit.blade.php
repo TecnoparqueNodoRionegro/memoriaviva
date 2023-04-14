@@ -1,6 +1,6 @@
 @extends('layouts.templateAdmin')
 
-@section('title', 'Panel Administrativo')
+@section('title', 'Crear Categoría')
 
 @section('content')
     <div class="contenedor" id="contenedor">
@@ -12,30 +12,34 @@
 
                 <header>@include('layouts.navAdmin')</header>
 
-          
-                   {{--contenido--}}
+
+                    {{--Aqui va el contenido a mostrar en la pagina--}}
                    <div id="content">
                         <section class="py-5">
-                             <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-6">
-                                    <form method="post" action="{{ route('user_types_register') }}">
+                            <div class="container d-flex justify-content-center">
+                                <div class="card w-75 col-sm-12">
+                                    <div class="card-body">
+                                    <form method="post" action="{{ route('user_types_update', $id->id )}}">
                                     @csrf
-                                        <h2>Formulario de ingreso de tipo de usuario</h2>
+                                    @method('PUT')
+                                        <h2>Actualizar tipo de rol</h2>
                                         <div class="form-group mb-3">
                                             <label for="tipo-usuario">Tipo de usuario</label>
-                                            <input type="text" class="form-control" id="tipo-usuario" name="description">
+                                            <input type="text" class="form-control" id="tipo-usuario" value="{{ $id->description}}" name="description">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <input type="submit" class="btn btn-dark" value="Registrar"> 
+                                            <input type="submit" class="btn btn-dark" value="Actualizar"> 
                                         </div>
                                     </form>
                                     </div>
                                 </div>
+
                             </div>
                         </section>
-                   </div>
+                        {{-- contenido --}}
+                    </div>
             </div>
+
         </div>
     </div>
 @endsection

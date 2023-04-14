@@ -11,7 +11,7 @@
           <h2 class="text-center">Continua con tu registro</h2>
         </div>
         <div class="card-body">
-        <form class="needs-validation" method="post" action="{{ url('auth/registroVerify')}}" novalidate>
+        <form class="needs-validation" method="post" action="{{ route('dataUsers')}}" novalidate>
         @csrf
   <div class="mb-3">
     <label for="email">Nombre:</label>
@@ -30,12 +30,9 @@
   <div class="mb-3">
     <label for="phone">Telefono:</label>
     <input type="text" class="form-control" name="phone" id="phone" placeholder="Ingrese su telefono" required>
+    
   </div>
-  <div class="mb-3">
-    <label for="phone">Foto:</label>
-    <input type="file" class="form-control" name="phone" id="phone" placeholder="Seleccione una foto de perfil" required>
-  </div>
-  <input type="hidden" value="" name="id_user">
+  <input type="hidden" value="{{ session('id') }}" name="id_user">
   <button type="submit" class="btn btn-dark btn-block">Terminar Registro</button>
 </form>
 
