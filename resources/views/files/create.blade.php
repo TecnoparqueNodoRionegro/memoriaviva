@@ -26,7 +26,7 @@
 
                 <div id="file">
                     <label class="form-label mt-2">Archivo:</label>
-                    <input class="form-control" type="file" name="routeFile" accept="image/*, video/*, audio/*">
+                    <input class="form-control" type="file" name="routeFiles[]" multiple>
                 </div>
 
                 <div id="url">

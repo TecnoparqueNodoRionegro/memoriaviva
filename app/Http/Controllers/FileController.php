@@ -26,24 +26,29 @@ class FileController extends Controller
     }
 
     public function store(Request $request){
-        $file = new File();
+        $files = $request->file('routeFiles');
+        if ($files != null){
+            foreach ($files as $file){
+                $route = Storage::putFileAs('storage/img', $file, $file->getClientOriginalName());
+                File::create([
+                    'name' => $file->getClientOriginalName(),
+                    'route' => $route,
+                    'category_file_id' => $request->categoryFile,
+                    'file_type_id' => $request->fileType,
+                    'state_id' => $request->state
+                ]);
+            }
 
-        if ($request->routeFile != null){
-            $img = $request->file('routeFile')->store('public/img');
-            $url = Storage::url($img);
-
-            $file->route = $url;
-        } else{
-            $file->route = $request->routeUrl;
-        };
-
-
-        $file->category_file_id = $request->categoryFile;
-        $file->file_type_id = $request->fileType;
-        $file->state_id = $request->state;
-
-        $file->save();
-
+        } else if ($request->routeUrl != null){
+            $fileName = $request->routeUrl;
+            File::create([
+                'name' => $fileName,
+                'route' => $request->routeUrl,
+                'category_file_id' => $request->categoryFile,
+                'file_type_id' => $request->fileType,
+                'state_id' => $request->state
+            ]); 
+        }
         return redirect()->route('files.index');
     }
 

@@ -8,7 +8,7 @@
     <title>Publica un producto</title>
 </head>
 <body class="bg-dark">
-    <form action="{{route('files.update', $file)}}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('files.update', $file) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         
@@ -19,7 +19,7 @@
                     @switch($file->file_type_id)
                         @case(1)
                         <div>
-                            <img class="w-25" src="{{ $file->route }}">
+                            <img class="w-50" src="{{ URL::asset($file->route) }}">
                         </div>
                             @break
                         @case(2)

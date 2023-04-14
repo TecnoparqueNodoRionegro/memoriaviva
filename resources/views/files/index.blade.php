@@ -10,7 +10,7 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Archivo</th>
+                            <th scope="col">Nombre</th>
                             <th scope="col">Tipo</th>
                             <th scope="col">Categoría</th>
                             <th scope="col">Estado</th>
@@ -22,24 +22,7 @@
                         @foreach ($files as $file) 
                             <tr>
                                 <th scope="row">{{ $file->id }}</th>
-                                @switch($file->file_type_id)
-                                    @case(1)
-                                        <td>
-                                            <img width="300" src="{{ $file->route }}">
-                                        </td>
-                                        @break
-                                    @case(2)
-                                        <td>
-                                            <a href="{{ $file->route }}" target="_blank">Video</a>
-                                        </td>
-                                        @break
-                                    @case(3)
-                                        <td>
-                                            <audio src="{{ $file->route }}"></audio>
-                                        </td>
-                                        @break
-                                    @default
-                                @endswitch
+                                <td>{{ $file->name }}</td>
                                 <td>{{ $file->fileTypes->description }}</td>
                                 <td>{{ $file->categories->description }}</td>
                                 <td>{{ $file->states->description}}</td>
@@ -48,6 +31,7 @@
                                         @csrf
                                         @method('delete')
                                         
+                                        <a class="btn btn-success w-25" href="{{ $file->route }}" target="_blank">Ver</a>
                                         <a class="btn btn-primary w-25" href="{{ route('files.edit', $file) }}">Editar</a>
                                         <button class="btn btn-danger w-25" type="submit">Eliminar</button>
                                     </form>
