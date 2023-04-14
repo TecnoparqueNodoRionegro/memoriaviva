@@ -36,3 +36,8 @@
         </div>
     </div>
 </footer>
+
+<div style="font-family: 'Roboto', sans-serif; background-color: #000000; color: #fff; text-align: center; padding: 10px; margin-bottom: 5px; ">
+    <hr>
+    © 2023 Memoria todo color. Todos los derechos reservados.
+</div>
