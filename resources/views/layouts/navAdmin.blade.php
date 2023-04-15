@@ -39,7 +39,7 @@
                       <div class="collapse" id="collapseGaleria">
                         <div class="card card-body bg-black">
                             <ul class="style-none">
-                                <li class=""> <a href="" class="text-white text-decoration-none  fs-5 subMenu">Multimedia</a></li>
+                                <li class=""> <a href="{{ route('admin.files.index') }}" class="text-white text-decoration-none  fs-5 subMenu">Multimedia</a></li>
                                 <hr class="linea"></li>
                                 <li style="text-decoration: none;"><a href="{{route('galleries.index')}}" class="text-white text-decoration-none fs-5 subMenu">Categoría</a></li>
                                 <li><hr class="linea"></li>

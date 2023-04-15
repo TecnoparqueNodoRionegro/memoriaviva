@@ -14,7 +14,7 @@ class FileController extends Controller
     public function index(){
         $files = File::orderBy('id', 'DESC')->paginate(5);
 
-        return view('files.index', compact('files'));
+        return view('admin.files.index', compact('files'));
     }
 
     public function create(){
@@ -22,11 +22,13 @@ class FileController extends Controller
         $fileTypes = FileType::all();
         $states = State::all();
 
-        return view('files.create', compact('categoryFiles', 'fileTypes', 'states'));
+        return view('admin.files.create', compact('categoryFiles', 'fileTypes', 'states'));
     }
 
     public function store(Request $request){
+        
         $files = $request->file('routeFiles');
+
         if ($files != null){
             foreach ($files as $file){
                 $route = Storage::putFileAs('storage/img', $file, $file->getClientOriginalName());
@@ -41,6 +43,7 @@ class FileController extends Controller
 
         } else if ($request->routeUrl != null){
             $fileName = $request->routeUrl;
+
             File::create([
                 'name' => $fileName,
                 'route' => $request->routeUrl,
@@ -49,7 +52,7 @@ class FileController extends Controller
                 'state_id' => $request->state
             ]); 
         }
-        return redirect()->route('files.index');
+        return redirect()->route('admin.files.index');
     }
 
     public function edit(File $file){
@@ -57,7 +60,7 @@ class FileController extends Controller
         $fileTypes = FileType::all();
         $states = State::all();
 
-        return view('files.edit', compact('file', 'categoryFiles', 'fileTypes', 'states'));
+        return view('admin.files.edit', compact('file', 'categoryFiles', 'fileTypes', 'states'));
     }
 
     public function update(Request $request, File $file){
@@ -67,12 +70,12 @@ class FileController extends Controller
 
         $file->save();
 
-        return redirect()->route('files.index');
+        return redirect()->route('admin.files.index');
     }
 
     public function destroy(File $file){
         $file->delete();
 
-        return redirect()->route('files.index');
+        return redirect()->route('admin.files.index');
     }
 }

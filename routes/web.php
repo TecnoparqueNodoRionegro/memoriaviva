@@ -42,12 +42,12 @@ Route::post('products', [ProductController::class, 'store'])->name('products.sto
 // Route::get('email', [ContactanosController::class, 'index'])->name('email.contactanos');
 Route::post('/', [ContactanosController::class, 'store'])->name('contactanos.store');
 
-Route::get('files', [FileController::class, 'index'])->name('files.index');
-Route::get('files/create', [FileController::class, 'create'])->name('files.create');
-Route::post('files', [FileController::class, 'store'])->name('files.store');
-Route::get('files/{file}/edit', [FileController::class, 'edit'])->name('files.edit');
-Route::put('files/{file}', [FileController::class, 'update'])->name('files.update');
-Route::delete('files/{file}', [FileController::class, 'destroy'])->name('files.destroy');
+Route::get('admin/files', [FileController::class, 'index'])->name('admin.files.index');
+Route::get('admin/files/create', [FileController::class, 'create'])->name('admin.files.create');
+Route::post('admin/files', [FileController::class, 'store'])->name('admin.files.store');
+Route::get('admin/files/{file}/edit', [FileController::class, 'edit'])->name('admin.files.edit');
+Route::put('admin/files/{file}', [FileController::class, 'update'])->name('admin.files.update');
+Route::delete('admin/files/{file}', [FileController::class, 'destroy'])->name('admin.files.destroy');
 
 Route::get('galleries', [CategoryFileController::class, 'index'])->name('galleries.index');
 Route::get('galleries/{category}', [CategoryFileController::class, 'show'])->name('galleries.show');
