@@ -110,7 +110,7 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-lg-6 mb-3">
-                                                        <a class="btn btn-secondary w-100 btnAdmin text-black">
+                                                        <a class="btn btn-secondary w-100 btnAdmin text-black" href="{{ route('admin.files.index') }}">
                                                             <div class="row">
                                                                 <div class="d-flex justify-content-between d-inline-block">Multimedia <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
                                                             </div>
