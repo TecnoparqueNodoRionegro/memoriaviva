@@ -6,14 +6,13 @@ use App\Models\CategoryFile;
 use App\Models\File;
 use App\Models\FileType;
 use App\Models\State;
-use Faker\Guesser\Name;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
     public function index(){
-        $files = File::orderBy('id', 'DESC')->paginate(5);
+        $files = File::orderBy('id', 'DESC')->paginate(10);
 
         return view('admin.files.index', compact('files'));
     }
