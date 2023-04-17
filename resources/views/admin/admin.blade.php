@@ -76,7 +76,7 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-lg-6 mb-3">
-                                                        <a class="btn btn-secondary w-100 btnAdmin text-black">
+                                                        <a class="btn btn-secondary w-100 btnAdmin text-black" href="{{ route('admin.products.index') }}">
                                                             <div class="row">
                                                                 <div class="d-flex justify-content-between d-inline-block">Producto <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
                                                             </div>
