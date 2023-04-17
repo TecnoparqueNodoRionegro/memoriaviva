@@ -1,11 +1,15 @@
 <?php
 
-use App\Http\Controllers\ContactanosController;
-use App\Http\Controllers\CategoryFileAdminController;
-use App\Http\Controllers\FileController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoryFileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\DataUsersController;
+use App\Http\Controllers\UserTypesController;
+use App\Http\Controllers\ContactanosController;
+use App\Http\Controllers\CategoryFileController;
+use App\Http\Controllers\CategoryFileAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +30,7 @@ Route::get('/admin', function () {
     return view('admin.admin');
 });
 
+
 Route::get('admin/galleries', [CategoryFileAdminController::class, 'index'])->name('admin.galleries.index');
 Route::get('admin/galleries/create', [CategoryFileAdminController::class, 'create'])->name('admin.galleries.create');
 Route::post('admin/galleries', [CategoryFileAdminController::class, 'store'])->name('admin.galleries.store');
@@ -37,6 +42,36 @@ Route::patch('admin/galleries/{id}', [CategoryFileAdminController::class, 'updat
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('products', [ProductController::class, 'store'])->name('products.store');
+
+// auth
+
+Route::prefix('auth')->group(function(){
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('loginVerify', [AuthController::class, 'loginVerify'])->name('auth.loginVerify');
+    Route::get('registro', [AuthController::class, 'register']);
+    Route::post('registroVerify', [AuthController::class, 'registerVerify']);
+    Route::get('continuarRegistro', [AuthController::class, 'continuarRegistro'])->name('continuarRegistro');
+    Route::get('signOut', [AuthController::class, 'signOut'])->name('signOut');
+    Route::post('dataUsers', [DataUsersController::class, 'store'])->name('dataUsers');
+});
+
+// registrar tipo usuario
+Route::prefix('users')->group(function(){
+    Route::get('user_types', [UserTypesController::class, 'index'])->name('user_types');
+    Route::get('user_types_register_form', [UserTypesController::class, 'create'])->name('user_types_register_form');
+    Route::post('user_types_register', [UserTypesController::class, 'store'])->name('user_types_register');
+    Route::get('user_types_consult', [UserTypesController::class, 'consult'])->name('user_types_consult');
+    Route::get('user_types/{id}/Edit', [UserTypesController::class, 'edit'])->name('user_types_edit');
+    Route::put('user_types/{id}', [UserTypesController::class, 'update'])->name('user_types_update');
+    Route::get('data_users_consult', [UserTypesController::class, 'indexUsers'])->name('data_users_consult');
+    Route::get('data_users/{id}/Edit', [UserTypesController::class, 'editUsers'])->name('data_users_edit');
+    Route::put('data_users/{id}', [UserTypesController::class, 'updateUsers'])->name('data_users_update');
+});
+
+Route::middleware('auth')->group(function(){
+    
+});
+
 
 
 // Route::get('email', [ContactanosController::class, 'index'])->name('email.contactanos');
