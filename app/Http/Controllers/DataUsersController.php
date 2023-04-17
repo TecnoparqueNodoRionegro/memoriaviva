@@ -15,7 +15,7 @@ class DataUsersController extends Controller
             'last_name' => $request->last_name,
             'gender' => $request->gender,
             'phone' => $request->phone,
-            'biography' => NULL,
+            'biography' => "sin biografia",
             'user_id' => $request->id_user,
             'file_id' => 1,
         ]);

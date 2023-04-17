@@ -11,12 +11,16 @@ class UserTypesController extends Controller
     public function index()
     {
        $user_types = user_types::all();
+       $user_types = user_types::paginate(10);
         return View('user_types.consult', ['user_types' => $user_types]);
+        
     }
     public function indexUsers()
     {
        $data_users = data_users::all();
+       $data_users = data_users::paginate(10);
         return View('user_types.consultaUsuarios', ['data_users' => $data_users]);
+        
     }
 
     public function create(){
