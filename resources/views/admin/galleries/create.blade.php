@@ -15,7 +15,7 @@
 
                     {{--Aqui va el contenido a mostrar en la pagina--}}
                    <div id="content">
-                        <section class="py-5">
+                        <section class="py-5 ">
                             <div class="container d-flex justify-content-center">
                                 <div class="card w-75 col-sm-12">
                                     <div class="card-header d-flex justify-content-center">

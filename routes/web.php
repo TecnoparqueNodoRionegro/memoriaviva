@@ -1,11 +1,12 @@
 <?php
-
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CategoryFileAdminController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryFileController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +52,5 @@ Route::get('files/{file}/edit', [FileController::class, 'edit'])->name('files.ed
 
 Route::get('galleries', [CategoryFileController::class, 'index'])->name('galleries.index');
 Route::get('galleries/{category}', [CategoryFileController::class, 'show'])->name('galleries.show');
+
+Route::get('admin/articles', [ArticleController::class, 'index'])->name('admin.articles.index');
