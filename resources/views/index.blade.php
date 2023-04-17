@@ -84,3 +84,21 @@
 </div>
 @include('layouts.footer')
 @endsection
+
+@section('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+        @if (session('enviar') =='ok')
+            <script>
+                Swal.fire('Mensaje Enviado con Éxito.')   
+            </script>
+        @endif  
+    
+<script type="text/javascript">
+    $('#form-contact').submit(function (e) { 
+        e.preventDefault();
+        this.submit();
+    });
+</script>
+
+@endsection

@@ -53,7 +53,7 @@
 
                                             {{--Boton--}}
                                             <div class="card-body">
-                                                <a class="btn btn-secondary w-100 btnAdmin text-black">
+                                                <a class="btn btn-secondary w-100 btnAdmin text-black" href="{{route('admin.articles.index')}}">
                                                     <div class="row">
                                                         <div class="d-flex justify-content-between d-inline-block">Contenido <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
                                                     </div>

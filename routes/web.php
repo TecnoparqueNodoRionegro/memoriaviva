@@ -1,4 +1,7 @@
 <?php
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContactanosController;
+use App\Http\Controllers\CategoryFileAdminController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
@@ -10,6 +13,7 @@ use App\Http\Controllers\UserTypesController;
 use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CategoryFileController;
 use App\Http\Controllers\CategoryFileAdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -86,3 +90,5 @@ Route::delete('admin/files/{file}', [FileController::class, 'destroy'])->name('a
 
 Route::get('galleries', [CategoryFileController::class, 'index'])->name('galleries.index');
 Route::get('galleries/{category}', [CategoryFileController::class, 'show'])->name('galleries.show');
+
+Route::get('admin/articles', [ArticleController::class, 'index'])->name('admin.articles.index');

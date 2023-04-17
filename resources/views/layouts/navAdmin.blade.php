@@ -73,7 +73,7 @@
                                         <li class="nav-item mt-2">
                                             <a class="nav-link text-white" aria-current="page" href="{{url('/admin')}}">Inicio <i class="fa-solid fa-house mx-1 text-white"></i></a>
                                         </li>
-                                        <li class="nav-item dropdown">
+                                        <li class="nav-item dropdown mt-2">
                                             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
                                                 <img src="{{asset('img/user.png')}}" class="avatar mx-2" alt="">Jóse López</a>
                                             <ul class="dropdown-menu" style="background: black">

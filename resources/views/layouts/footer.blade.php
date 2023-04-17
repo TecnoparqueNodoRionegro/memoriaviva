@@ -12,24 +12,34 @@
             <div class="col-md-6 justify-content-center">
                 <h4><i class="bi bi-envelope-fill me-2">Formulario de contacto</i></h4>
 
-                <form action="procesar.php" method="post">
+                <form action="{{route('contactanos.store')}}" method="post" id="form-contact">
+                    @csrf
                     <div class="mt-2">
                         <label for="nombre" class=""><i class="bi bi-envelope-fill me-2">Nombre:</i></label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" >
+                            @error('nombre')
+                                <small class="text-danger">{{$message}}</small>
+                            @enderror
                     </div>
 
                     <div class="mt-2">
-                        <label for="email" class=""><i class="bi bi-envelope-fill me-2">Email:</i></label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="correo" class=""><i class="bi bi-envelope-fill me-2">Email:</i></label>
+                        <input type="email" class="form-control" id="correo" name="correo" value="{{old('correo')}}" >
+                            @error('correo')
+                                <small class="text-danger">{{$message}}</small>
+                            @enderror
                     </div>
 
                     <div class="mt-2">
                         <label for="mensaje" class=""><i class="bi bi-envelope-fill me-2">Mensaje:</i></label>
-                        <textarea class="form-control" id="mensaje" name="mensaje" rows="2" required></textarea>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="2" value="{{old('mensaje')}}"></textarea>
+                            @error('mensaje')
+                                <small class="text-danger">{{$message}}</small>
+                            @enderror
                     </div>
 
                     <div class="d-flex justify-content-center mt-2 mb-2">
-                        <button type="submit" class="btn btn-primary mt-1 ">Enviar</button>
+                        <button type="submit" class="btn btn-primary mt-1" >Enviar</button>
                     </div>
                 </form>
             </div>
