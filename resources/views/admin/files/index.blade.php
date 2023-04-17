@@ -23,7 +23,7 @@
                     <tbody>
                         @foreach ($files as $file) 
                             <tr>
-                                <th scope="row">{{ $file->id }}</th>
+                                <td>{{ $file->id }}</td>
                                 <td>{{ $file->name }}</td>
                                 <td>{{ $file->fileTypes->description }}</td>
                                 <td>{{ $file->categories->description }}</td>
@@ -49,7 +49,7 @@
                     <a class="mx-5" href="{{ route('admin.files.create') }}">
                         <button class="btn btn-primary">Subir un archivo</button>
                     </a>
-                    <a class="" href="{{ url('/admin') }}">
+                    <a href="{{ url('/admin') }}">
                         <button class="btn btn-primary">Regresar</button>
                     </a>
                 </div>

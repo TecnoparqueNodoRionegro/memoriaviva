@@ -6,6 +6,7 @@ use App\Models\CategoryFile;
 use App\Models\File;
 use App\Models\FileType;
 use App\Models\State;
+use Faker\Guesser\Name;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -31,10 +32,11 @@ class FileController extends Controller
 
         if ($files != null){
             foreach ($files as $file){
-                $route = Storage::putFileAs('storage/img', $file, $file->getClientOriginalName());
+                $route = $file->storeAs('public/img', $file->getClientOriginalName());
+                $url = Storage::url($route);
                 File::create([
                     'name' => $file->getClientOriginalName(),
-                    'route' => $route,
+                    'route' => $url,
                     'category_file_id' => $request->categoryFile,
                     'file_type_id' => $request->fileType,
                     'state_id' => $request->state
