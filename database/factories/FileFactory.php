@@ -20,6 +20,7 @@ class FileFactory extends Factory
     public function definition()
     {
         return [
+            'name' => $this->faker->name(),
             'route' => $this->faker->imageUrl(1024, 508),
             'category_file_id' => CategoryFile::inRandomOrder()->first()->id,
             'state_id' => State::inRandomOrder()->first()->id,
