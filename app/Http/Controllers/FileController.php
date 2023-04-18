@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Storage;
 class FileController extends Controller
 {
     public function index(){
-        $files = File::orderBy('id', 'DESC')->paginate(5);
+        $files = File::orderBy('id', 'DESC')->paginate(10);
 
-        return view('files.index', compact('files'));
+        return view('admin.files.index', compact('files'));
     }
 
     public function create(){
@@ -22,34 +22,61 @@ class FileController extends Controller
         $fileTypes = FileType::all();
         $states = State::all();
 
-        return view('files.create', compact('categoryFiles', 'fileTypes', 'states'));
+        return view('admin.files.create', compact('categoryFiles', 'fileTypes', 'states'));
     }
 
     public function store(Request $request){
-        $file = new File();
+        
+        $files = $request->file('routeFiles');
 
-        if ($request->routeFile != null){
-            $img = $request->file('routeFile')->store('public/img');
-            $url = Storage::url($img);
+        if ($files != null){
+            foreach ($files as $file){
+                $route = $file->storeAs('public/img', $file->getClientOriginalName());
+                $url = Storage::url($route);
+                File::create([
+                    'name' => $file->getClientOriginalName(),
+                    'route' => $url,
+                    'category_file_id' => $request->categoryFile,
+                    'file_type_id' => $request->fileType,
+                    'state_id' => $request->state
+                ]);
+            }
 
-            $file->route = $url;
-        } else{
-            $file->route = $request->routeUrl;
-        };
+        } else if ($request->routeUrl != null){
+            $fileName = $request->routeUrl;
 
+            File::create([
+                'name' => $fileName,
+                'route' => $request->routeUrl,
+                'category_file_id' => $request->categoryFile,
+                'file_type_id' => $request->fileType,
+                'state_id' => $request->state
+            ]); 
+        }
+        return redirect()->route('admin.files.index');
+    }
+
+    public function edit(File $file){
+        $categoryFiles = CategoryFile::all();
+        $fileTypes = FileType::all();
+        $states = State::all();
+
+        return view('admin.files.edit', compact('file', 'categoryFiles', 'fileTypes', 'states'));
+    }
+
+    public function update(Request $request, File $file){
 
         $file->category_file_id = $request->categoryFile;
-        $file->file_type_id = $request->fileType;
         $file->state_id = $request->state;
 
         $file->save();
 
-        return redirect()->route('files.index');
+        return redirect()->route('admin.files.index');
     }
 
-    public function edit($id){
-        $file = File::find($id);
+    public function destroy(File $file){
+        $file->delete();
 
-        return view('files.edit', compact('file'));
+        return redirect()->route('admin.files.index');
     }
 }

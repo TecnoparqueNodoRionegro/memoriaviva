@@ -39,7 +39,7 @@
                       <div class="collapse" id="collapseGaleria">
                         <div class="card card-body bg-black">
                             <ul class="style-none">
-                                <li class=""> <a href="" class="text-white text-decoration-none  fs-5 subMenu">Multimedia</a></li>
+                                <li class=""> <a href="{{ route('admin.files.index') }}" class="text-white text-decoration-none  fs-5 subMenu">Multimedia</a></li>
                                 <hr class="linea"></li>
                                 <li style="text-decoration: none;"><a href="{{route('galleries.index')}}" class="text-white text-decoration-none fs-5 subMenu">Categoría</a></li>
                                 <li><hr class="linea"></li>
@@ -73,7 +73,7 @@
                                         <li class="nav-item mt-2">
                                             <a class="nav-link text-white" aria-current="page" href="{{url('/admin')}}">Inicio <i class="fa-solid fa-house mx-1 text-white"></i></a>
                                         </li>
-                                        <li class="nav-item dropdown">
+                                        <li class="nav-item dropdown mt-2">
                                             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
                                                 <img src="{{asset('img/user.png')}}" class="avatar mx-2" alt="">Jóse López</a>
                                             <ul class="dropdown-menu" style="background: black">

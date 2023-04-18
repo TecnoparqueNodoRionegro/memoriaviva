@@ -17,6 +17,7 @@ return new class extends Migration
             $table->engine="InnoDB";
 
             $table->id();
+            $table->string('name');
             $table->string('route');
             $table->unsignedBigInteger('category_file_id');
             $table->unsignedBigInteger('state_id');
