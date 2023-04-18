@@ -18,7 +18,7 @@
                              <div class="container">
                                 <div class="row justify-content-center">
                                     <div class="col-md-6">
-                                    <h2>Roles del sistema</h2>
+                                    <h2>Información de categorias de productos</h2>
                                         <table class="table table-hover table-striped">
                                         <thead>
                                             <tr>
@@ -28,26 +28,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($user_types as $user)
+                                            @foreach($category_products as $category)
                                             <tr>
                                                 
-                                                    <th>{{ $user->id }}</th>
-                                                    <th>{{ $user->description }}</th>
+                                                    <th>{{ $category->id }}</th>
+                                                    <th>{{ $category->description }}</th>
+                                                    
                                                     <th>
-                                                        <a href="{{ route('user_types_edit', $user->id)}}" class="btn btn-dark btn-sm">
+                                                        <a href="{{ route('categoryProductsEdit', $category->id)}}" class="btn btn-dark btn-sm">
                                                             <i class="fas fa-edit"></i> Editar
                                                         </a>
-                                                        <a href="" class="btn btn-outline-danger btn-sm">
-                                                            <i class="fas fa-trash-alt"></i> Eliminar
-                                                        </a>
+                                                    </th>
+                                                    <th>
+                                                        <form action="{{ route('categoryProductsDelete', $category->id)}}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-outline-danger btn-sm"> 
+                                                                <i class="fas fa-trash-alt"></i> Eliminar
+                                                            </button>
+                                                         </form>
                                                     </th>
                                             </tr>
                                             @endforeach
                                         </tbody>
                                         </table> 
-                                        <div class="pagination">
-                                            {{ $user_types->links() }}
-                                        </div>
                                     </div>
                                 </div>
                             </div>

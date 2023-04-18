@@ -84,10 +84,18 @@
                                                     </div>
 
                                                     <div class="col-lg-6">
-                                                        <a class="btn btn-secondary w-100 btnAdmin text-black">
-                                                            <div class="row">
-                                                                <div class="d-flex justify-content-between d-inline-block">Categoría <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
-                                                            </div>
+                                                        <a  href="{{ route('categoryProductsCreate') }}" class="btn btn-secondary w-100 btnAdmin text-black">
+                                                                    <div class="row">
+                                                                        <div class="d-flex justify-content-between d-inline-block">Insertar Categoría de producto <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                                    </div>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                        <a  href="{{ route('categoryProductsIndex') }}" class="btn btn-secondary w-100 btnAdmin text-black">
+                                                                    <div class="row">
+                                                                        <div class="d-flex justify-content-between d-inline-block">Consulta de Categoría de producto <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                                    </div>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -116,7 +124,6 @@
                                                             </div>
                                                         </a>
                                                     </div>
-
                                                     <div class="col-lg-6">
                                                         <a class="btn btn-secondary w-100 btnAdmin text-black" href="{{route('admin.galleries.index')}}">
                                                             <div class="row">
@@ -162,13 +169,11 @@
                                                     </div>
                                             </div>
                                     </div>
-
                                 </div>
                             </div>
                         </section>
                     </div>
             </div>
-
         </div>
     </div>
 @endsection
