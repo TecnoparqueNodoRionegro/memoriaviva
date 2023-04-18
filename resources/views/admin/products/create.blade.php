@@ -11,7 +11,7 @@
             
             <div class="card container mt-5">
                 <div class="card-body">
-                    <h1 class="text-center card-header">Publicar producto</h1>
+                    <h1 class="text-center card-header mb-3">Publicar producto</h1>
                     <form action="{{route('admin.products.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
         

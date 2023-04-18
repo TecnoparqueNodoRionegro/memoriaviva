@@ -14,7 +14,7 @@
                         @csrf
                         @method('put')
 
-                        <h1 class="text-center mt-1 card-header">Actualizar archivo</h1>
+                        <h1 class="text-center mt-1 card-header mb-3">Actualizar archivo</h1>
                         <div class="text-center"> 
                             @switch($file->file_type_id)
                                 @case(1)

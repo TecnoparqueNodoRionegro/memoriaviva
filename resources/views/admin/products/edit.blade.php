@@ -11,7 +11,7 @@
             
             <div class="card container mt-5">
                 <div class="card-body">
-                    <h1 class="text-center card-header">Publicar producto</h1>
+                    <h1 class="text-center card-header mb-3">Editar producto</h1>
                     <form action="{{route('admin.products.update', $product)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
@@ -97,7 +97,7 @@
                                         @if ($category->id == $product->categories->id)
                                             <option value="{{$category->id}}" selected>{{ $product->categories->description }}</option>
                                         @else
-                                            <option value="{{$category->id}}">{{$categories->description}}</option>
+                                            <option value="{{$category->id}}">{{$category->description}}</option>
                                         @endif
                                     @endforeach
                                 </select>

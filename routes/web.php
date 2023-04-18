@@ -46,8 +46,13 @@ Route::patch('admin/galleries/{id}', [CategoryFileAdminController::class, 'updat
 Route::get('admin/products', [ProductAdminController::class, 'index'])->name('admin.products.index');
 Route::get('admin/products/create', [ProductAdminController::class, 'create'])->name('admin.products.create');
 Route::post('admin/products', [ProductAdminController::class, 'store'])->name('admin.products.store');
+Route::get('admin/products/{product}', [ProductAdminController::class, 'show'])->name('admin.products.show');
+Route::get('admin/products/{product}/edit', [ProductAdminController::class, 'edit'])->name('admin.products.edit');
+Route::put('admin/products/{product}', [ProductAdminController::class, 'update'])->name('admin.products.update');
+Route::delete('admin/products/{product}', [ProductAdminController::class, 'destroy'])->name('admin.products.destroy');
 // Productos desde la vista de usuario
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
+Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 // auth
 

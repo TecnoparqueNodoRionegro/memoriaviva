@@ -16,7 +16,7 @@
 
     <title>@yield('title')</title>
 </head>
-<body  style="background-color: black; margin-top: 11rem; font-family: 'Roboto', sans-serif; font-weight: 900; ">
+<body  style="background-color: black; margin-top: 11rem; font-family: 'Roboto', sans-serif;">
 
     <!-- header -->
     <header>@include('layouts.nav')</header>

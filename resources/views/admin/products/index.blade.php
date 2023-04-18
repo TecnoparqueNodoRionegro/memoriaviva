@@ -42,7 +42,7 @@
                                             {{ $product->description }}
                                         </div>
                                     </td>
-                                    <td>$ {{ number_format($product->price, 2, ',', '.') }}</td>
+                                    <td>$ {{ number_format($product->price, 0, ',', '.') }}</td>
                                     <td>{{ $product->quantity }}</td>
                                     <td>{{ $product->stock }}</td>
                                     <td>{{ $product->states->description }}</td>

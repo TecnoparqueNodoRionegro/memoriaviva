@@ -18,7 +18,7 @@ class ProductAdminController extends Controller
     }
 
     public function create(){
-        $files = File::where('category_file_id', 4)->get();
+        $files = File::orderBy('id', 'DESC')->get();
         $states = State::all();
         $categoryProducts = CategoryProduct::all();
 
@@ -74,7 +74,7 @@ class ProductAdminController extends Controller
 
     public function edit(Product $product){
         $states = State::all();
-        $files = File::where('category_file_id', 4)->get();
+        $files = File::orderBy('id', 'DESC')->get();
         $categoryProducts = CategoryProduct::all();
 
         return view('admin.products.edit', compact('product', 'states', 'files', 'categoryProducts'));
