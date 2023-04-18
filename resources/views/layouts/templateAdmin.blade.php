@@ -23,7 +23,7 @@
 
 </head>
 
-<body  style="background-color: #F0F0F0; overflow:hidden; font-family: 'Roboto';, sans-serif; font-weight:900; text-decoration: none;">
+<body  style="background-color: #F0F0F0; overflow:hidden; font-family: 'Roboto';, sans-serif; text-decoration: none;">
 
     <!-- header -->
     

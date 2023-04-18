@@ -2,19 +2,16 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CategoryFileAdminController;
-
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DataUsersController;
 use App\Http\Controllers\UserTypesController;
-use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CategoryFileController;
-use App\Http\Controllers\CategoryFileAdminController;
 use App\Http\Controllers\CategoryProductsController;
-
+use App\Http\Controllers\ProductAdminController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +41,18 @@ Route::delete('admin/galleries/destroy/{id}', [CategoryFileAdminController::clas
 Route::get('admin/galleries/{id}/edit', [CategoryFileAdminController::class, 'edit'])->name('admin.galleries.edit');
 Route::patch('admin/galleries/{id}', [CategoryFileAdminController::class, 'update'])->name('admin.galleries.update');
 
+
+// Productos desde la vista del administrador
+Route::get('admin/products', [ProductAdminController::class, 'index'])->name('admin.products.index');
+Route::get('admin/products/create', [ProductAdminController::class, 'create'])->name('admin.products.create');
+Route::post('admin/products', [ProductAdminController::class, 'store'])->name('admin.products.store');
+Route::get('admin/products/{product}', [ProductAdminController::class, 'show'])->name('admin.products.show');
+Route::get('admin/products/{product}/edit', [ProductAdminController::class, 'edit'])->name('admin.products.edit');
+Route::put('admin/products/{product}', [ProductAdminController::class, 'update'])->name('admin.products.update');
+Route::delete('admin/products/{product}', [ProductAdminController::class, 'destroy'])->name('admin.products.destroy');
+// Productos desde la vista de usuario
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
-Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
-Route::post('products', [ProductController::class, 'store'])->name('products.store');
+Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 // auth
 
@@ -113,4 +119,3 @@ Route::prefix('categoryProducts')->group(function(){
     Route::put('categoryProducts/{id}', [CategoryProductsController::class, 'update'])->name('categoryProductsUpdate');
     Route::delete('categoryProductsDelete/{id}', [CategoryProductsController::class, 'destroy'])->name('categoryProductsDelete');
 });
-
