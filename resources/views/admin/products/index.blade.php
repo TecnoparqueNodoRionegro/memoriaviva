@@ -1,6 +1,6 @@
 @extends('layouts.templateAdmin')
 
-@section('title', 'Subir archivo')
+@section('title', 'Productos')
 
 @section('content')
     <div class="contenedor" id="contenedor">
@@ -29,6 +29,7 @@
                                 <th>Stock</th>
                                 <th>Estado</th>
                                 <th>Categoría</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,6 +47,16 @@
                                     <td>{{ $product->stock }}</td>
                                     <td>{{ $product->states->description }}</td>
                                     <td>{{ $product->categories->description }}</td>
+                                    <td width="320">
+                                        <form action="{{ route('admin.products.destroy', $product) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            
+                                            <a class="btn btn-success w-25" href="{{ route('admin.products.show', $product) }}">Ver</a>
+                                            <a class="btn btn-primary w-25" href="{{ route('admin.products.edit', $product) }}">Editar</a>
+                                            <button class="btn btn-danger w-25" type="submit">Eliminar</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

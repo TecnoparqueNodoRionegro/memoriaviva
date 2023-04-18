@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -16,5 +15,10 @@ class ProductController extends Controller
                         ->paginate(12);
 
         return view('products.index', compact('products', 'search'));
+    }
+
+    public function show(Product $product){
+
+        return view('products.show', compact('product'));
     }
 }
