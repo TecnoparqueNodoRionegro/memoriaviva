@@ -13,7 +13,7 @@ class Product extends Model
         return $this->belongsTo(State::class, 'state_id');
     }
 
-    public function file(){
+    public function files(){
         return $this->belongsTo(File::class, 'file_id');
     }
 

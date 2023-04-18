@@ -15,9 +15,6 @@ class CategoryProductSeeder extends Seeder
      */
     public function run()
     {
-        $categoryProduct = new CategoryProduct();
-        $categoryProduct->description = "Chaquetas";
-        $categoryProduct->file_id = 1;
-        $categoryProduct->save();
+        CategoryProduct::factory(5)->create();
     }
 }

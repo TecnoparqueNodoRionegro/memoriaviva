@@ -1,6 +1,6 @@
 @extends('layouts.templateAdmin')
 
-@section('title', 'Publicar producto')
+@section('title', 'Editar producto')
 
 @section('content')
     <div class="contenedor" id="contenedor">
@@ -11,13 +11,14 @@
             
             <div class="card container mt-5">
                 <div class="card-body">
-                    <h1 class="text-center card-header mb-3">Publicar producto</h1>
-                    <form action="{{route('admin.products.store')}}" method="POST" enctype="multipart/form-data">
+                    <h1 class="text-center card-header mb-3">Editar producto</h1>
+                    <form action="{{route('admin.products.update', $product)}}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('put')
         
                         <div>
                             <label class="form-label">Nombre:</label>
-                            <input class="form-control" type="text" name="name" value="{{old('name')}}">
+                            <input class="form-control" type="text" name="name" value="{{ $product->name }}">
                             @error('name')
                                 <small class="text-danger">*{{ $message }}</small>
                             @enderror
@@ -25,7 +26,7 @@
         
                         <div>
                             <label class="form-label mt-2">Descripción:</label>
-                            <textarea class="form-control" rows="5" name="description">{{old('description')}}</textarea>
+                            <textarea class="form-control" rows="5" name="description">{{ $product->description }}</textarea>
                             @error('description')
                                 <small class="text-danger">*{{ $message }}</small>
                             @enderror
@@ -34,7 +35,7 @@
                         <div class="row">
                             <div class="col-4">
                                 <label class="form-label mt-2">Precio:</label>
-                                <input class="form-control" type="number" name="price" value="{{old('price')}}">
+                                <input class="form-control" type="number" name="price" value="{{ $product->price }}">
                                 @error('price')
                                     <small class="text-danger">*{{ $message }}</small>
                                 @enderror
@@ -42,7 +43,7 @@
     
                             <div class="col-4">
                                 <label class="form-label mt-2">Cantidad:</label>
-                                <input class="form-control" type="number" name="quantity" value="{{old('quantity')}}">
+                                <input class="form-control" type="number" name="quantity" value="{{ $product->quantity }}">
                                 @error('quantity')
                                     <small class="text-danger">*{{ $message }}</small>
                                 @enderror
@@ -50,7 +51,7 @@
                             
                             <div class="col-4">
                                 <label class="form-label mt-2">Stock:</label>
-                                <input class="form-control" type="number" name="stock" value="{{old('stock')}}">
+                                <input class="form-control" type="number" name="stock" value="{{ $product->stock }}">
                                 @error('stock')
                                     <small class="text-danger">*{{ $message }}</small>
                                 @enderror
@@ -59,9 +60,12 @@
                             <div class="col-4">
                                 <label class="form-label mt-2">Estado:</label>
                                 <select class="form-select" name="state_id">
-                                    <option selected disabled>Selecciona...</option>
                                     @foreach ($states as $state)
-                                        <option value="{{ $state->id }}">{{ $state->description }}</option>
+                                        @if ($state->id == $product->states->id)
+                                            <option value="{{$state->id}}" selected>{{ $product->states->description }}</option>
+                                        @else
+                                            <option value="{{$state->id}}">{{$state->description}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @error('state_id')
@@ -72,9 +76,12 @@
                             <div class="col-4">
                                 <label class="form-label mt-2">Imagen:</label>
                                 <select name="file_id" class="form-select">
-                                    <option selected disabled>Selecciona...</option>
                                     @foreach ($files as $file)
-                                        <option value="{{ $file->id }}">{{ $file->name }}</option>
+                                        @if ($file->id == $product->files->id)
+                                            <option value="{{$file->id}}" selected>{{ $product->files->name }}</option>
+                                        @else
+                                            <option value="{{$file->id}}">{{$file->name}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 <a href="{{ route('admin.files.create') }}" target="_blank">Subir imagen</a>
@@ -86,9 +93,12 @@
                             <div class="col-4">
                                 <label class="form-label mt-2">Categoría:</label>
                                 <select class="form-select" name="category_product_id">
-                                    <option selected disabled>Selecciona...</option>
                                     @foreach ($categoryProducts as $category)
-                                        <option value="{{ $category->id }}">{{ $category->description }}</option>
+                                        @if ($category->id == $product->categories->id)
+                                            <option value="{{$category->id}}" selected>{{ $product->categories->description }}</option>
+                                        @else
+                                            <option value="{{$category->id}}">{{$category->description}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @error('category_product_id')

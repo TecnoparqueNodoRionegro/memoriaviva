@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Storage;
 class ProductAdminController extends Controller
 {
     public function index(){
-        $products = Product::orderBy('id', 'DESC')->paginate(5);
+        $products = Product::orderBy('id', 'DESC')->simplePaginate(5);
 
         return view('admin.products.index', compact('products'));
     }
 
     public function create(){
-        $files = File::all();
+        $files = File::orderBy('id', 'DESC')->get();
         $states = State::all();
         $categoryProducts = CategoryProduct::all();
 
@@ -63,6 +63,41 @@ class ProductAdminController extends Controller
         $product->category_product_id = $request->category_product_id;
 
         $product->save();
+
+        return redirect()->route('admin.products.index');
+    }
+
+    public function show(Product $product){
+
+        return view('admin.products.show', compact('product'));
+    }
+
+    public function edit(Product $product){
+        $states = State::all();
+        $files = File::orderBy('id', 'DESC')->get();
+        $categoryProducts = CategoryProduct::all();
+
+        return view('admin.products.edit', compact('product', 'states', 'files', 'categoryProducts'));
+    }
+
+    public function update(Request $request, Product $product){
+
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
+        $product->stock = $request->stock;
+        $product->state_id = $request->state_id;
+        $product->file_id = $request->file_id;
+        $product->category_product_id = $request->category_product_id;
+
+        $product->save();
+
+        return redirect()->route('admin.products.index');
+    }
+
+    public function destroy(Product $product){
+        $product->delete();
 
         return redirect()->route('admin.products.index');
     }
