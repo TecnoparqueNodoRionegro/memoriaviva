@@ -52,9 +52,9 @@
                                 <select class="form-select" name="state">
                                     @foreach ($states as $state)
                                         @if ($state->id == $file->states->id)
-                                            <option value="{{$state->id}}" selected>{{ $file->states->description }}</option>
+                                            <option value="{{ $state->id }}" selected>{{ $file->states->description }}</option>
                                         @else
-                                            <option value="{{$state->id}}">{{$state->description}}</option>
+                                            <option value="{{ $state->id }}">{{$state->description}}</option>
                                         @endif
                                     @endforeach
                                 </select>
@@ -62,7 +62,7 @@
                         </div>
                         
                         <div class="text-center mt-3">
-                            <button class="btn btn-primary w-50" type="submit">Enviar</button>
+                            <button class="btn btn-primary w-50" type="submit" id="editButton">Enviar</button>
                             <a href="{{ route('admin.files.index') }}">
                                 <button class="btn btn-light">Regresar</button>
                             </a>
@@ -71,6 +71,7 @@
                     </div>
                 </div>
             </form>
+
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
         </div>

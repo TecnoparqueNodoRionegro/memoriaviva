@@ -19,7 +19,6 @@ class File extends Model
         return $this->belongsTo(CategoryFile::class, 'category_file_id');
     }
 
-
     public function states(){
         return $this->belongsTo(State::class, 'state_id');
     }

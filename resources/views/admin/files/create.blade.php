@@ -4,6 +4,7 @@
 
 @section('content')
     <div class="contenedor" id="contenedor">
+        
         <div class="menuLateral" id="menuLateral">
 
             <header>@include('layouts.navAdmin')</header>

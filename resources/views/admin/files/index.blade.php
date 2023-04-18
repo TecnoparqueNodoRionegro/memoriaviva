@@ -52,9 +52,6 @@
                         <a class="mx-5" href="{{ route('admin.files.create') }}">
                             <button class="btn btn-primary">Subir un archivo</button>
                         </a>
-                        <a href="{{ url('/admin') }}">
-                            <button class="btn btn-primary">Regresar</button>
-                        </a>
                     </div>
                 </div>
             </div>

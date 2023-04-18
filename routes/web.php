@@ -2,7 +2,6 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CategoryFileAdminController;
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\UserController;
@@ -14,7 +13,8 @@ use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CategoryFileController;
 use App\Http\Controllers\CategoryFileAdminController;
 use App\Http\Controllers\CategoryProductsController;
-
+use App\Http\Controllers\ProductAdminController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +44,13 @@ Route::delete('admin/galleries/destroy/{id}', [CategoryFileAdminController::clas
 Route::get('admin/galleries/{id}/edit', [CategoryFileAdminController::class, 'edit'])->name('admin.galleries.edit');
 Route::patch('admin/galleries/{id}', [CategoryFileAdminController::class, 'update'])->name('admin.galleries.update');
 
+
+// Productos desde la vista del administrador
+Route::get('admin/products', [ProductAdminController::class, 'index'])->name('admin.products.index');
+Route::get('admin/products/create', [ProductAdminController::class, 'create'])->name('admin.products.create');
+Route::post('admin/products', [ProductAdminController::class, 'store'])->name('admin.products.store');
+// Productos desde la vista de usuario
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
-Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
-Route::post('products', [ProductController::class, 'store'])->name('products.store');
 
 // auth
 
