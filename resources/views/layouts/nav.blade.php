@@ -1,5 +1,5 @@
 <div class="fixed-top">
-    <nav class="navbar navbar-expand-lg" style="height: 7rem; font-family: font-family: 'Roboto', sans-serif; background-color: black; box-shadow: 0 .125rem .25rem rgba(218, 218, 218, 0.25)">
+    <nav class="navbar navbar-expand-lg" style="height: 7rem; background-color: black; box-shadow: 0 .125rem .25rem rgba(218, 218, 218, 0.25)">
         <div class="container-fluid fw-bold fs-5">
             <div class="col-2 d-flex">
                 <a class="navbar-brand " href="#">
@@ -14,23 +14,39 @@
                     <li class="nav-item">
                         <a class="nav-link text-white {{ request()->routeIs('/') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{ url('/') }}">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white " href="{{ route('galleries.index') }}">Murales</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="{{ route('galleries.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Murales
+                        </a>
+                        <ul class="dropdown-menu" style="background: black">
+                            <li class="nav-item">
+                                <a class="nav-link  text-white" aria-current="page" href="{{ route('galleries.index') }}">Galeria</a>
+                            </li>
+                        <li><hr class="dropdown-divider"></li>
+                            <li class="nav-item">
+                                <a class="nav-link  text-white" aria-current="page" href="#artistas">Artistas</a>
+                            </li>
+                        </ul>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Ruta cultural</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-white {{ request()->routeIs('products.index') ? 'border-bottom border-warning' : '' }}" href="{{ route('products.index') }}">Tienda</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Descargar APP</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>
+
                     <li class="nav-item" style="">
-                        <a class="nav-link text-white" href="#">Ingresar</a>
+                        <a class="nav-link text-white" href="{{ url('auth/login') }}">Iniciar</a>
                     </li>
                 </ul>
             </div>
