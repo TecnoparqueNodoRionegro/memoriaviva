@@ -132,7 +132,7 @@ Route::get('admin/articles', [ArticleController::class, 'index'])->name('admin.a
 Route::get('admin/articles/create/', [ArticleController::class, 'create'])->name('admin.articles.create');
 Route::post('admin/articles', [ArticleController::class, 'store'])->name('admin.articles.store');
 Route::get('admin/articles/{id}/edit', [ArticleController::class, 'edit'])->name('admin.articles.edit');
-Route::Patch('admin/articles/{id}', [ArticleController::class, 'update'])->name('admin.articles.update');
+Route::Patch('admin/articles/{article}', [ArticleController::class, 'update'])->name('admin.articles.update');
 Route::delete('admin/articles/{id}', [ArticleController::class, 'destroy'])->name('admin.articles.destroy');
 
 //Menus
@@ -140,5 +140,5 @@ Route::get('admin/menus', [MenuController::class, 'index'])->name('admin.menus.i
 Route::get('admin/menus/create', [MenuController::class, 'create'])->name('admin.menus.create');
 Route::post('admin/menus', [MenuController::class, 'store'])->name('admin.menus.store');
 Route::get('admin/menus/{id}/edit', [MenuController::class, 'edit'])->name('admin.menus.edit');
-Route::patch('admin/menus/{id}', [MenuController::class, 'update'])->name('admin.menus.update');
+Route::patch('admin/menus/{menu}', [MenuController::class, 'update'])->name('admin.menus.update');
 Route::delete('admin/menus/{id}', [MenuController::class, 'destroy'])->name('admin.menus.destroy');
