@@ -16,4 +16,12 @@ class State extends Model
     public function products(){
         return $this->hasMany(Product::class, 'id');
     }
+
+    public function menus(){
+        return $this->hasMany(Menu::class, 'id');
+    }
+
+    public function artilces(){
+        return $this->hasMany(Article::class, 'id');
+    }
 }

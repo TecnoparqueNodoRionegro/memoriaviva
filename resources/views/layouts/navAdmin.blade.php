@@ -6,7 +6,7 @@
                         </div>
                     </a>
 
-                    <a href="#" class="text-decoration-none text-white">
+                    <a href="{{route('admin.articles.index')}}" class="text-decoration-none text-white">
                         <div class="opcion">
                             <i class="fa-solid fa-newspaper lead" title="Artículos"></i>
                             <h4>Contenido</h4>
@@ -41,7 +41,7 @@
                             <ul class="style-none">
                                 <li class=""> <a href="{{ route('admin.files.index') }}" class="text-white text-decoration-none  fs-5 subMenu">Multimedia</a></li>
                                 <hr class="linea"></li>
-                                <li style="text-decoration: none;"><a href="{{route('galleries.index')}}" class="text-white text-decoration-none fs-5 subMenu">Categoría</a></li>
+                                <li style="text-decoration: none;"><a href="{{route('admin.galleries.index')}}" class="text-white text-decoration-none fs-5 subMenu">Categoría</a></li>
                                 <li><hr class="linea"></li>
                             </ul>
                         </div>

@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CategoryFileAdminController;
@@ -116,8 +117,6 @@ Route::get('galleries', [CategoryFileController::class, 'index'])->name('galleri
 Route::get('galleries/{category}', [CategoryFileController::class, 'show'])->name('galleries.show');
 
 
-Route::get('admin/articles', [ArticleController::class, 'index'])->name('admin.articles.index');
-
 // categorias de productos
 Route::prefix('categoryProducts')->group(function(){
     Route::get('categoryProductsIndex', [CategoryProductsController::class, 'index'])->name('categoryProductsIndex');
@@ -127,3 +126,19 @@ Route::prefix('categoryProducts')->group(function(){
     Route::put('categoryProducts/{id}', [CategoryProductsController::class, 'update'])->name('categoryProductsUpdate');
     Route::delete('categoryProductsDelete/{id}', [CategoryProductsController::class, 'destroy'])->name('categoryProductsDelete');
 });
+
+//Articulos
+Route::get('admin/articles', [ArticleController::class, 'index'])->name('admin.articles.index');
+Route::get('admin/articles/create/', [ArticleController::class, 'create'])->name('admin.articles.create');
+Route::post('admin/articles', [ArticleController::class, 'store'])->name('admin.articles.store');
+Route::get('admin/articles/{id}/edit', [ArticleController::class, 'edit'])->name('admin.articles.edit');
+Route::Patch('admin/articles/{id}', [ArticleController::class, 'update'])->name('admin.articles.update');
+Route::delete('admin/articles/{id}', [ArticleController::class, 'destroy'])->name('admin.articles.destroy');
+
+//Menus
+Route::get('admin/menus', [MenuController::class, 'index'])->name('admin.menus.index');
+Route::get('admin/menus/create', [MenuController::class, 'create'])->name('admin.menus.create');
+Route::post('admin/menus', [MenuController::class, 'store'])->name('admin.menus.store');
+Route::get('admin/menus/{id}/edit', [MenuController::class, 'edit'])->name('admin.menus.edit');
+Route::patch('admin/menus/{id}', [MenuController::class, 'update'])->name('admin.menus.update');
+Route::delete('admin/menus/{id}', [MenuController::class, 'destroy'])->name('admin.menus.destroy');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Models\State;
 
 class ArticleController extends Controller
 {
@@ -14,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('admin.articles.index');
+        $datosArticles = Article::orderBy('id', 'DESC')->simplePaginate(4);
+        return view('admin.articles.index', compact('datosArticles'));
     }
 
     /**
@@ -25,6 +27,8 @@ class ArticleController extends Controller
     public function create()
     {
         //
+        $states = State::all();
+        return view('admin.articles.create', compact('states'));
     }
 
     /**
@@ -36,6 +40,29 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         //
+        $rules = [
+            'html' => ['required'],
+            'title'=>['required'],
+            'state_id'=>['required']
+        ];
+
+        $customMessages =[
+            'html.required' => 'Este campo es obligatorio',
+            'title.required' => 'Este campo es obligatorio',
+            'state_id.required' => 'Este campo es obligatorio'
+        ];
+
+        $request->validate($rules, $customMessages);
+
+        $article = new Article();
+
+        $article->html = $request->html;
+        $article->title = $request->title;
+        $article->state_id = $request->state_id;
+
+        $article->save();
+
+        return redirect()->route('admin.articles.index');
     }
 
     /**
@@ -55,9 +82,12 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit($id)
     {
         //
+        $states = State::all();
+        $article = Article::findOrFail($id);
+        return view('admin.articles.edit', compact('article', 'states'));
     }
 
     /**
@@ -67,9 +97,12 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id)
     {
         //
+        $datosArticle = request()->except(['_token', '_method']);
+        Article::where('id', '=', $id)->update($datosArticle);
+        return redirect()->route('admin.articles.index');
     }
 
     /**
@@ -78,8 +111,10 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
         //
+        Article::destroy($id);
+        return redirect()->route('admin.articles.index');
     }
 }
