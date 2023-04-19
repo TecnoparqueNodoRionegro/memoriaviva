@@ -81,6 +81,30 @@ class ProductAdminController extends Controller
     }
 
     public function update(Request $request, Product $product){
+        $rules = [
+            'name' => ['required', 'max:45'],
+            'description' => ['required'],
+            'price' => ['required'],
+            'quantity' => ['required'],
+            'stock' => ['required'],
+            'state_id' => ['required'],
+            'file_id' => ['required'],
+            'category_product_id' => ['required']
+        ];
+
+        $customMessages = [
+            'name.required' => 'Este campo es obligatorio',
+            'name.max' => 'El nombre no puede tener más de 45 caracteres',
+            'description.required' => 'Este campo es obligatorio',
+            'price.required' => 'Este campo es obligatorio',
+            'quantity.required' => 'Este campo es obligatorio',
+            'stock.required' => 'Este campo es obligatorio',
+            'state_id.required' => 'Este campo es obligatorio',
+            'file_id' => 'Este campo es obligatorio',
+            'category_product_id' => 'Este campo es obligatorio',
+        ];
+
+        $request->validate($rules, $customMessages);
 
         $product->name = $request->name;
         $product->description = $request->description;

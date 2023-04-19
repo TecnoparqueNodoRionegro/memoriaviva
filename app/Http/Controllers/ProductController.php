@@ -10,6 +10,7 @@ class ProductController extends Controller
 {
     public function index(Request $request){
         $search = $request->search;
+        $products = Product::all();
 
         $categoryProducts = CategoryProduct::all();
         $query = Product::query()->orderBy('id', 'DESC');
@@ -19,11 +20,11 @@ class ProductController extends Controller
                 ->orWhere('description', 'LIKE', '%' . $search . '%');
         }
 
-        $products = $query->simplePaginate(8);
+        $productSearch = $query->simplePaginate(12);
 
-        $products->appends(['search' => $search]);
+        $productSearch->appends(['search' => $search]);
 
-        return view('products.index', compact('products', 'categoryProducts', 'search'));
+        return view('products.index', compact('products', 'productSearch', 'categoryProducts', 'search'));
     }
 
     public function show(Product $product){
