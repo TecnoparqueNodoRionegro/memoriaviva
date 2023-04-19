@@ -11,7 +11,7 @@
 
             <div class="container">
                 <div class="card mt-5">
-                    <h1 class="text-center mt-1 card-header">Subir archivo</h1>
+                    <h1 class="text-center card-header">Subir archivo</h1>
     
                     <div class="card-body">
                         <form action="{{route('admin.files.store')}}" method="POST" enctype="multipart/form-data">
@@ -72,7 +72,7 @@
                                 </div>
                                 
                                 <div class="text-center mt-3">
-                                    <button class="btn btn-dark w-50" type="submit">Enviar</button>
+                                    <button class="btn btn-dark w-25" type="submit">Subir</button>
                                 </div>
                             </div>
                         </form>

@@ -11,7 +11,7 @@
             
             <div class="container">
                 <div class="card mt-5">
-                    <h1 class="text-center card-header mb-3">Publicar producto</h1>
+                    <h1 class="text-center card-header mb-3">Agregar producto</h1>
                     
                     <div class="card-body">
                         <form action="{{route('admin.products.store')}}" method="POST" enctype="multipart/form-data">
@@ -101,7 +101,7 @@
                             
                             
                             <div class="text-center mt-3">
-                                <button class="btn btn-dark w-50" type="submit">Enviar</button>
+                                <button class="btn btn-dark w-25" type="submit">Publicar</button>
                             </div>
                         </form>
                         <a href="{{ route('admin.products.index') }}">

@@ -111,7 +111,7 @@
                             
                             
                             <div class="text-center mt-3">
-                                <button class="btn btn-dark w-50" type="submit">Enviar</button>
+                                <button class="btn btn-dark w-25" type="submit">Actualizar</button>
                             </div>
                         </form>
                         <a href="{{ url()->previous() }}">

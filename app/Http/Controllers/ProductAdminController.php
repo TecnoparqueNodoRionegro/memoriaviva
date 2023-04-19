@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 class ProductAdminController extends Controller
 {
     public function index(){
-        $products = Product::orderBy('id', 'DESC')->simplePaginate(5);
+        $products = Product::orderBy('id', 'DESC')->simplePaginate(10);
 
         return view('admin.products.index', compact('products'));
     }

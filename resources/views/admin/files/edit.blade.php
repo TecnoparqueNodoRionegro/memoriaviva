@@ -18,13 +18,13 @@
                             @csrf
                             @method('put')
     
-                            <div class="text-center"> 
+                            <div class="d-flex justify-content-center"> 
                                 @switch($file->file_type_id)
                                     @case(1)
-                                    <div>
-                                        <img class="w-50" src="{{ URL::asset($file->route) }}">
-                                    </div>
-                                    <small>{{ $file->name }}</small>
+                                        <div class="text-center" style="width: 600px; height: 300px">
+                                            <img class="object-fit-scale w-100 h-100" src="{{ URL::asset($file->route) }}">
+                                            <small>{{ $file->name }}</small>
+                                        </div>
                                         @break
                                     @case(2)
                                         <a href="{{ $file->route }}" target="_blank">Video</a>
@@ -36,7 +36,7 @@
                                 @endswitch
                             </div>
     
-                            <div class="row mt-3">
+                            <div class="row mt-5">
                                 <div class="col-6">
                                     <label class="form-label mt-2">Categoría:</label>
                                     <select class="form-select" name="categoryFile">
@@ -65,7 +65,7 @@
                             </div>
                             
                             <div class="text-center mt-3">
-                                <button class="btn btn-dark w-50" type="submit" id="editButton">Enviar</button>
+                                <button class="btn btn-dark w-25" type="submit" id="editButton">Actualizar</button>
                             </div>   
                         </form>
                         <a href="{{ url()->previous() }}">

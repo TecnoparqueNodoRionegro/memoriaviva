@@ -20,7 +20,7 @@ class StateSeeder extends Seeder
         $state->save();
 
         $state2 = new State();
-        $state2->description = "Desactivado";
+        $state2->description = "Inactivo";
         $state2->save();
     }
 }

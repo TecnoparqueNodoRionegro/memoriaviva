@@ -13,7 +13,7 @@
                 <div class="text-center mt-5">    
                     <h1>Aún no has publicado productos</h1>
                     <a href="{{ route('admin.products.create') }}">
-                        <button class="btn btn-primary">Publicar productos</button>
+                        <button class="btn btn-primary">Agregar productos</button>
                     </a>
                 </div>
             @else
@@ -51,14 +51,14 @@
                                     <td>{{ $product->stock }}</td>
                                     <td>{{ $product->states->description }}</td>
                                     <td>{{ $product->categories->description }}</td>
-                                    <td width="320">
+                                    <td>
                                         <form action="{{ route('admin.products.destroy', $product) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             
-                                            <a class="btn btn-dark w-25" href="{{ route('admin.products.show', $product) }}"><i class="fa-solid fa-eye"></i></a>
-                                            <a class="btn btn-dark w-25" href="{{ route('admin.products.edit', $product) }}"><i class="fas fa-edit"></i></a>
-                                            <button class="btn btn-dark w-25" type="submit"><i class="fa-solid fa-trash"></i></button>
+                                            <a class="btn btn-dark" href="{{ route('admin.products.show', $product) }}"><i class="fa-solid fa-eye"></i></a>
+                                            <a class="btn btn-dark" href="{{ route('admin.products.edit', $product) }}"><i class="fas fa-edit"></i></a>
+                                            <button class="btn btn-dark" type="submit"><i class="fa-solid fa-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>
@@ -70,7 +70,7 @@
                             {{ $products->links() }}
                         </div>
                         <a class="mx-5" href="{{ route('admin.products.create') }}">
-                            <button class="btn btn-dark">Publicar producto</button>
+                            <button class="btn btn-dark">Agregar producto</button>
                         </a>
                     </div>
                 </div>
