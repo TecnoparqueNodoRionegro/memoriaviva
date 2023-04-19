@@ -10,6 +10,7 @@ use App\Http\Controllers\DataUsersController;
 use App\Http\Controllers\UserTypesController;
 use App\Http\Controllers\CategoryFileController;
 use App\Http\Controllers\CategoryProductsController;
+use App\Http\Controllers\PayController;
 use App\Http\Controllers\ProductAdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +54,13 @@ Route::delete('admin/products/{product}', [ProductAdminController::class, 'destr
 // Productos desde la vista de usuario
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
+
+//PayU
+Route::get('payu/{product}', [PayController::class, 'index'])->name('pay.index');
+Route::get('/gracias', function(){
+    return view('thanks');
+})->name('thanks');
+Route::post('paid/payu', [PaidController::class, 'payu'])->name('paid.payu');
 
 // auth
 

@@ -18,6 +18,10 @@
                 </div>
             @else
                 <div class="container mt-5">
+                    <div class="card-header d-flex justify-content-center mb-4">
+                        <h1>Productos</h1>
+                    </div>
+
                     <table class="table">
                         <thead>
                             <tr>
@@ -52,9 +56,9 @@
                                             @csrf
                                             @method('delete')
                                             
-                                            <a class="btn btn-success w-25" href="{{ route('admin.products.show', $product) }}">Ver</a>
-                                            <a class="btn btn-primary w-25" href="{{ route('admin.products.edit', $product) }}">Editar</a>
-                                            <button class="btn btn-danger w-25" type="submit">Eliminar</button>
+                                            <a class="btn btn-dark w-25" href="{{ route('admin.products.show', $product) }}"><i class="fa-solid fa-eye"></i></a>
+                                            <a class="btn btn-dark w-25" href="{{ route('admin.products.edit', $product) }}"><i class="fas fa-edit"></i></a>
+                                            <button class="btn btn-dark w-25" type="submit"><i class="fa-solid fa-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>
@@ -66,7 +70,7 @@
                             {{ $products->links() }}
                         </div>
                         <a class="mx-5" href="{{ route('admin.products.create') }}">
-                            <button class="btn btn-primary">Publicar producto</button>
+                            <button class="btn btn-dark">Publicar producto</button>
                         </a>
                     </div>
                 </div>
