@@ -23,7 +23,7 @@
                     <tbody>
                         @foreach ($files as $file) 
                             <tr>
-                                <th scope="row">{{ $file->id }}</th>
+                                <td>{{ $file->id }}</th>
                                 <td>{{ $file->name }}</td>
                                 <td>{{ $file->fileTypes->description }}</td>
                                 <td>{{ $file->categories->description }}</td>
