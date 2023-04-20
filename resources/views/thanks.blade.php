@@ -5,7 +5,7 @@
 @section('content')
     <body class="bg-light">
         <div class="d-flex justify-content-center py-5">
-            <img class="rounded w-50" src="https://d22fxaf9t8d39k.cloudfront.net/descripciones/c42cbe258a2457927193bbafd2bc89877e937a4cc52336b4c81ee6071ac55ddc34273.png">
+            <img class="rounded w-75" src="https://d22fxaf9t8d39k.cloudfront.net/descripciones/c42cbe258a2457927193bbafd2bc89877e937a4cc52336b4c81ee6071ac55ddc34273.png">
         </div>
 
         @if (request()->pasarela == 'payu')

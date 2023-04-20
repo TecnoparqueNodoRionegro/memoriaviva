@@ -35,10 +35,10 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                                 <a class="text-decoration-none" href="{{ route('products.show', $product) }}">
                                     <div class="card my-3">
-                                        <div class="d-flex align-items-center my-1" style="height: 200px;">
-                                            <img src="{{ URL::asset($product->files->route) }}" class="object-fit-contain rounded w-100 h-100"> 
+                                        <div style="height: 200px;">
+                                            <img src="{{ URL::asset($product->files->route) }}" class="object-fit-cover card-img-top w-100 h-100"> 
                                         </div>
-                                        <div class="card-body border-top">
+                                        <div class="card-body">
                                             <p class="card-text">$ {{ number_format($product->price, 0, ',', '.')}}</p>
                                             <p class="card-text">{{ $product->name }}</p>
                                         </div>
