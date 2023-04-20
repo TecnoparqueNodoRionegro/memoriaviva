@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\user_types;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,6 +21,10 @@ class AuthController extends Controller
     {
         //
     }
+    public function registerUser(){
+        $user_types = user_types::all();
+        return view('Auth.user', compact('user_types') );
+    }
     public function register(){
         return view('Auth.registro');
     }
@@ -27,21 +32,28 @@ class AuthController extends Controller
         return view('Auth.login');
     }
     public function registerVerify(Request $request){
+
+        
         $request->validate([
             'email' => 'required','unique:users',
             'password' => 'required',
-            'passwordConfirmation' => 'required|same:password'
+            'passwordConfirmation' => 'required|same:password',
+            'user_type_id' => 'required'
         ]);
 
         $registro = User::create([
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'state_id' => 1,
-            'user_type_id' => 2
+            'user_type_id' => $request->user_type_id
         ]);
         
-
-        return redirect()->route('continuarRegistro')->with('id', $registro->id);
+        if($request->user_type_id == 1 or $request->user_type_id == 2 && $request->formAdmin == 1 ){
+            return redirect()->route('continuarRegistroAdmin')->with('id', $registro->id, 'user_type_id', $registro->user_type_id);
+        }else{
+            return redirect()->route('continuarRegistro')->with('id', $registro->id, 'user_type_id', $registro->user_type_id);
+        }
+        
     }
 
 
@@ -66,6 +78,10 @@ class AuthController extends Controller
         return view('Auth.continuarRegistro');
     }
 
+    public function continuarRegistroAdmin(){
+        $id = User::all();
+        return view('Auth.continuarRegistroAdmin');
+    }
     
     public function signOut(){
         Auth::logout();

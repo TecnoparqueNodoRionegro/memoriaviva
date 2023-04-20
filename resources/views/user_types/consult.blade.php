@@ -37,10 +37,14 @@
                                                         <a href="{{ route('user_types_edit', $user->id)}}" class="btn btn-dark btn-sm">
                                                             <i class="fas fa-edit"></i> Editar
                                                         </a>
-                                                        <a href="" class="btn btn-outline-danger btn-sm">
-                                                            <i class="fas fa-trash-alt"></i> Eliminar
-                                                        </a>
                                                     </th>
+                                                    <th>
+                                                        <form action="{{ route('user_types_destroy', $user->id)}}" method="post">
+                                                            @csrf
+                                                            <button class="btn btn-outline-danger btn-sm"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                                                        </form>
+                                                    </th>
+                                                    
                                             </tr>
                                             @endforeach
                                         </tbody>

@@ -17,7 +17,10 @@
                         <section class="py-5">
                              <div class="container">
                                 <div class="row justify-content-center">
+                                  
+
                                     <div class="col-md-6">
+                                        
                                     <h2>Información de usuarios del sistema</h2>
                                         <table class="table table-hover table-striped">
                                         <thead>
@@ -41,14 +44,20 @@
                                                         <a href="{{ route('data_users_edit', $user->id)}}" class="btn btn-dark btn-sm">
                                                             <i class="fas fa-edit"></i> Editar
                                                         </a>
-                                                        <a href="" class="btn btn-outline-danger btn-sm">
-                                                            <i class="fas fa-trash-alt"></i> Eliminar
-                                                        </a>
+                                                    </tr>
+                                                    <th>
+                                                        <form action="{{ route('destroyUser', $user->id)}}" method="post">
+                                                            @csrf
+                                                            <button class="btn btn-outline-danger btn-sm"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                                                        </form>
                                                     </th>
                                             </tr>
                                             @endforeach
                                         </tbody>
                                         </table> 
+                                        <a href="{{ route('addUser')}}" class="btn btn-dark btn-sm">
+                                            <i class="fa-solid fa-plus d-flex align-self-center"></i> Agregar usuario
+                                        </a>
                                     </div>
                                 </div>
                             </div>

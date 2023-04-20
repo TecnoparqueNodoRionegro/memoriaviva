@@ -30,6 +30,7 @@
               <div class="mb-3">
                 <label for="password2">Confirmar contraseña:</label>
                 <input type="password" class="form-control" name="passwordConfirmation" id="password2" placeholder="Confirme su contraseña" required data-match="#password1">
+                <input type="hidden" name="user_type_id" value="2">
                 <div class="invalid-feedback">
                   Por favor confirme su contraseña.
                 </div>
