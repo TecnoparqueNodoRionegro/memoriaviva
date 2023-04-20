@@ -31,7 +31,7 @@
 
                                             {{--Boton--}}
                                             <div class="card-body">
-                                                <a class="btn btn-secondary w-100 btnAdmin text-black">
+                                                <a class="btn btn-secondary w-100 btnAdmin text-black" href="{{route('admin.menus.index')}}">
                                                     <div class="row">
                                                         <div class="d-flex justify-content-between d-inline-block">Menú <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
                                                     </div>
@@ -53,7 +53,7 @@
 
                                             {{--Boton--}}
                                             <div class="card-body">
-                                                <a class="btn btn-secondary w-100 btnAdmin text-black">
+                                                <a class="btn btn-secondary w-100 btnAdmin text-black" href="{{route('admin.articles.index')}}">
                                                     <div class="row">
                                                         <div class="d-flex justify-content-between d-inline-block">Contenido <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
                                                     </div>
@@ -76,7 +76,7 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-lg-6 mb-3">
-                                                        <a class="btn btn-secondary w-100 btnAdmin text-black">
+                                                        <a class="btn btn-secondary w-100 btnAdmin text-black" href="{{ route('admin.products.index') }}">
                                                             <div class="row">
                                                                 <div class="d-flex justify-content-between d-inline-block">Producto <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
                                                             </div>
@@ -84,10 +84,18 @@
                                                     </div>
 
                                                     <div class="col-lg-6">
-                                                        <a class="btn btn-secondary w-100 btnAdmin text-black">
-                                                            <div class="row">
-                                                                <div class="d-flex justify-content-between d-inline-block">Categoría <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
-                                                            </div>
+                                                        <a  href="{{ route('categoryProductsCreate') }}" class="btn btn-secondary w-100 btnAdmin text-black">
+                                                                    <div class="row">
+                                                                        <div class="d-flex justify-content-between d-inline-block">Insertar Categoría de producto <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                                    </div>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                        <a  href="{{ route('categoryProductsIndex') }}" class="btn btn-secondary w-100 btnAdmin text-black">
+                                                                    <div class="row">
+                                                                        <div class="d-flex justify-content-between d-inline-block">Consulta de Categoría de producto <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                                    </div>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -116,7 +124,6 @@
                                                             </div>
                                                         </a>
                                                     </div>
-
                                                     <div class="col-lg-6">
                                                         <a class="btn btn-secondary w-100 btnAdmin text-black" href="{{route('admin.galleries.index')}}">
                                                             <div class="row">
@@ -127,14 +134,47 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="card shadow border-0  mb-4">
+                                            {{--titulo card--}}
+                                            <div class="card-header">
+                                                <div class="row">
+                                                    <div class="d-flex justify-content-between d-inline-block">
+                                                        <h6 class="font-weight-bold ">Gestión de usuarios</h6> <i class="fa-solid fa-users me-2 lead d-flex align-self-center"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{--Botones--}}    
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-6 mb-3">
+                                                        <a href="{{ route('user_types_register_form')}}" class="btn btn-secondary w-100 btnAdmin text-black">
+                                                            <div class="row">
+                                                                <div class="d-flex justify-content-between d-inline-block">Agregar tipo de Usuario <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-lg-6 mb-3">
+                                                        <a href="{{ route('user_types')}}" class="btn btn-secondary w-100 btnAdmin text-black">
+                                                            <div class="row">
+                                                                <div class="d-flex justify-content-between d-inline-block">Actualizar tipos de usuarios<i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-lg-6 mb-3">
+                                                        <a href="{{ route('data_users_consult')}}" class="btn btn-secondary w-100 btnAdmin text-black">
+                                                            <div class="row">
+                                                                <div class="d-flex justify-content-between d-inline-block">Usuarios registrados en el sistema<i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                            </div>
                                     </div>
-
                                 </div>
                             </div>
                         </section>
                     </div>
             </div>
-
         </div>
     </div>
 @endsection
+

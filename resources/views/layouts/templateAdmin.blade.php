@@ -11,7 +11,7 @@
     {{--fonts--}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;500;700&display=swap" rel="stylesheet">
 
     {{--icons--}}
     <script src="https://kit.fontawesome.com/bafd5db5ae.js" crossorigin="anonymous"></script>
@@ -23,7 +23,7 @@
 
 </head>
 
-<body  style="background-color: #F0F0F0; overflow:hidden; font-family: 'Roboto';, sans-serif; font-weight:900; text-decoration: none;">
+<body  style="background-color: #F0F0F0; overflow:hidden; font-family: 'Figtree', sans-serif; text-decoration: none;">
 
     <!-- header -->
     
