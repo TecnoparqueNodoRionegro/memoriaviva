@@ -1,9 +1,10 @@
 
 <div>
     <div class="row">
+        <x-head.tinymce-config/>
         <div class="mb-3 col-lg-12">
             <label for="html" class="form-label">Contenido HTML</label>
-            <textarea class="form-control" id="html" name="html" rows="3" >{{isset($article->html)? $article->html: ""}}</textarea>
+            <textarea id="myeditorinstance" class="form-control" id="html" name="html" rows="3" >{{isset($article->html)? $article->html: ""}}</textarea>
             @error('html')
                 <small class="text-danger">{{$message}}</small>
             @enderror

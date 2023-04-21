@@ -38,9 +38,19 @@
 
                                             <tbody>
                                                 @foreach ($datosArticles as $datosArticle)
+
+                                                        @php
+                                                            $field1_plain = strip_tags($datosArticle->html);
+                                                            $field1_plain2 = html_entity_decode($field1_plain);
+                                                            
+                                                        @endphp
                                                     <tr>
                                                         <td class="m-5 p-3">{{$datosArticle->id}}</td>
-                                                        <td>{{$datosArticle->html}}</td>
+                                                        <td> 
+                                                            <textarea name="" id="" cols="" rows="10" disabled class="form-control"> 
+                                                                <?php echo $field1_plain2 ?>
+                                                            </textarea>
+                                                        </td>
                                                         <td>{{$datosArticle->state->description}}</td>
                                                         <td width="320">
                                                             <form action="{{route('admin.articles.destroy', $datosArticle->id)}}" method="POST">
@@ -53,9 +63,9 @@
                                                         
                                                     </tr>
                                                     @endforeach
-                                                
                                             </tbody>
                                         </table>
+                                        {{ $datosArticles->links() }}
                                     </div>
                                 </div>
 
