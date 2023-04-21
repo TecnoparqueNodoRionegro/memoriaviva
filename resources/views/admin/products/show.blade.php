@@ -9,7 +9,11 @@
 
             <header>@include('layouts.navAdmin')</header>
             
-            @include('layouts.templateProducts')
+            <div id="content">
+                <div class="mt-5">
+                    @include('layouts.templateProducts')
+                </div>
+            </div>
         </div>
     </div>
 @endsection
