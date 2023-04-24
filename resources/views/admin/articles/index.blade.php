@@ -38,19 +38,9 @@
 
                                             <tbody>
                                                 @foreach ($datosArticles as $datosArticle)
-
-                                                        @php
-                                                            $field1_plain = strip_tags($datosArticle->html);
-                                                            $field1_plain2 = html_entity_decode($field1_plain);
-                                                            
-                                                        @endphp
                                                     <tr>
                                                         <td class="m-5 p-3">{{$datosArticle->id}}</td>
-                                                        <td> 
-                                                            <textarea name="" id="" cols="" rows="10" disabled class="form-control"> 
-                                                                <?php echo $field1_plain2 ?>
-                                                            </textarea>
-                                                        </td>
+                                                        <td> {{$datosArticle->html}} </td>
                                                         <td>{{$datosArticle->state->description}}</td>
                                                         <td width="320">
                                                             <form action="{{route('admin.articles.destroy', $datosArticle->id)}}" method="POST">
@@ -60,7 +50,6 @@
                                                                 <button class="btn btn-dark w-25" type="submit" onclick="return confirm('¿Desea eliminar la Categoría?');"><i class="fa-solid fa-trash"></i></button>
                                                             </form>
                                                         </td>
-                                                        
                                                     </tr>
                                                     @endforeach
                                             </tbody>
