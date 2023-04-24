@@ -1,26 +1,26 @@
 <div class="fixed-top">
     <nav class="navbar navbar-expand-lg" style="height: 7rem; background-color: black; box-shadow: 0 .125rem .25rem rgba(218, 218, 218, 0.25)">
         <div class="container-fluid fw-bold fs-5">
-            <div class="col-2 d-flex">
+            <div class="col-2 d-flex" style="height: 7rem;">
                 <a class="navbar-brand " href="#">
-                    <img src="{{ URL::asset('storage/img/logo.png') }}" width="50%" class="mx-5" href="{{ url('/') }}">
+                    <img src="{{ URL::asset('storage/img/logo.png') }}" class="mx-5 w-100 h-100 object-fit-scale" href="{{ url('/') }}">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars text-white"></i>
             </button>
-            <div class="collapse navbar-collapse col-10" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse col-10" id="navbarSupportedContent" style="background-color: rgba(0, 0, 0, 0.822)">
                 <ul class="navbar-nav mb-2 " style="margin-left: 20%;">
                     <li class="nav-item">
-                        <a class="nav-link text-white {{ request()->routeIs('/') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{ url('/') }}">Inicio</a>
+                        <a class="nav-link text-white {{ request()->routeIs('index') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{ route('index') }}">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="{{ route('galleries.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-white {{ request()->routeIs('galleries.index', 'galleries.show') ? 'border-bottom border-warning' : ''  }}" href="{{ route('galleries.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Murales
                         </a>
                         <ul class="dropdown-menu" style="background: black">
                             <li class="nav-item">
-                                <a class="nav-link  text-white" aria-current="page" href="{{ route('galleries.index') }}">Galeria</a>
+                                <a class="nav-link  text-white" aria-current="page" href="{{ route('galleries.index') }}">Galerías</a>
                             </li>
                         <li><hr class="dropdown-divider"></li>
                             <li class="nav-item">

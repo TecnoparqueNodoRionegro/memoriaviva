@@ -35,10 +35,14 @@ class AuthController extends Controller
 
         
         $request->validate([
-            'email' => 'required','unique:users',
+            'email' => 'required|unique:users,email',
             'password' => 'required',
             'passwordConfirmation' => 'required|same:password',
             'user_type_id' => 'required'
+        ],
+        [
+            'email.unique' => 'El email ya está registrado.'
+
         ]);
 
         $registro = User::create([
@@ -47,6 +51,7 @@ class AuthController extends Controller
             'state_id' => 1,
             'user_type_id' => $request->user_type_id
         ]);
+
         
         if($request->user_type_id == 1 or $request->user_type_id == 2 && $request->formAdmin == 1 ){
             return redirect()->route('continuarRegistroAdmin')->with('id', $registro->id, 'user_type_id', $registro->user_type_id);

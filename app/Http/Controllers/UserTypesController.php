@@ -38,7 +38,7 @@ class UserTypesController extends Controller
         ]);
         
 
-        return redirect()->route('user_types')->with('success', 'Usuario registrado Correctamente');
+        return redirect()->route('user_types')->with('success', 'Rol registrado Correctamente');
     }
 
 
@@ -62,17 +62,16 @@ class UserTypesController extends Controller
         $data = $request->only('description');
 
         $id->update($data);
-        return redirect()->route('user_types')->with('success', 'Actualizado');
+        return redirect()->route('user_types')->with('success', 'Rol actualizado');
     }
 
 
     public function updateUsers(Request $request, $id){
         $id = data_users::findOrFail($id);
-        $data = $request->only('name');
-        $data = $request->only('last_name');
-        $data = $request->only('phone');
+        $data = $request->only(['name', 'last_name', 'phone']);
+        
         $id->update($data);
-        return redirect()->route('data_users_consult')->with('success', 'Actualizado');
+        return redirect()->route('data_users_consult')->with('success', 'Usuario Actualizado');
     }
     
     

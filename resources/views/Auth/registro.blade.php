@@ -6,8 +6,14 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6 col-lg-5 mt-5">
+      @if ($errors->has('email'))
+        <div class="alert alert-danger">
+          {{ $errors->first('email') }}
+        </div>
+      @endif
       <div class="card">
         <div class="card-header bg-dark text-white">
+          
           <h2 class="text-center">Registrate</h2>
         </div>
         <div class="card-body">

@@ -7,6 +7,7 @@
         <div class="container d-flex justify-content-center">
             <div class="w-75 rounded bg-white shadow p-4">
                 <div>
+                    <h2 class="text-center">{{ $product->name }}</h2>
                     <h5>Monto a pagar:</h5>
                     <p class="alert alert-primary text-primary">$ {{ number_format($product->price, 0, ',', '.') }}</p>
                 </div>
@@ -32,8 +33,7 @@
                                 <input name="responseUrl"     type="hidden"  value="{{ route('thanks') }}?pasarela=payu" >
                                 <input name="confirmationUrl" type="hidden"  value="{{ route('paid.payu') }}" >
                                 <div class="d-flex justify-content-center">
-    
-                                    <button type="submit" class="btn btn-light w-75 rounded shadow">
+                                    <button type="submit" class="btn btn-secondary w-75 rounded shadow">
                                         <img src="https://chile.payu.com/wp-content/uploads/sites/4/2020/05/PAYU_LOGO_LIME.png" class="w-25">
                                     </button>
                                 </div>

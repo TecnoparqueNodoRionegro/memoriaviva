@@ -17,11 +17,13 @@
                         <section class="py-5">
                              <div class="container">
                                 <div class="row justify-content-center">
-                                  
-
                                     <div class="col-md-6">
-                                        
-                                    <h2>Información de usuarios del sistema</h2>
+                                    @if(session('success'))
+                                        <div class="alert alert-success">
+                                            {{ session('success') }}
+                                        </div>
+                                    @endif
+                                    <h2>Usuarios</h2>
                                         <table class="table table-hover table-striped">
                                         <thead>
                                             <tr>
@@ -44,11 +46,11 @@
                                                         <a href="{{ route('data_users_edit', $user->id)}}" class="btn btn-dark btn-sm">
                                                             <i class="fas fa-edit"></i> Editar
                                                         </a>
-                                                    </tr>
+                                                            
                                                     <th>
                                                         <form action="{{ route('destroyUser', $user->id)}}" method="post">
                                                             @csrf
-                                                            <button class="btn btn-outline-danger btn-sm"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                                                            <button class="btn btn-outline-danger btn-sm" onclick="return confirm('¿Desea eliminar el usuario?');"><i class="fas fa-trash-alt"></i> Eliminar</button>
                                                         </form>
                                                     </th>
                                             </tr>
@@ -56,7 +58,7 @@
                                         </tbody>
                                         </table> 
                                         <a href="{{ route('addUser')}}" class="btn btn-dark btn-sm">
-                                            <i class="fa-solid fa-plus d-flex align-self-center"></i> Agregar usuario
+                                            <i class="fa-light fa-plus"></i> Agregar
                                         </a>
                                     </div>
                                 </div>

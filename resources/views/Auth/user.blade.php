@@ -17,7 +17,11 @@
                         <section class="py-5">
                              <div class="container">
                                 <div class="row justify-content-center">
-                                    
+                                  @if ($errors->has('email'))
+                                    <div class="alert alert-danger">
+                                      {{ $errors->first('email') }}
+                                    </div>
+                                  @endif
                                     <div class="col-md-6">
                                         <h2>Registrar usuario</h2>
                                         <form class="needs-validation" method="post" action="{{ url('auth/registroVerify')}}" novalidate>
@@ -58,6 +62,7 @@
                                                   </div>
                                                   <button type="submit" class="btn btn-dark btn-block">Registrar</button>
                                                 </form>
+
                                     </div>
                                 </div>
                             </div>
@@ -66,6 +71,37 @@
         </div>
     </div>
 </div>
+<script>
+  //validacion de campos
+  (function() {
+
+'use strict';
+
+
+var forms = document.querySelectorAll('.needs-validation');
+
+
+Array.prototype.slice.call(forms)
+  .forEach(function(form) {
+    form.addEventListener('submit', function(event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+    
+      if (form.querySelector('#password1').value !== form.querySelector('#password2').value) {
+        form.querySelector('#password2').setCustomValidity("Las contraseñas no coinciden");
+      } else {
+        form.querySelector('#password2').setCustomValidity("");
+      }
+
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+
+</script>
 @endsection
 
 
