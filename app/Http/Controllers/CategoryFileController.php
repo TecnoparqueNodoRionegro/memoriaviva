@@ -14,9 +14,7 @@ class CategoryFileController extends Controller
         foreach($categoryFiles as $category){
             $files[] = File::select('category_file_id','route')->where('category_file_id', $category->id)->orderBy('id', 'DESC')->first();
         }
-
-        // return $files;
-        return view('galleries.index', compact('categoryFiles', 'files'));
+        return view('galleries.index', compact('categoryFiles', 'files'));   
     }
     public function show(CategoryFile $category){
         $files = File::where('category_file_id', $category->id)->orderBy('id', 'DESC')->get();
