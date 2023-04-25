@@ -19,11 +19,11 @@
                             <div class="container d-flex justify-content-center">
                                 <div class="card w-75 col-sm-12">
                                     <div class="card-body">
-                                @foreach($data_user as $data)
-                                @if ($data->user_id == $user->id)
-                                    <form method="post" action="{{ route('data_users_update', $user->id $data->user_id )}}">
-                                @endif
-                                @endforeach
+                                    @foreach($data_user as $data)
+                                        @if ($data->user_id == $user->id)
+                                          <form method="post" action="{{ route('update-data-users', $user->id, $data->id )}}">
+                                        @endif
+                                    @endforeach
                                     @csrf
                                     @method('PUT')
                                         <h2>Actualizar datos de usuario</h2>

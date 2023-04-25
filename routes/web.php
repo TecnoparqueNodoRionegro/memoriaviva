@@ -91,7 +91,7 @@ Route::prefix('users')->group(function(){
     Route::get('data_users_consult', [UserTypesController::class, 'indexUsers'])->name('data_users_consult');
 
     Route::get('data_users/{user}/Edit', [DataUsersController::class, 'editUsers'])->name('data_users_edit');
-    Route::put('data_users/{user}/{data}', [DataUsersController::class, 'updateUsers'])->name('data_users_update');
+    Route::put('users/{userId}/data-users/{dataUserId}', [DataUsersController::class, 'updateDataUsers'])->name('update-data-users');
     Route::post('user_types/{id}', [UserTypesController::class, 'destroy'])->name('user_types_destroy');
 });
 

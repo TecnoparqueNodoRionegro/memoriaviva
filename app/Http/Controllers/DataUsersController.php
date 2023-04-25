@@ -51,28 +51,29 @@ class DataUsersController extends Controller
         $data_user = data_users::all();
         return view('user_types.editUsers', compact('user', 'user_types', 'State', 'data_user'));
     }
-    public function editData(User $user){
-        return view('user_types.editData', compact('user'));
-        
+    public function updateDataUsers(Request $request, $userId, $dataUserId)
+    {
+        // Actualizar los datos en la tabla 'data_users'
+        $data = data_users::find($dataUserId);
+        $data->name = $request->input('name');
+        $data->last_name = $request->input('last_name');
+        $data->gender = $request->input('gender');
+        $data->phone = $request->input('phone');
+        $data->biography = $request->input('biography');
+        $data->save();
+
+        // Actualizar los datos en la tabla 'users'
+        $user = User::find($userId);
+        $user->email = $request->input('email');
+        $user->state_id = $request->input('state_id');
+        $user->user_type_id = $request->input('user_type_id');
+        // Actualizar otros campos en la tabla 'users'
+        $user->save();
+
+        // Redirigir al usuario a la página de detalles del usuario
+        return redirect()->route('user-details', $userId);
     }
-    public function updateUsers(Request $request, $user_id, $data_id)
-{
-    $user = User::find($user_id);
-    $user->email = $request->email;
-    $user->state_id = $request->state_id;
-    $user->user_type_id = $request->user_type_id;
-    $user->save();
 
-    $data_user = data_users::find($data_id);
-    $data_user->name = $request->name;
-    $data_user->last_name = $request->last_name;
-    $data_user->gender = $request->gender;
-    $data_user->phone = $request->phone;
-    $data_user->biography = $request->biography;
-    $data_user->save();
-
-    return redirect()->route('data_users_consult', $user_id)->with('success', 'Los datos se han actualizado correctamente');
-}
 
    
     
