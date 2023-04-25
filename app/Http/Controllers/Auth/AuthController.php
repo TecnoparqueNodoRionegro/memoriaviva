@@ -53,7 +53,7 @@ class AuthController extends Controller
         ]);
 
         
-        if($request->user_type_id == 1 or $request->user_type_id == 2 && $request->formAdmin == 1 ){
+        if($request->formAdmin == 1 ){
             return redirect()->route('continuarRegistroAdmin')->with('id', $registro->id, 'user_type_id', $registro->user_type_id);
         }else{
             return redirect()->route('continuarRegistro')->with('id', $registro->id, 'user_type_id', $registro->user_type_id);
@@ -91,6 +91,12 @@ class AuthController extends Controller
     public function signOut(){
         Auth::logout();
         return redirect()->route('login')->with('success', 'session cerrada correctamente');
+    }
+
+    public function destroyUser($id){
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back()->with('success', 'Usuario eliminado correctamente.');
     }
     
 }

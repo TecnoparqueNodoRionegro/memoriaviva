@@ -20,8 +20,8 @@ class UserTypesController extends Controller
     public function indexUsers()
     {
        $data_users = data_users::all();
-       $data_users = data_users::paginate(10);
-        return View('user_types.consultaUsuarios', ['data_users' => $data_users]);
+       
+        return View('user_types.consultaUsuarios', compact('data_users'));
         
     }
 
@@ -52,11 +52,6 @@ class UserTypesController extends Controller
     }
 
 
-    public function editUsers(data_users $id){
-        return view('user_types.EditUsers', compact('id'));
-    }
-
-
     public function update(Request $request, $id){
         $id = user_types::findOrFail($id);
         $data = $request->only('description');
@@ -65,14 +60,6 @@ class UserTypesController extends Controller
         return redirect()->route('user_types')->with('success', 'Rol actualizado');
     }
 
-
-    public function updateUsers(Request $request, $id){
-        $id = data_users::findOrFail($id);
-        $data = $request->only(['name', 'last_name', 'phone']);
-        
-        $id->update($data);
-        return redirect()->route('data_users_consult')->with('success', 'Usuario Actualizado');
-    }
     
     
     public function destroy($id){

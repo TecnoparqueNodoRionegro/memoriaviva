@@ -76,7 +76,7 @@ Route::prefix('auth')->group(function(){
     Route::post('dataUsersAdmin', [DataUsersController::class, 'storeAdmin'])->name('dataUsersAdmin');
     Route::get('addUser', [AuthController::class, 'registerUser'])->name('addUser');
     Route::get('continuarRegistroAdmin', [AuthController::class, 'continuarRegistroAdmin'])->name('continuarRegistroAdmin');
-    Route::get('destroyUser/{id}', [DataUsersController::class, 'destroyUser'])->name('destroyUser');
+    Route::post('destroyUser/{id}', [AuthController::class, 'destroyUser'])->name('destroyUser');
     
 });
 
@@ -89,8 +89,9 @@ Route::prefix('users')->group(function(){
     Route::get('user_types/{id}/Edit', [UserTypesController::class, 'edit'])->name('user_types_edit');
     Route::put('user_types/{id}', [UserTypesController::class, 'update'])->name('user_types_update');
     Route::get('data_users_consult', [UserTypesController::class, 'indexUsers'])->name('data_users_consult');
-    Route::get('data_users/{id}/Edit', [UserTypesController::class, 'editUsers'])->name('data_users_edit');
-    Route::put('data_users/{id}', [UserTypesController::class, 'updateUsers'])->name('data_users_update');
+
+    Route::get('data_users/{user}/Edit', [DataUsersController::class, 'editUsers'])->name('data_users_edit');
+    Route::put('data_users/{user}/{data}', [DataUsersController::class, 'updateUsers'])->name('data_users_update');
     Route::post('user_types/{id}', [UserTypesController::class, 'destroy'])->name('user_types_destroy');
 });
 
