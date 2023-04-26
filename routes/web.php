@@ -150,3 +150,10 @@ Route::post('admin/menus', [MenuController::class, 'store'])->name('admin.menus.
 Route::get('admin/menus/{id}/edit', [MenuController::class, 'edit'])->name('admin.menus.edit');
 Route::patch('admin/menus/{menu}', [MenuController::class, 'update'])->name('admin.menus.update');
 Route::delete('admin/menus/{id}', [MenuController::class, 'destroy'])->name('admin.menus.destroy');
+
+// carrito
+
+Route::post('/cart-add', [carController::class, 'add'])->name('cart.add');
+Route::get('/cart-che', [carController::class, 'add'])->name('cart.add');
+Route::post('/cart-add', [carController::class, 'add'])->name('cart.add');
+Route::post('/cart-add', [carController::class, 'add'])->name('cart.add');
