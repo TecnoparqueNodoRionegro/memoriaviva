@@ -6,18 +6,25 @@
 <div class="container mb-5">
     <div id="galeria">
         <div class="row">
-
-            @foreach ($categories as $category)
-              <div class="col-md-4 mb-4"   >
-                <a href="#" class="btn text-white fs-4" style="font-family: font-family: 'Roboto', sans-serif;">
-                  <img src="{{ URL::asset('storage/img/sliders02.png') }}" class="card-img-top w-100">
-                  <i class="fa-solid fa-folder"></i>
-                  <span>Galería 1  </span>
+          @foreach ($categoryFiles as $category)
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+              <a href="{{ route('galleries.show', $category) }}" class="text-decoration-none">
+                <div class="card text-secondary">
+                    @foreach ($files as $file) 
+                      @if ($file->category_file_id == $category->id)
+                      <div style="height: 200px;">
+                        <img src="{{ URL::asset($file->route) }}" class="w-100 h-100 object-fit-cover card-img-top">
+                      </div>
+                      @endif
+                    @endforeach
+                    <div class="card-body">
+                      <i class="fa-solid fa-folder"></i>
+                      <span>{{ $category->description }}</span>
+                    </div>
+                  </div>
                 </a>
               </div>
             @endforeach
-
-
         </div>
     </div>
 
@@ -62,23 +69,8 @@
                     </div>
                   </div>
             </div>
-
-            <div class="d-flex justify-content-center mt-4 bg-black text-white">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                      <li class="page-item"><a class="page-link bg-black text-white" href="#"><i class="fa-solid fa-circle-chevron-left"></i></a></li>
-                      <li class="page-item"><a class="page-link page-link bg-black text-white" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link page-link bg-black text-white" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link page-link bg-black text-white" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link page-link bg-black text-white" href="#"><i class="fa-solid fa-circle-chevron-right"></i></a></li>
-                    </ul>
-                  </nav>
-            </div>
-
-
         </div>
     </div>
-
 </div>
 
 @include('layouts.footer')

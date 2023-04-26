@@ -17,8 +17,13 @@
                         <section class="py-5">
                              <div class="container">
                                 <div class="row justify-content-center">
+                                    @if(session('success'))
+                                        <div class="alert alert-success">
+                                            {{ session('success') }}
+                                        </div>
+                                    @endif
                                     <div class="col-md-6">
-                                    <h2>Información de categorias de productos</h2>
+                                    <h2>Categorias de productos</h2>
                                         <table class="table table-hover table-striped">
                                         <thead>
                                             <tr>
@@ -43,7 +48,7 @@
                                                         <form action="{{ route('categoryProductsDelete', $category->id)}}" method="post">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button class="btn btn-outline-danger btn-sm"> 
+                                                            <button class="btn btn-outline-danger btn-sm" onclick="return confirm('¿Desea eliminar la Categoría?');"> 
                                                                 <i class="fas fa-trash-alt"></i> Eliminar
                                                             </button>
                                                          </form>
@@ -52,6 +57,9 @@
                                             @endforeach
                                         </tbody>
                                         </table> 
+                                        <a  href="{{ route('categoryProductsCreate') }}" class="btn btn-dark btn-sm">
+                                            <i class="fa-light fa-plus"></i> Insertar Categoría de producto 
+                                        </a>
                                     </div>
                                 </div>
                             </div>

@@ -8,13 +8,19 @@ use App\Models\File;
 class CategoryFileController extends Controller
 {
     public function index() {
-        $categories = CategoryFile::all();
-        $files = File::select();
+        $categoryFiles = CategoryFile::all();
+        $files = [];
 
-        return view('galleries.index', compact('categories'));
+        foreach($categoryFiles as $category){
+            $files[] = File::select('category_file_id','route')->where('category_file_id', $category->id)->orderBy('id', 'DESC')->first();
+        }
+
+        // return $files;
+        return view('galleries.index', compact('categoryFiles', 'files'));
     }
     public function show(CategoryFile $category){
-        $files = File::all();
+        $files = File::where('category_file_id', $category->id)->orderBy('id', 'DESC')->get();
+
         return view('galleries.show', compact('category', 'files'));
     }
 }

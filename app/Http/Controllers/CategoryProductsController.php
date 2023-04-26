@@ -31,7 +31,7 @@ class CategoryProductsController extends Controller
             'file_id' => 1
         ]);
 
-        return redirect()->route('categoryProductsIndex')->with('success', 'Usuario registrado Correctamente');
+        return redirect()->route('categoryProductsIndex')->with('success', 'Categoria registrada Correctamente');
     }
     public function edit(category_products $id){
         return view('CategoryProducts.editProducts', compact('id'));
@@ -41,7 +41,7 @@ class CategoryProductsController extends Controller
         $data = $request->only('description');
 
         $id->update($data);
-        return redirect()->route('categoryProductsIndex')->with('success', 'Actualizado');
+        return redirect()->route('categoryProductsIndex')->with('success', 'Categoria actualizado');
     }
     public function destroy($id){
         $category = category_products::findOrFail($id);
