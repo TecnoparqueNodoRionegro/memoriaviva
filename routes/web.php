@@ -61,7 +61,7 @@ Route::get('payu/{product}', [PayController::class, 'index'])->name('pay.index')
 Route::get('/gracias', function(){
     return view('thanks');
 })->name('thanks');
-Route::post('paid/payu', [PaidController::class, 'payu'])->name('paid.payu');
+// Route::post('paid/payu', [PaidController::class, 'payu'])->name('paid.payu');
 
 // auth
 

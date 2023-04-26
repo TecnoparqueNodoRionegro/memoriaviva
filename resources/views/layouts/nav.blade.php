@@ -11,43 +11,19 @@
             </button>
             <div class="collapse navbar-collapse col-10" id="navbarSupportedContent" style="background-color: rgba(0, 0, 0, 0.822)">
                 <ul class="navbar-nav mb-2 " style="margin-left: 20%;">
+                    
+                    @foreach ($menus as $menu)
+                    
+                    @if ($menu->title == "Carrito")
+                        <li class="nav-item">
+                            <a class="nav-link text-white {{ request()->routeIs('/') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{route($menu->route)}}"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </li>
+                    @else
                     <li class="nav-item">
-                        <a class="nav-link text-white {{ request()->routeIs('index') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{ route('index') }}">Inicio</a>
+                        <a class="nav-link text-white {{ request()->routeIs('/') ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{route($menu->route)}}">{{$menu->title}}</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white {{ request()->routeIs('galleries.index', 'galleries.show') ? 'border-bottom border-warning' : ''  }}" href="{{ route('galleries.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Murales
-                        </a>
-                        <ul class="dropdown-menu" style="background: black">
-                            <li class="nav-item">
-                                <a class="nav-link  text-white" aria-current="page" href="{{ route('galleries.index') }}">Galerías</a>
-                            </li>
-                        <li><hr class="dropdown-divider"></li>
-                            <li class="nav-item">
-                                <a class="nav-link  text-white" aria-current="page" href="#artistas">Artistas</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Ruta cultural</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link text-white {{ request()->routeIs('products.index') ? 'border-bottom border-warning' : '' }}" href="{{ route('products.index') }}">Tienda</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Descargar APP</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                    </li>
-
-                    <li class="nav-item" style="">
-                        <a class="nav-link text-white" href="{{ url('auth/login') }}">Iniciar</a>
-                    </li>
+                    @endif
+                    @endforeach
                 </ul>
             </div>
         </div>
