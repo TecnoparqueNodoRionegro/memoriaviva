@@ -71,7 +71,7 @@ class DataUsersController extends Controller
         $user->save();
 
         // Redirigir al usuario a la página de detalles del usuario
-        return redirect()->route('user-details', $userId);
+        return redirect()->route('data_users_consult')->with('success', 'Usuario actualizado Correctamente');
     }
 
 

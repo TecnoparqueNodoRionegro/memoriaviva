@@ -1,6 +1,6 @@
 @extends('layouts.templateAdmin')
 
-@section('title', 'Crear Categoría')
+@section('title', 'Editar Usuario')
 
 @section('content')
     <div class="contenedor" id="contenedor">
@@ -21,7 +21,7 @@
                                     <div class="card-body">
                                     @foreach($data_user as $data)
                                         @if ($data->user_id == $user->id)
-                                          <form method="post" action="{{ route('update-data-users', $user->id, $data->id )}}">
+                                          <form method="post" action="{{ route('update-data-users', ['userId' => $user->id, 'dataUserId' => $data->id ])}}">
                                         @endif
                                     @endforeach
                                     @csrf
@@ -69,13 +69,13 @@
                                             <label for="gender" class="form-label">Género:</label>
                                             <span id="gender-error" class="text-danger"></span>
                                             <div class="form-check">
-                                                <input selected class="form-check-input" type="radio" name="gender" id="male" value="Masculino">
+                                                <input selected class="form-check-input" type="radio" name="gender" id="male" value="Masculino" @if($data->gender == "Masculino") checked @endif>
                                                 <label class="form-check-label" for="male">
                                                     Masculino
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gender" id="female" value="Femenino">
+                                                <input class="form-check-input" type="radio" name="gender" id="female" value="Femenino" @if($data->gender == "Femenino") checked @endif">
                                                 <label class="form-check-label" for="female">
                                                     Femenino
                                                 </label>

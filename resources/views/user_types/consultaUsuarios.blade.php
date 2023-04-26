@@ -48,6 +48,7 @@
                                                     <th>{{ $user->last_name }}</th>
                                                     <th>{{ $user->gender }}</th>
                                                     <th>{{ $user->phone }}</th>
+                                                    <th>{{ $user->biography }}</th>
                                                     <th>{{ $user->users->user_types->description }}</th>
                                                     <th>{{ $user->users->states->description }}</th>
                                                     
