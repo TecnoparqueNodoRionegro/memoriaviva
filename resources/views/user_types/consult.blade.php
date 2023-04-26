@@ -16,6 +16,11 @@
                    <div id="content">
                         <section class="py-5">
                              <div class="container">
+                                @if(session('success'))
+                                        <div class="alert alert-success">
+                                            {{ session('success') }}
+                                        </div>
+                                    @endif
                                 <div class="row justify-content-center">
                                     <div class="col-md-6">
                                     <h2>Roles del sistema</h2>
@@ -37,17 +42,22 @@
                                                         <a href="{{ route('user_types_edit', $user->id)}}" class="btn btn-dark btn-sm">
                                                             <i class="fas fa-edit"></i> Editar
                                                         </a>
-                                                        <a href="" class="btn btn-outline-danger btn-sm">
-                                                            <i class="fas fa-trash-alt"></i> Eliminar
-                                                        </a>
                                                     </th>
+                                                    <th>
+                                                        <form action="{{ route('user_types_destroy', $user->id)}}" method="post">
+                                                            @csrf
+                                                            <button class="btn btn-outline-danger btn-sm" onclick="return confirm('¿Desea eliminar el tipo de usuario?');"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                                                        </form>
+                                                    </th>
+                                                    
                                             </tr>
                                             @endforeach
                                         </tbody>
                                         </table> 
-                                        <div class="pagination">
-                                            {{ $user_types->links() }}
-                                        </div>
+                                        <a href="{{ route('user_types_register_form')}}" class="btn btn-dark btn-sm">
+                                            
+                                                <i class="fa-light fa-plus"></i> Agregar tipo de Usuario
+                                        </a>
                                     </div>
                                 </div>
                             </div>

@@ -45,6 +45,8 @@
                 <span id="phone-error" class="text-danger"></span>
             </div>
             <input type="hidden" value="{{ session('id') }}" name="id_user">
+            <input type="hidden" value="{{ session('user_type_id') }}" name="user_type_id">
+            <input type="hidden" name="formAdmin" value="2">
             <input type="submit" class="btn btn-dark btn-block" value="Terminar Registro">
         </form>
         </div>

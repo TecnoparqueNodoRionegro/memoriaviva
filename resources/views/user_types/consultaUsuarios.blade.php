@@ -17,15 +17,24 @@
                         <section class="py-5">
                              <div class="container">
                                 <div class="row justify-content-center">
-                                    <div class="col-md-6">
-                                    <h2>Información de usuarios del sistema</h2>
+                                    <div class="col-sm">
+                                    @if(session('success'))
+                                        <div class="alert alert-success">
+                                            {{ session('success') }}
+                                        </div>
+                                    @endif
+                                    <h2>Usuarios</h2>
                                         <table class="table table-hover table-striped">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
+                                                
+                                                <th>Correo</th>
                                                 <th>Nombre</th>
                                                 <th>Apellido</th>
+                                                <th>Genero</th>
                                                 <th>Telefono</th>
+                                                <th>Tipo de usuario</th>
+                                                <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -33,22 +42,36 @@
                                             @foreach($data_users as $user)
                                             <tr>
                                                 
-                                                    <th>{{ $user->id }}</th>
+                                                
+                                                    <th>{{ $user->users->email }}</th>
                                                     <th>{{ $user->name }}</th>
                                                     <th>{{ $user->last_name }}</th>
+                                                    <th>{{ $user->gender }}</th>
                                                     <th>{{ $user->phone }}</th>
+                                                    <th>{{ $user->biography }}</th>
+                                                    <th>{{ $user->users->user_types->description }}</th>
+                                                    <th>{{ $user->users->states->description }}</th>
+                                                    
+                                                    
+                                                    
                                                     <th>
-                                                        <a href="{{ route('data_users_edit', $user->id)}}" class="btn btn-dark btn-sm">
+                                                        <a href="{{ route('data_users_edit', $user->users->id)}}" class="btn btn-dark btn-sm">
                                                             <i class="fas fa-edit"></i> Editar
                                                         </a>
-                                                        <a href="" class="btn btn-outline-danger btn-sm">
-                                                            <i class="fas fa-trash-alt"></i> Eliminar
-                                                        </a>
+                                                            
+                                                    <th>
+                                                        <form action="{{ route('destroyUser', $user->users->id)}}" method="post">
+                                                            @csrf
+                                                            <button class="btn btn-outline-danger btn-sm" onclick="return confirm('¿Desea eliminar el usuario?');"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                                                        </form>
                                                     </th>
                                             </tr>
                                             @endforeach
                                         </tbody>
                                         </table> 
+                                        <a href="{{ route('addUser')}}" class="btn btn-dark btn-sm">
+                                            <i class="fa-light fa-plus"></i> Agregar
+                                        </a>
                                     </div>
                                 </div>
                             </div>

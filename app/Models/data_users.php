@@ -17,4 +17,10 @@ class data_users extends Model
             'user_id',
             'file_id'
     ];
+    public function users(){
+
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    
 }
