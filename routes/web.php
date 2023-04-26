@@ -61,7 +61,7 @@ Route::get('payu/{product}', [PayController::class, 'index'])->name('pay.index')
 Route::get('/gracias', function(){
     return view('thanks');
 })->name('thanks');
-Route::post('paid/payu', [PaidController::class, 'payu'])->name('paid.payu');
+// Route::post('paid/payu', [PaidController::class, 'payu'])->name('paid.payu');
 
 // auth
 
@@ -73,6 +73,11 @@ Route::prefix('auth')->group(function(){
     Route::get('continuarRegistro', [AuthController::class, 'continuarRegistro'])->name('continuarRegistro');
     Route::get('signOut', [AuthController::class, 'signOut'])->name('signOut');
     Route::post('dataUsers', [DataUsersController::class, 'store'])->name('dataUsers');
+    Route::post('dataUsersAdmin', [DataUsersController::class, 'storeAdmin'])->name('dataUsersAdmin');
+    Route::get('addUser', [AuthController::class, 'registerUser'])->name('addUser');
+    Route::get('continuarRegistroAdmin', [AuthController::class, 'continuarRegistroAdmin'])->name('continuarRegistroAdmin');
+    Route::post('destroyUser/{id}', [AuthController::class, 'destroyUser'])->name('destroyUser');
+    
 });
 
 // registrar tipo usuario
@@ -84,9 +89,12 @@ Route::prefix('users')->group(function(){
     Route::get('user_types/{id}/Edit', [UserTypesController::class, 'edit'])->name('user_types_edit');
     Route::put('user_types/{id}', [UserTypesController::class, 'update'])->name('user_types_update');
     Route::get('data_users_consult', [UserTypesController::class, 'indexUsers'])->name('data_users_consult');
-    Route::get('data_users/{id}/Edit', [UserTypesController::class, 'editUsers'])->name('data_users_edit');
-    Route::put('data_users/{id}', [UserTypesController::class, 'updateUsers'])->name('data_users_update');
+
+    Route::get('data_users/{user}/Edit', [DataUsersController::class, 'editUsers'])->name('data_users_edit');
+    Route::put('users/{userId}/data-users/{dataUserId}', [DataUsersController::class, 'updateDataUsers'])->name('update-data-users');
+    Route::post('user_types/{id}', [UserTypesController::class, 'destroy'])->name('user_types_destroy');
 });
+
 
 Route::middleware('auth')->group(function(){
     
@@ -132,7 +140,7 @@ Route::get('admin/articles', [ArticleController::class, 'index'])->name('admin.a
 Route::get('admin/articles/create/', [ArticleController::class, 'create'])->name('admin.articles.create');
 Route::post('admin/articles', [ArticleController::class, 'store'])->name('admin.articles.store');
 Route::get('admin/articles/{id}/edit', [ArticleController::class, 'edit'])->name('admin.articles.edit');
-Route::Patch('admin/articles/{id}', [ArticleController::class, 'update'])->name('admin.articles.update');
+Route::Patch('admin/articles/{article}', [ArticleController::class, 'update'])->name('admin.articles.update');
 Route::delete('admin/articles/{id}', [ArticleController::class, 'destroy'])->name('admin.articles.destroy');
 
 //Menus
@@ -140,5 +148,5 @@ Route::get('admin/menus', [MenuController::class, 'index'])->name('admin.menus.i
 Route::get('admin/menus/create', [MenuController::class, 'create'])->name('admin.menus.create');
 Route::post('admin/menus', [MenuController::class, 'store'])->name('admin.menus.store');
 Route::get('admin/menus/{id}/edit', [MenuController::class, 'edit'])->name('admin.menus.edit');
-Route::patch('admin/menus/{id}', [MenuController::class, 'update'])->name('admin.menus.update');
+Route::patch('admin/menus/{menu}', [MenuController::class, 'update'])->name('admin.menus.update');
 Route::delete('admin/menus/{id}', [MenuController::class, 'destroy'])->name('admin.menus.destroy');

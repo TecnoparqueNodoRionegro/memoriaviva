@@ -15,57 +15,57 @@ class UserTypesController extends Controller
         return View('user_types.consult', ['user_types' => $user_types]);
         
     }
+
+
     public function indexUsers()
     {
        $data_users = data_users::all();
-       $data_users = data_users::paginate(10);
-        return View('user_types.consultaUsuarios', ['data_users' => $data_users]);
+       
+        return View('user_types.consultaUsuarios', compact('data_users'));
         
     }
+
 
     public function create(){
         return View('user_types.register');
     }
+
+
     public function store(Request $request)
     {
-        
-
         user_types::create([
             'description' => $request->description
         ]);
         
 
-        return redirect()->route('user_types')->with('success', 'Usuario registrado Correctamente');
+        return redirect()->route('user_types')->with('success', 'Rol registrado Correctamente');
     }
-    public function consult(){
 
+
+    public function consult(){
         return View('user_types.consult');
     }
+
+
     public function edit(user_types $id){
-       
         return view('user_types.Edit', compact('id'));
     }
-    
-    public function editUsers(data_users $id){
-       
-        return view('user_types.EditUsers', compact('id'));
-    }
+
+
     public function update(Request $request, $id){
         $id = user_types::findOrFail($id);
         $data = $request->only('description');
 
         $id->update($data);
-        return redirect()->route('user_types')->with('success', 'Actualizado');
+        return redirect()->route('user_types')->with('success', 'Rol actualizado');
     }
-    public function updateUsers(Request $request, $id){
-        $id = data_users::findOrFail($id);
-        $data = $request->only('name');
-        $data = $request->only('last_name');
-        $data = $request->only('phone');
 
-        $id->update($data);
-        return redirect()->route('data_users_consult')->with('success', 'Actualizado');
+    
+    
+    public function destroy($id){
+        $user_types = user_types::findOrFail($id);
+        $user_types->delete();
+        return redirect()->back()->with('success', 'Categoría eliminada correctamente.');
+        
     }
-    
-    
 }

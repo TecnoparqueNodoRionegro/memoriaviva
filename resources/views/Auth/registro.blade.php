@@ -6,8 +6,14 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6 col-lg-5 mt-5">
+      @if ($errors->has('email'))
+        <div class="alert alert-danger">
+          {{ $errors->first('email') }}
+        </div>
+      @endif
       <div class="card">
         <div class="card-header bg-dark text-white">
+          
           <h2 class="text-center">Registrate</h2>
         </div>
         <div class="card-body">
@@ -30,6 +36,7 @@
               <div class="mb-3">
                 <label for="password2">Confirmar contraseña:</label>
                 <input type="password" class="form-control" name="passwordConfirmation" id="password2" placeholder="Confirme su contraseña" required data-match="#password1">
+                <input type="hidden" name="user_type_id" value="2">
                 <div class="invalid-feedback">
                   Por favor confirme su contraseña.
                 </div>

@@ -24,4 +24,8 @@ class State extends Model
     public function artilces(){
         return $this->hasMany(Article::class, 'id');
     }
+
+    public function users(){
+        return $this->hasMany(User::class, 'id');
+    }
 }

@@ -83,18 +83,10 @@
                                                         </a>
                                                     </div>
 
-                                                    <div class="col-lg-6 mb-3">
-                                                        <a  href="{{ route('categoryProductsCreate') }}" class="btn btn-secondary w-100 btnAdmin text-black">
-                                                            <div class="row">
-                                                                <div class="d-flex justify-content-between d-inline-block">Insertar Categoría de producto <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
                                                     <div class="col-lg-6">
                                                         <a  href="{{ route('categoryProductsIndex') }}" class="btn btn-secondary w-100 btnAdmin text-black">
                                                             <div class="row">
-                                                                <div class="d-flex justify-content-between d-inline-block">Consulta de Categoría de producto <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                                <div class="d-flex justify-content-between d-inline-block">Categoría de producto <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
                                                             </div>
                                                         </a>
                                                     </div>
@@ -147,30 +139,23 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-lg-6 mb-3">
-                                                        <a href="{{ route('user_types_register_form')}}" class="btn btn-secondary w-100 btnAdmin text-black">
-                                                            <div class="row">
-                                                                <div class="d-flex justify-content-between d-inline-block">Agregar tipo de Usuario <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-lg-6 mb-3">
                                                         <a href="{{ route('user_types')}}" class="btn btn-secondary w-100 btnAdmin text-black">
                                                             <div class="row">
-                                                                <div class="d-flex justify-content-between d-inline-block">Actualizar tipos de usuarios<i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                                <div class="d-flex justify-content-between d-inline-block">Tipos de usuarios<i class="fa-solid fa-plus d-flex align-self-center "></i></div>
                                                             </div>
                                                         </a>
                                                     </div>
                                                     <div class="col-lg-6 mb-3">
                                                         <a href="{{ route('data_users_consult')}}" class="btn btn-secondary w-100 btnAdmin text-black">
                                                             <div class="row">
-                                                                <div class="d-flex justify-content-between d-inline-block">Usuarios registrados en el sistema<i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                                <div class="d-flex justify-content-between d-inline-block">Usuarios<i class="fa-solid fa-plus d-flex align-self-center "></i></div>
                                                             </div>
                                                         </a>
                                                     </div>
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                         </section>
                     </div>
             </div>

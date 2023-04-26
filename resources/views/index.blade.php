@@ -12,6 +12,9 @@
 
     {{-- Slider murales --}}
     <div class=" row">
+        {{-- @foreach ($menus as $menu)
+            {{$menu->title}}
+        @endforeach --}}
 
         <div class="bg-5 col-md-4 d-flex justify-content-center align-items-center">
             <div class="hit-the-floor">MURALES CON COLORES DE ESPERANZA</div>

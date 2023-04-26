@@ -15,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $datosArticles = Article::orderBy('id', 'DESC')->simplePaginate(4);
+        $datosArticles = Article::orderBy('id', 'DESC')->simplePaginate(2);
         return view('admin.articles.index', compact('datosArticles'));
     }
 
@@ -97,11 +97,29 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
         //
-        $datosArticle = request()->except(['_token', '_method']);
-        Article::where('id', '=', $id)->update($datosArticle);
+        $rules = [
+            'html' => ['required'],
+            'title'=>['required'],
+            'state_id'=>['required']
+        ];
+
+        $customMessages =[
+            'html.required' => 'Este campo es obligatorio',
+            'title.required' => 'Este campo es obligatorio',
+            'state_id.required' => 'Este campo es obligatorio'
+        ];
+
+        $request->validate($rules, $customMessages);
+
+        $article->html = $request->html;
+        $article->title = $request->title;
+        $article->state_id = $request->state_id;
+
+        $article->save();
+        
         return redirect()->route('admin.articles.index');
     }
 

@@ -15,4 +15,12 @@ class User extends Authenticatable
         'state_id',
         'user_type_id'
     ];
+
+    public function user_types(){
+        return $this->belongsTo(user_types::class, 'user_type_id');
+    }
+
+    public function states(){
+        return $this->belongsTo(State::class, 'state_id');
+    }
 }

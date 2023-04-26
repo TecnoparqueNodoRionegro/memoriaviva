@@ -16,7 +16,7 @@ class ContactanosController extends Controller
 
 
     public function store(Request $request){
-        $enviar =null;
+        
         
         $rules = [
             'nombre' =>['required'],

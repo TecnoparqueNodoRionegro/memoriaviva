@@ -103,11 +103,32 @@ class MenuController extends Controller
      * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Menu $menu)
     {
         //
-        $datosMenu = request()->except(['_token', '_method']);
-        Menu::where('id', '=', $id)->update($datosMenu);
+
+        $rules = [
+            'title' => ['required'],
+            'route' => ['required'],
+            'state_id' => ['required'],
+            'menu_type_id' => ['required']
+        ];
+
+        $customMessages = [
+            'title.required' => 'Este campo es obligatorio',
+            'route.required' => 'Este campo es obligatorio',
+            'state_id.required' => 'Este campo es obligatorio',
+            'menu_type_id.required' => 'Este campo es obligatorio'
+        ];
+
+        $request->validate($rules, $customMessages);
+
+        $menu->title = $request->title;
+        $menu->route = $request->route;
+        $menu->state_id = $request->state_id;
+        $menu->menu_type_id = $request->menu_type_id;
+
+        $menu->save();
         return redirect()->route('admin.menus.index');
     }
 

@@ -40,7 +40,7 @@
                                                 @foreach ($datosArticles as $datosArticle)
                                                     <tr>
                                                         <td class="m-5 p-3">{{$datosArticle->id}}</td>
-                                                        <td>{{$datosArticle->html}}</td>
+                                                        <td> {{$datosArticle->html}} </td>
                                                         <td>{{$datosArticle->state->description}}</td>
                                                         <td width="320">
                                                             <form action="{{route('admin.articles.destroy', $datosArticle->id)}}" method="POST">
@@ -50,12 +50,11 @@
                                                                 <button class="btn btn-dark w-25" type="submit" onclick="return confirm('¿Desea eliminar la Categoría?');"><i class="fa-solid fa-trash"></i></button>
                                                             </form>
                                                         </td>
-                                                        
                                                     </tr>
                                                     @endforeach
-                                                
                                             </tbody>
                                         </table>
+                                        {{ $datosArticles->links() }}
                                     </div>
                                 </div>
 
