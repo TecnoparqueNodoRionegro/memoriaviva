@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Transacción aprovada')
+@section('title', 'Transacción aprobada')
 
 @section('content')
     <body class="bg-light">

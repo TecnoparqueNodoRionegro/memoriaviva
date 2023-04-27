@@ -4,29 +4,37 @@
 
 @section('content')
 <div class="container mb-5">
+  @if ($categoryFiles->isEmpty())
+    <div style="height: 30rem;">
+      <h1 class="text-center text-white">Aún no hay galerías</h1>
+    </div>
+  @else
     <div id="galeria">
         <div class="row">
           @foreach ($categoryFiles as $category)
             <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
               <a href="{{ route('galleries.show', $category) }}" class="text-decoration-none">
                 <div class="card text-secondary">
-                    @foreach ($files as $file) 
-                      @if ($file->category_file_id == $category->id)
-                      <div style="height: 200px;">
-                        <img src="{{ URL::asset($file->route) }}" class="w-100 h-100 object-fit-cover card-img-top">
-                      </div>
-                      @endif
-                    @endforeach
-                    <div class="card-body">
-                      <i class="fa-solid fa-folder"></i>
-                      <span>{{ $category->description }}</span>
+                  @if ($files[$loop->iteration-1] == null)
+                    <div class="d-flex align-items-center justify-content-center text-secondary card-header" style="height: 200px;">
+                      <h3>VACÍO</h3>
                     </div>
+                  @else 
+                    <div style="height: 200px;">
+                      <img src="{{ URL::asset($files[$loop->iteration-1]->route) }}" class="w-100 h-100 object-fit-cover card-img-top">
+                    </div>
+                  @endif
+                  <div class="card-body">
+                    <i class="fa-solid fa-folder"></i>
+                    <span>{{ $category->description }}</span>
                   </div>
-                </a>
-              </div>
-            @endforeach
+                </div>
+              </a>
+            </div>
+          @endforeach
         </div>
     </div>
+  @endif
 
     <div id="artistas">
         <div class="text-center text-white m-3">

@@ -1,4 +1,4 @@
-<footer class="mt-5">
+<footer class="position-absolute bottom-0 w-100">
     <div class="container text-light d-flex justify-content-center">
         <div class="row">
             <div class="col-md-6 ">
@@ -45,9 +45,9 @@
             </div>
         </div>
     </div>
+    <div style="font-family: 'Roboto', sans-serif; background-color: #000000; color: #fff; text-align: center; padding: 10px;">
+        <hr>
+        © 2023 Memoria todo color. Todos los derechos reservados.
+    </div>
 </footer>
 
-<div style="font-family: 'Roboto', sans-serif; background-color: #000000; color: #fff; text-align: center; padding: 10px; margin-bottom: 5px; ">
-    <hr>
-    © 2023 Memoria todo color. Todos los derechos reservados.
-</div>
