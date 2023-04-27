@@ -19,7 +19,7 @@
 
     <title>@yield('title')</title>
 </head>
-<body  style="background-color: black; margin-top: 11rem; font-family: 'Figtree', sans-serif;">
+<body  style="background-color: rgb(255, 255, 255); font-family: 'Figtree', sans-serif;">
 
     <!-- header -->
     <header>@include('layouts.nav')</header>
