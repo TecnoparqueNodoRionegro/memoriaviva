@@ -1,4 +1,4 @@
-<footer class="position-absolute bottom-0 w-100">
+<footer class="bottom-0 w-100" style="background-image: url('storage/img/fondo.png');">
     <div class="container text-light d-flex justify-content-center">
         <div class="row">
             <div class="col-md-6 ">

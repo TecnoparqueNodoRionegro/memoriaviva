@@ -19,7 +19,7 @@
 
     <title>@yield('title')</title>
 </head>
-<body  style="background-color: rgb(255, 255, 255); font-family: 'Figtree', sans-serif;">
+<body  style="background-color: rgb(228, 228, 228); font-family: 'Figtree', sans-serif;">
 
     <!-- header -->
     <header>@include('layouts.nav')</header>
@@ -34,6 +34,6 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     @yield('js')
-    
+
 </body>
 </html>

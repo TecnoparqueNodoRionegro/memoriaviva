@@ -1,5 +1,8 @@
-<div class="position-absolute w-100" style="z-index: 1;">
-    <nav class="navbar navbar-expand-xl" style="background-color: rgba(0, 0, 0, 0);">
+<div class="w-100" style="z-index: 1;">
+    <div style="width: 100%; height: 7rem; position: absolute;">
+        <img class="w-100 h-100 object-fit-cover" src="{{ URL::asset('storage/img/fondo.png') }}">
+    </div>
+    <nav class="navbar navbar-expand-xl">
         <div class="container-fluid fw-bold fs-5" style="background-color: rgba(0, 0, 0, 0);">
             <div class="col-2 d-flex" style="height: 6.5rem;">
                 <a class="navbar-brand " href="#">
@@ -11,9 +14,9 @@
             </button>
             <div class="collapse navbar-collapse col-8 px-2" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    
+
                     @foreach ($menus as $menu)
-                    
+
                     @if ($menu->title == "Carrito")
                         <li class="nav-item">
                             <a class="nav-link text-white {{ request()->routeIs($menu->route) ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{route($menu->route)}}"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -24,9 +27,6 @@
                     </li>
                     @endif
                     @endforeach
-                    <li class="nav-item">
-                        <a class="nav-link text-white"  aria-current="page">Inicio</a>
-                    </li>
                 </ul>
             </div>
             <div class="2">

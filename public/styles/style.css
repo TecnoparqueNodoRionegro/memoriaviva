@@ -137,7 +137,7 @@ a:hover{
     padding-bottom: 5rem;
 }
 
-/* Calses para usar en Javascript */
+/* Clases para usar en Javascript */
 
 .contenedor_move{
     margin-left: 250px;
@@ -171,15 +171,4 @@ a:hover{
 }
 
 
-/* Estilos de galeria  */
-/* Fotos */
-.prueba{
-    width: 420px;
-    height: 280px;
-}
 
-.prueba1{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
