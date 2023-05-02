@@ -4,8 +4,8 @@
 
 @section('content')
     <body class="bg-light">
-        
-        @extends('layouts.templateProducts')
+
+        @include('layouts.templateProducts')
 
         @section('buttons')
             <a href="{{ route('pay.index', $product) }}">

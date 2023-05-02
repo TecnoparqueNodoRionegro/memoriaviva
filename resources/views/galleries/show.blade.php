@@ -60,7 +60,7 @@ img{
 }
 
 img:hover{
-    opacity: 0.5;
+    opacity: .1;
 }
 
 img{

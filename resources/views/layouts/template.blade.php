@@ -8,10 +8,10 @@
     {{-- estilos --}}
     <link rel="stylesheet" href="{{ asset("styles/style.css") }}">
     <link rel="stylesheet" href="{{ asset("styles/slider.css") }}">
-    
 
-   
-    
+
+
+
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
@@ -24,14 +24,14 @@
 
     <title>@yield('title')</title>
 </head>
-<body  style="background-color: rgb(228, 228, 228); font-family: 'Figtree', sans-serif;">
+<body  style=" background-image: url('storage/img/fondo.png'); 'Figtree', sans-serif;">
 
     <!-- header -->
     <header>@include('layouts.nav')</header>
 
     <!-- body -->
     @yield('content')
-    
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://kit.fontawesome.com/46d368726b.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
