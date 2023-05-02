@@ -1,88 +1,71 @@
-@extends('layouts.template')
+{{-- @extends('layouts.template')
 
 @section('title', 'Inicio')
 
 @section('content')
-<div class="container">
-
-         {{-- Video --}}
-    <div class=" video-responsive ratio ratio-16x9 mb-5 mt-3">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/vx0XnMn5DHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div>
+    <div class="w-100">
+        <img class="position-absolute img-fluid w-100 h-100 object-fit-cover" style="z-index: -1;" src="{{ URL::asset('storage/img/mask.png') }}">
+        <img class="position-absolute img-fluid w-100 h-100 object-fit-cover" style="z-index: -2;" src="{{ URL::asset('storage/img/slide3.jpg') }}">
     </div>
-
-    {{-- Slider murales --}}
-    <div class=" row">
-        {{-- @foreach ($menus as $menu)
-            {{$menu->title}}
-        @endforeach --}}
-
-        <div class="bg-5 col-md-4 d-flex justify-content-center align-items-center">
-            <div class="hit-the-floor">MURALES CON COLORES DE ESPERANZA</div>
-        </div>
-
-        <div class="col-md-8">
-
-            <div id="carouselExampleIndicators" class="carousel slide" >
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                </div>
-
-                <div class="carousel-inner rounded mb-3">
-                    <div class="carousel-item active">
-                        <img src="{{ URL::asset('storage/img/slide1.JPG') }}" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ URL::asset('storage/img/slide2.JPG') }}" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ URL::asset('storage/img/slide3.JPG') }}" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ URL::asset('storage/img/slide4.JPG') }}" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ URL::asset('storage/img/slide5.JPG') }}" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-
-        </div>
-
-    </div>
-
-    {{--fotter--}}
+    
+    @include('layouts.footer')
 </div>
-@include('layouts.footer')
 @endsection
 
 @section('js')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-        @if (session('enviar') =='ok')
-            <script>
-                Swal.fire('Mensaje Enviado con Éxito.')   
-            </script>
-        @endif  
-    
-<script type="text/javascript">
-    $('#form-contact').submit(function (e) { 
-        e.preventDefault();
-        this.submit();
-    });
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
+            @if (session('enviar') =='ok')
+                <script>
+                    Swal.fire('Mensaje Enviado con Éxito.')   
+                </script>
+            @endif  
+        
+    <script type="text/javascript">
+        $('#form-contact').submit(function (e) { 
+            e.preventDefault();
+            this.submit();
+        });
+    </script>
 
-@endsection
+@endsection --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&display=swap" rel="stylesheet">
+    <title>Memoria todo color</title>
+</head>
+<body>
+    <div class="w-100 h-100">
+        <img class="position-absolute m-3" style="z-index: 1; width: 200px;" src="{{ URL::asset('storage/img/logo.png') }}">
+        <img class="position-absolute img-fluid w-100 h-100 object-fit-fill" src="{{ URL::asset('storage/img/mask.png') }}">
+        <img class="position-absolute img-fluid w-100 h-100 object-fit-cover" style="z-index: -1;" src="{{ URL::asset('storage/img/slide1.jpg') }}">
+
+        <div class="mx-5 fw-bold" style="position: absolute; top: 30%;">
+            <div style="-webkit-text-stroke: 3px white; color: transparent; font-family: 'Noto Sans', sans-serif;">
+                <h1 style="font-size: 60px;">Descubre San</h1>
+                <h1 style="font-size: 60px;">Carlos</h1>
+            </div>
+            <div style="color: white; font-family: 'Noto Sans', sans-serif;">
+                <h1 style="font-size: 60px;">con Realidad</h1>
+                <h1 style="font-size: 60px;">Aumentada</h1>
+            </div>
+
+            <button class="btn fw-bold w-75" style="background: linear-gradient(0deg, rgba(247,138,37,1) 0%, rgba(253,207,0,1) 100%); font-size: 20px; border-radius: 100px; border: none !important; margin-top: 8rem;">
+                Comencemos el Tour
+            </button>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+</body>
+</html>

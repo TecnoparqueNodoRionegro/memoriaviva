@@ -85,9 +85,9 @@
 
                                                     <div class="col-lg-6">
                                                         <a  href="{{ route('categoryProductsIndex') }}" class="btn btn-secondary w-100 btnAdmin text-black">
-                                                                    <div class="row">
-                                                                        <div class="d-flex justify-content-between d-inline-block">Categoría de producto <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
-                                                                    </div>
+                                                            <div class="row">
+                                                                <div class="d-flex justify-content-between d-inline-block">Categoría de producto <i class="fa-solid fa-plus d-flex align-self-center "></i></div>
+                                                            </div>
                                                         </a>
                                                     </div>
                                                 </div>

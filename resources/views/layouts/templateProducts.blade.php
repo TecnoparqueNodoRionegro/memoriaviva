@@ -1,11 +1,11 @@
 <div>
     <div class="container">
         <div class="row bg-white rounded shadow p-5">
-            <div class="col-6" style="width: 600px; height: 300px;">
+            <div class="col-xxl-6 col-sm-12 mb-3" style="width: 30rem;">
                 <img class="object-fit-scale w-100 h-100" src="{{ $product->files->route }}">
             </div>
             
-            <div class="d-flex align-items-center col-6">
+            <div class="d-flex align-items-center col-xxl-6 col-sm-12">
                 <div>
                     <h1>{{ $product->name }}</h1>
                     <p>{{ $product->description }}</p>
