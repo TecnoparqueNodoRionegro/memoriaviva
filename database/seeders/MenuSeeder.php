@@ -44,7 +44,7 @@ class MenuSeeder extends Seeder
         $tienda->save();
         
         $iniciarSesion = new Menu();
-        $iniciarSesion->title = "Iniciar Sesión";
+        $iniciarSesion->title = "Descargar APP";
         $iniciarSesion->route = "login";
         $iniciarSesion->state_id = 1; 
         $iniciarSesion->menu_type_id = 1;
