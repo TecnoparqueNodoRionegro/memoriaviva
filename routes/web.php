@@ -13,6 +13,7 @@ use App\Http\Controllers\CategoryFileController;
 use App\Http\Controllers\CategoryProductsController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\ProductAdminController;
+use App\Http\Controllers\cartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,11 +58,13 @@ Route::get('products', [ProductController::class, 'index'])->name('products.inde
 Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 //PayU
+Route::post('payu', [PayController::class, 'indexCart'])->name('pay.payu');
 Route::get('payu/{product}', [PayController::class, 'index'])->name('pay.index');
+
 Route::get('/gracias', function(){
     return view('thanks');
 })->name('thanks');
-// Route::post('paid/payu', [PaidController::class, 'payu'])->name('paid.payu');
+Route::post('paid/payu', [PaidController::class, 'payu'])->name('paid.payu');
 
 // auth
 
@@ -151,6 +154,11 @@ Route::get('admin/menus/{id}/edit', [MenuController::class, 'edit'])->name('admi
 Route::patch('admin/menus/{menu}', [MenuController::class, 'update'])->name('admin.menus.update');
 Route::delete('admin/menus/{id}', [MenuController::class, 'destroy'])->name('admin.menus.destroy');
 
+// carrito
+Route::get('/cart-checkout', [cartController::class, 'cart'])->name('cart.checkout');
+Route::post('/cart-add', [cartController::class, 'add'])->name('cart.add');
+Route::post('/cart-clear', [cartController::class, 'clear'])->name('cart.clear');
+Route::post('/cart-removeitem', [cartController::class, 'removeitem'])->name('cart.removeitem');
 Route::get('culturalRoute', function () {
     return view('culturalRoute.index');
 })->name('culturalRoute');
