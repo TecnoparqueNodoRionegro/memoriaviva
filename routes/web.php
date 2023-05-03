@@ -80,7 +80,7 @@ Route::prefix('auth')->group(function(){
     Route::get('addUser', [AuthController::class, 'registerUser'])->name('addUser');
     Route::get('continuarRegistroAdmin', [AuthController::class, 'continuarRegistroAdmin'])->name('continuarRegistroAdmin');
     Route::post('destroyUser/{id}', [AuthController::class, 'destroyUser'])->name('destroyUser');
-    
+
 });
 
 // registrar tipo usuario
@@ -100,7 +100,7 @@ Route::prefix('users')->group(function(){
 
 
 Route::middleware('auth')->group(function(){
-    
+
 });
 
 
@@ -159,3 +159,10 @@ Route::get('/cart-checkout', [cartController::class, 'cart'])->name('cart.checko
 Route::post('/cart-add', [cartController::class, 'add'])->name('cart.add');
 Route::post('/cart-clear', [cartController::class, 'clear'])->name('cart.clear');
 Route::post('/cart-removeitem', [cartController::class, 'removeitem'])->name('cart.removeitem');
+Route::get('culturalRoute', function () {
+    return view('culturalRoute.index');
+})->name('culturalRoute');
+
+Route::get('inicio', function () {
+    return view('inicio');
+})->name('inicio');

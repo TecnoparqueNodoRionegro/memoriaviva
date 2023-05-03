@@ -13,21 +13,26 @@
                 <i class="fa-solid fa-bars text-white"></i>
             </button>
             <div class="collapse navbar-collapse col-8 px-2" id="navbarSupportedContent">
+                
                 <ul class="navbar-nav">
-
+                
                     @foreach ($menus as $menu)
-
+                    
                     @if ($menu->title == "Carrito")
-                        <li class="nav-item">
-                            <a class="nav-link text-white {{ request()->routeIs($menu->route) ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{route($menu->route)}}"><i class="fa-solid fa-cart-shopping"></i></a>
-                        </li>
-                    @else
+                        @if (auth()->check())
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ request()->routeIs($menu->route) ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{route($menu->route)}}"><i class="fa-solid fa-cart-shopping"></i></a>
+                            </li>
+                        @endif
+                        @else
+                    
                     <li class="nav-item">
                         <a class="nav-link text-white {{ request()->routeIs($menu->route) ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{route($menu->route)}}">{{$menu->title}}</a>
                     </li>
                     @endif
                     @endforeach
                 </ul>
+                
             </div>
             <div class="2">
                 <a class="btn border border-white text-white" href="{{ route('login') }}">Ingresar</a>
