@@ -36,9 +36,11 @@
                     </table>
                     <div class="text-end">
                         <h4>Total del carrito: ${{ number_format($total) }}</h4> <!-- Muestra total del carrito -->
-                        <a href="{{ route('pay.index', $total) }}">
-                            <button class="btn btn-dark">Comprar</button>
-                        </a>
+                        <form action="{{ route('pay.payu') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="total" value="{{ $total }}">
+                            <input type="submit" value="Comprar" class="btn btn-dark">
+                        </form>
                     </div>
                 @else
                 <div class="alert alert-danger text-center" role="alert">

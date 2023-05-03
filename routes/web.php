@@ -58,7 +58,9 @@ Route::get('products', [ProductController::class, 'index'])->name('products.inde
 Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 //PayU
+Route::post('payu', [PayController::class, 'indexCart'])->name('pay.payu');
 Route::get('payu/{product}', [PayController::class, 'index'])->name('pay.index');
+
 Route::get('/gracias', function(){
     return view('thanks');
 })->name('thanks');
