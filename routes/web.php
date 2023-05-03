@@ -77,7 +77,7 @@ Route::prefix('auth')->group(function(){
     Route::get('addUser', [AuthController::class, 'registerUser'])->name('addUser');
     Route::get('continuarRegistroAdmin', [AuthController::class, 'continuarRegistroAdmin'])->name('continuarRegistroAdmin');
     Route::post('destroyUser/{id}', [AuthController::class, 'destroyUser'])->name('destroyUser');
-    
+
 });
 
 // registrar tipo usuario
@@ -97,7 +97,7 @@ Route::prefix('users')->group(function(){
 
 
 Route::middleware('auth')->group(function(){
-    
+
 });
 
 
@@ -150,3 +150,11 @@ Route::post('admin/menus', [MenuController::class, 'store'])->name('admin.menus.
 Route::get('admin/menus/{id}/edit', [MenuController::class, 'edit'])->name('admin.menus.edit');
 Route::patch('admin/menus/{menu}', [MenuController::class, 'update'])->name('admin.menus.update');
 Route::delete('admin/menus/{id}', [MenuController::class, 'destroy'])->name('admin.menus.destroy');
+
+Route::get('culturalRoute', function () {
+    return view('culturalRoute.index');
+})->name('culturalRoute');
+
+Route::get('inicio', function () {
+    return view('inicio');
+})->name('inicio');

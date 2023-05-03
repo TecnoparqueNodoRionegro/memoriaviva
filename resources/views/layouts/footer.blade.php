@@ -1,17 +1,17 @@
-<footer class=" w-100" style="background-image: url('storage/img/fondo.png');">
+<footer class=" w-100 fixed-bottom" style="background-image: url('storage/img/fondo.png');">
     <div class="container text-light d-flex justify-content-center">
         <div class="row">
 
-            <div class="col-md-6 justify-content-center w-50 p-3">
+            <div class="col-md-6 justify-content w-50 p-3">
                 <h4 class="footer-title"><i class=" ">Nosotros</i></h4>
-                <ul class="list-unstyled">
-                <li><i class="bi bi-envelope-fill me-2"><i class="fa-solid fa-envelope"></i> Correo electrónico: ejemplo@ejemplo.com</i> </li>
-                <li><i class="bi bi-telephone-fill me-2"><i class="fa-solid fa-mobile-screen"></i> Teléfono: 123-456-7890</i></li>
-                <li><i class="bi bi-geo-alt-fill me-2"><i class="fa-solid fa-location-dot"></i> Dirección: 123 Calle Ejemplo, Ciudad Ejemplo, Estado Ejemplo, Código Postal Ejemplo</i> </li>
+                <ul class="list-unstyled ml-1">
+                <li><i class="bi bi-envelope-fill me-2"><i class="fa-solid fa-envelope" style="margin-right: 10px"></i> Correo electrónico: ejemplo@ejemplo.com</i> </li>
+                <li><i class="bi bi-telephone-fill me-2"><i class="fa-solid fa-mobile-screen" style="margin-right: 10px"></i> Teléfono: 123-456-7890</i></li>
+                <li><i class="bi bi-geo-alt-fill me-2"><i class="fa-solid fa-location-dot" style="margin-right: 10px;"></i> Dirección: 123 Calle Ejemplo, Ciudad Ejemplo, Estado Ejemplo.</i> </li>
                 </ul>
             </div>
 
-            <div class="col-md-6 justify-content-center w-50 p-3">
+            <div class="col-md-6 justify-content-center w-50 p-3 text-center">
                 <h4><i class="footer-title text-center">Formulario de contacto</i></h4>
 
                 <form action="{{route('contactanos.store')}}" method="post" id="form-contact">
