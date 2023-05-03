@@ -8,15 +8,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" />
 
-
-<div class="container" style="margin-top: 5px">
-
 @if ($categoryFiles->isEmpty())
 <div style="height: 30rem;">
     <h1 class="text-center text-white">Aún no hay galerías</h1>
 </div>
 @else
-<div class="galeria">
+<div class="container">
     <div class="w-100 h2 pb-2 mx-auto text-black-50 border-bottom border-secondary">
         Albúm de murales
     </div>
@@ -43,7 +40,7 @@
 </div>
 @endif
 
-<div class="container-fluid mt-5">
+<div class="container mt-5">
     <div class="w-100  h2  pb-2  mx-auto text-black-50 border-bottom border-secondary">
         Nuestros artistas vinculados
     </div>
@@ -311,3 +308,5 @@ $('.owl-carousel').owlCarousel({
 })
 </script>
 @endsection
+
+

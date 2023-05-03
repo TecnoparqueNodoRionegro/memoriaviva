@@ -71,7 +71,7 @@ class AuthController extends Controller
         if(Auth::attempt(['email'=> $request->email, 'password' => $request->password, 'user_type_id' => 1])){
             return view('admin.admin');
         }elseif(Auth::attempt(['email'=> $request->email, 'password' => $request->password, 'user_type_id' => 2])){
-            return ('Usuario');
+            return redirect()->route('products.index');
         }
         return back()->withErrors(['invalid_credentials'=> 'Usuario o Contraseña no valida'])->withInput();
     }
