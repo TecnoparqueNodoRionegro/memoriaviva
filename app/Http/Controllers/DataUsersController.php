@@ -7,12 +7,23 @@ use App\Models\user_types;
 use App\Models\State;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DataUsersController extends Controller
 {
     
     public function store(Request $request)
     {
+        $files = $request->file('profile');
+        $url = '';
+
+        if ($files != null){
+            $route = $files->storeAs('public/img', $files->getClientOriginalName());
+            $url = Storage::url($route);
+        } else if ($files == null){
+            $url = null;
+        }
+
         data_users::create([
             'name' => $request->name,
             'last_name' => $request->last_name,
@@ -20,7 +31,7 @@ class DataUsersController extends Controller
             'phone' => $request->phone,
             'biography' => "sin biografia",
             'user_id' => $request->id_user,
-            'file_id' => 1,
+            'file' => $url,
         ]);
         
     
@@ -28,8 +39,19 @@ class DataUsersController extends Controller
         
         
     }
+
     public function storeAdmin(Request $request)
     {
+        $files = $request->file('profile');
+        $url = '';
+
+        if ($files != null){
+            $route = $files->storeAs('public/img', $files->getClientOriginalName());
+            $url = Storage::url($route);
+        } else if ($files == null){
+            $url = null;
+        }
+
         data_users::create([
             'name' => $request->name,
             'last_name' => $request->last_name,
@@ -37,20 +59,20 @@ class DataUsersController extends Controller
             'phone' => $request->phone,
             'biography' => "sin biografia",
             'user_id' => $request->id_user,
-            'file_id' => 1,
+            'file' => $url,
         ]);
         
     
         return redirect()->route('data_users_consult')->with('success', 'Usuario registrado Correctamente');
-        
-        
     }
+
     public function editUsers(User $user){
         $user_types = user_types::all();
         $State = State::all();
         $data_user = data_users::all();
         return view('user_types.editUsers', compact('user', 'user_types', 'State', 'data_user'));
     }
+    
     public function updateDataUsers(Request $request, $userId, $dataUserId)
     {
         // Actualizar los datos en la tabla 'data_users'

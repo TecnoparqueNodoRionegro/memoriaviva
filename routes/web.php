@@ -14,6 +14,7 @@ use App\Http\Controllers\CategoryProductsController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\ProductAdminController;
 use App\Http\Controllers\cartController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -166,3 +167,6 @@ Route::get('culturalRoute', function () {
 Route::get('inicio', function () {
     return view('inicio');
 })->name('inicio');
+
+Route::get('user/{id}/edit', [UserProfileController::class, 'edit'])->name('user_profile.edit');
+Route::put('user/{id}', [UserProfileController::class, 'update'])->name('user_profile.update');

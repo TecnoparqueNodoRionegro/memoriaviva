@@ -45,240 +45,34 @@
         Nuestros artistas vinculados
     </div>
         <div class="owl-carousel text-center">
-            <div class="card item my-5">
-                <div class="position-relative d-flex justify-content-center p-4 card-header" style="background-color: #120A33;">
-                    <div class="card-img bg-white p-1" style="width: 150px; height: 150px; border-radius: 50%;">
-                        <img class="w-100 h-100 object-fit-cover" style="border-radius: 50%; border: 4px solid #120A33;" src="https://www.realmadrid.com/img/vertical_380px/380x501_courtois_20230215094344.jpg">
+            @foreach ($artists as $artist)   
+                <div class="card item my-5">
+                    <div class="position-relative d-flex justify-content-center p-4 card-header" style="background-color: #120A33;">
+                        <div class="card-img bg-white p-1" style="width: 150px; height: 150px; border-radius: 50%;">
+                            <img class="w-100 h-100 object-fit-cover" style="border-radius: 50%; border: 4px solid #120A33;" src="{{ URL::asset($artist->file) }}">
+                        </div>
                     </div>
-                </div>
 
-                <div class="card-content text-center p-4">
-                    <h2>Nombre</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, dicta a? Facere delectus culpa voluptatibus repellendus id eveniet, magni est quo praesentium. Earum voluptates eum ratione veniam, ad quae corporis!</p>
-                    <div class="d-flex justify-content-center gap-4">
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-youtube fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-twitter fa-lg"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card item my-5">
-                <div class="position-relative d-flex justify-content-center p-4 card-header" style="background-color: #120A33;">
-                    <div class="card-img bg-white p-1" style="width: 150px; height: 150px; border-radius: 50%;">
-                        <img class="w-100 h-100 object-fit-cover" style="border-radius: 50%; border: 4px solid #120A33;" src="https://www.realmadrid.com/img/vertical_380px/380x501_militao_20230215094350.jpg">
-                    </div>
-                </div>
-
-                <div class="card-content text-center p-4">
-                    <h2>Nombre</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, dicta a? Facere delectus culpa voluptatibus repellendus id eveniet, magni est quo praesentium. Earum voluptates eum ratione veniam, ad quae corporis!</p>
-                    <div class="d-flex justify-content-center gap-4">
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-youtube fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                    <div class="card-content text-center p-4">
+                        <h2>{{ $artist->name }}</h2>
+                        <p class="overflow-auto" style="height: 150px;">{{ $artist->biography }}</p>
+                        <div class="d-flex justify-content-center gap-4">
+                            <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
+                                <a class="text-white"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
+                                <a class="text-white"><i class="fa-brands fa-youtube fa-lg"></i></a>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
+                                <a class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
+                                <a class="text-white"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card item my-5">
-                <div class="position-relative d-flex justify-content-center p-4 card-header" style="background-color: #120A33;">
-                    <div class="card-img bg-white p-1" style="width: 150px; height: 150px; border-radius: 50%;">
-                        <img class="w-100 h-100 object-fit-cover" style="border-radius: 50%; border: 4px solid #120A33;" src="https://www.realmadrid.com/img/vertical_380px/380x501_vinicius_20230215094346.jpg">
-                    </div>
-                </div>
-
-                <div class="card-content text-center p-4">
-                    <h2>Nombre</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, dicta a? Facere delectus culpa voluptatibus repellendus id eveniet, magni est quo praesentium. Earum voluptates eum ratione veniam, ad quae corporis!</p>
-                    <div class="d-flex justify-content-center gap-4">
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-youtube fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-twitter fa-lg"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card item my-5">
-                <div class="position-relative d-flex justify-content-center p-4 card-header" style="background-color: #120A33;">
-                    <div class="card-img bg-white p-1" style="width: 150px; height: 150px; border-radius: 50%;">
-                        <img class="w-100 h-100 object-fit-cover" style="border-radius: 50%; border: 4px solid #120A33;" src="https://www.realmadrid.com/img/vertical_380px/380x501_benzema_20230215094340.jpg">
-                    </div>
-                </div>
-
-                <div class="card-content text-center p-4">
-                    <h2>Nombre</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, dicta a? Facere delectus culpa voluptatibus repellendus id eveniet, magni est quo praesentium. Earum voluptates eum ratione veniam, ad quae corporis!</p>
-                    <div class="d-flex justify-content-center gap-4">
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-youtube fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-twitter fa-lg"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card item my-5">
-                <div class="position-relative d-flex justify-content-center p-4 card-header" style="background-color: #120A33;">
-                    <div class="card-img bg-white p-1" style="width: 150px; height: 150px; border-radius: 50%;">
-                        <img class="w-100 h-100 object-fit-cover" style="border-radius: 50%; border: 4px solid #120A33;" src="https://www.realmadrid.com/img/vertical_380px/380x501_modric_20230215094339.jpg">
-                    </div>
-                </div>
-
-                <div class="card-content text-center p-4">
-                    <h2>Nombre</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, dicta a? Facere delectus culpa voluptatibus repellendus id eveniet, magni est quo praesentium. Earum voluptates eum ratione veniam, ad quae corporis!</p>
-                    <div class="d-flex justify-content-center gap-4">
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-youtube fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-twitter fa-lg"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card item my-5">
-                <div class="position-relative d-flex justify-content-center p-4 card-header" style="background-color: #120A33;">
-                    <div class="card-img bg-white p-1" style="width: 150px; height: 150px; border-radius: 50%;">
-                        <img class="w-100 h-100 object-fit-cover" style="border-radius: 50%; border: 4px solid #120A33;" src="https://www.realmadrid.com/img/vertical_380px/380x501_kroos_20230215094339.jpg">
-                    </div>
-                </div>
-
-                <div class="card-content text-center p-4">
-                    <h2>Nombre</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, dicta a? Facere delectus culpa voluptatibus repellendus id eveniet, magni est quo praesentium. Earum voluptates eum ratione veniam, ad quae corporis!</p>
-                    <div class="d-flex justify-content-center gap-4">
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-youtube fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-twitter fa-lg"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card item my-5">
-                <div class="position-relative d-flex justify-content-center p-4 card-header" style="background-color: #120A33;">
-                    <div class="card-img bg-white p-1" style="width: 150px; height: 150px; border-radius: 50%;">
-                        <img class="w-100 h-100 object-fit-cover" style="border-radius: 50%; border: 4px solid #120A33;" src="https://www.realmadrid.com/img/vertical_380px/cristiano_550x650.jpg">
-                    </div>
-                </div>
-
-                <div class="card-content text-center p-4">
-                    <h2>Nombre</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, dicta a? Facere delectus culpa voluptatibus repellendus id eveniet, magni est quo praesentium. Earum voluptates eum ratione veniam, ad quae corporis!</p>
-                    <div class="d-flex justify-content-center gap-4">
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-youtube fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-twitter fa-lg"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card item my-5">
-                <div class="position-relative d-flex justify-content-center p-4 card-header" style="background-color: #120A33;">
-                    <div class="card-img bg-white p-1" style="width: 150px; height: 150px; border-radius: 50%;">
-                        <img class="w-100 h-100 object-fit-cover" style="border-radius: 50%; border: 4px solid #120A33;" src="https://www.realmadrid.com/img/vertical_380px/clc-james_1vc1870_20220619072920.jpg">
-                    </div>
-                </div>
-
-                <div class="card-content text-center p-4">
-                    <h2>Nombre</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, dicta a? Facere delectus culpa voluptatibus repellendus id eveniet, magni est quo praesentium. Earum voluptates eum ratione veniam, ad quae corporis!</p>
-                    <div class="d-flex justify-content-center gap-4">
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-youtube fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-twitter fa-lg"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card item my-5">
-                <div class="position-relative d-flex justify-content-center p-4 card-header" style="background-color: #120A33;">
-                    <div class="card-img bg-white p-1" style="width: 150px; height: 150px; border-radius: 50%;">
-                        <img class="w-100 h-100 object-fit-cover" style="border-radius: 50%; border: 4px solid #120A33;" src="https://www.realmadrid.com/img/vertical_380px/ramos_ficha_550x650_20210630115027.jpg">
-                    </div>
-                </div>
-
-                <div class="card-content text-center p-4">
-                    <h2>Nombre</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, dicta a? Facere delectus culpa voluptatibus repellendus id eveniet, magni est quo praesentium. Earum voluptates eum ratione veniam, ad quae corporis!</p>
-                    <div class="d-flex justify-content-center gap-4">
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-youtube fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
-                            <a class="text-white"><i class="fa-brands fa-twitter fa-lg"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     
