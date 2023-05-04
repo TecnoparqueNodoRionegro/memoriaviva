@@ -1,35 +1,3 @@
-{{-- @extends('layouts.template')
-
-@section('title', 'Inicio')
-
-@section('content')
-<div>
-    <div class="w-100">
-        <img class="position-absolute img-fluid w-100 h-100 object-fit-cover" style="z-index: -1;" src="{{ URL::asset('storage/img/mask.png') }}">
-        <img class="position-absolute img-fluid w-100 h-100 object-fit-cover" style="z-index: -2;" src="{{ URL::asset('storage/img/slide3.jpg') }}">
-    </div>
-    
-    @include('layouts.footer')
-</div>
-@endsection
-
-@section('js')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        
-            @if (session('enviar') =='ok')
-                <script>
-                    Swal.fire('Mensaje Enviado con Éxito.')   
-                </script>
-            @endif  
-        
-    <script type="text/javascript">
-        $('#form-contact').submit(function (e) { 
-            e.preventDefault();
-            this.submit();
-        });
-    </script>
-
-@endsection --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +15,7 @@
     <div class="w-100 h-100">
         <img class="position-absolute m-3" style="z-index: 1; width: 200px;" src="{{ URL::asset('storage/img/logo.png') }}">
         <img class="position-absolute img-fluid w-100 h-100 object-fit-fill" src="{{ URL::asset('storage/img/mask.png') }}">
-        <img class="position-absolute img-fluid w-100 h-100 object-fit-cover" style="z-index: -1;" src="{{ URL::asset('storage/img/slide1.jpg') }}">
+        <img class="position-absolute img-fluid w-100 h-100 object-fit-cover" style="z-index: -1;" src="{{ URL::asset('storage/img/background.jpg') }}">
 
         <div class="mx-5 fw-bold" style="position: absolute; top: 30%;">
             <div style="-webkit-text-stroke: 3px white; color: transparent; font-family: 'Noto Sans', sans-serif;">
