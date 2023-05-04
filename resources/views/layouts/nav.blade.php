@@ -24,7 +24,7 @@
                                 <a class="nav-link text-white {{ request()->routeIs($menu->route) ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{route($menu->route)}}"><i class="fa-solid fa-cart-shopping"></i></a>
                             </li>
                         @endif
-                        @else
+                    @else
                     
                     <li class="nav-item">
                         <a class="nav-link text-white {{ request()->routeIs($menu->route) ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{route($menu->route)}}">{{$menu->title}}</a>
@@ -34,9 +34,17 @@
                 </ul>
                 
             </div>
+            @if (auth()->check())
+            <div class="text-white">
+               <p>Bienvenido {{$username = Auth::user()->email }}</p>
+               
+            </div>
+            <a class="btn border border-white text-white" href="{{ route('signOut')}}">Cerrar Sesión <i class="fa-solid fa-right-from-bracket mx-1 text-white"></i></a>
+            @else
             <div class="2">
                 <a class="btn border border-white text-white" href="{{ route('login') }}">Ingresar</a>
             </div>
+            @endif
         </div>
     </nav>
 </div>
