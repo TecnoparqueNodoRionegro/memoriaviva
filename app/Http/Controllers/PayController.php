@@ -16,11 +16,11 @@ class PayController extends Controller
         return view('pay', compact('payU', 'product'));
     }
     public function indexCart(Required $required){
-        $total=$_POST['total'];
+        $price=$_POST['total'];
         
-        $payU = $this->generateFirmaPayU($total);
+        $payU = $this->generateFirmaPayU($price);
 
-        return view('payu', compact('payU', 'total'));
+        return view('payCart', compact('payU', 'price'));
     }
     public function generateFirmaPayU($price){
 

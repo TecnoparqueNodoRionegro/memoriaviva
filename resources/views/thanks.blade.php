@@ -9,7 +9,6 @@
         </div>
 
         @if (request()->pasarela == 'payu')
-        
             <div class="max-w-3x1 mx-auto sm:px-6 lg:px-8">
 
                 @php
@@ -20,9 +19,9 @@
 
                 @if (strtoupper($firma) == strtoupper($firmacreada))
 
-                <div class="container">
+                <div class="container text-white">
                     <h2>Resumen de la transacción</h2>
-                    <table class="table">
+                    <table class="table text-white">
                         <tr>
                             <td>Estado de la transacción</td>
                             <td>

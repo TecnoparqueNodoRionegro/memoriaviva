@@ -19,7 +19,11 @@
                             </tr>
                           </thead>
                           <tbody>
-                            @php $total = 0 @endphp <!-- Inicializa variable total -->
+                            @php 
+                              $total = 0 
+                            
+                
+                            @endphp <!-- Inicializa variable total -->
                             @foreach(Cart::getContent() as $item)
                               <tr>
                                 <td>{{ $item->id }}</td>
@@ -41,9 +45,10 @@
                         </table>
                         <div class="text-end">
                           <h4>Total del carrito: ${{ number_format($total) }}</h4> <!-- Muestra total del carrito -->
-                          <form action="{{ route('pay.payu') }}" method="post">
+                          <form action="{{ route('pay.payCart') }}" method="post">
                             @csrf
                             <input type="hidden" name="total" value="{{ $total }}">
+                            
                             <input type="submit" value="Comprar" class="btn btn-dark">
                           </form>
                         </div>
