@@ -168,5 +168,5 @@ Route::get('inicio', function () {
     return view('inicio');
 })->name('inicio');
 
-Route::get('user/{id}/edit', [UserProfileController::class, 'edit'])->name('user_profile.edit');
-Route::put('user/{id}', [UserProfileController::class, 'update'])->name('user_profile.update');
+Route::get('user/{user}/edit', [UserProfileController::class, 'edit'])->name('user_profile.edit');
+Route::put('user/{user}', [UserProfileController::class, 'update'])->name('user_profile.update');

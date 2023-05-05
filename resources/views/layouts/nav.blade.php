@@ -12,7 +12,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars text-white"></i>
             </button>
-            <div class="collapse navbar-collapse col-8 px-2" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse col-7 px-2" id="navbarSupportedContent">
                 
                 <ul class="navbar-nav">
                 
@@ -35,7 +35,7 @@
                 
             </div>
             @if (auth()->check())
-            <div class="text-white col-2 d-flex">
+            <div class="text-white col-3 d-flex">
                 <div class="dropdown">
                     <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown"><i class="fa-solid fa-gear"></i></button>
 
@@ -47,7 +47,7 @@
                <p>Bienvenido {{  Auth::user()->email }}</p>
             </div>
             @else
-            <div class="col-2">
+            <div class="col-3">
                 <a class="btn border border-white text-white" href="{{ route('login') }}">Ingresar</a>
             </div>
             @endif

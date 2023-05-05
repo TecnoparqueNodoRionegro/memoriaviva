@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CategoryFile;
 use App\Models\data_users;
 use App\Models\File;
-
+use App\Models\SocialLink;
 
 class CategoryFileController extends Controller
 {
@@ -15,16 +15,14 @@ class CategoryFileController extends Controller
                                 ->select('data_users.*')
                                 ->where('user_types.description', 'Artista')
                                 ->get();
-
+        $social = SocialLink::all();
         $categoryFiles = CategoryFile::all();
         $files = [];
-
-        // return $artists;
 
         foreach($categoryFiles as $category){
             $files[] = File::select('category_file_id','route')->where('category_file_id', $category->id)->orderBy('id', 'DESC')->first();
         }
-        return view('galleries.index', compact('categoryFiles', 'files', 'artists'));   
+        return view('galleries.index', compact('categoryFiles', 'files', 'artists', 'social'));   
     }
 
     public function show(CategoryFile $category){

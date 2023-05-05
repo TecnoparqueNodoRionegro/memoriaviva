@@ -8,7 +8,7 @@
             <div class="container d-flex justify-content-center">
                 <div class="card w-75 col-sm-12">
                     <div class="card-body">
-                        <form method="post" action="{{ route('user_profile.update', Auth::user()->id) }}">
+                            <form method="post" action="{{ route('user_profile.update', Auth::user()->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <h2>Actualizar datos de usuario</h2>
@@ -20,9 +20,10 @@
                             @foreach ($data_user as $data)
                                 
                                 <div class="form-group mb-3">
-
-                                        <label for="tipo-usuario">Nombre</label>
-                                        <input type="text" class="form-control" id="tipo-usuario" value="{{ $data->name }}" name="name">
+                                        <div class="mb-3">
+                                            <label for="tipo-usuario">Nombre</label>
+                                            <input type="text" class="form-control" id="tipo-usuario" value="{{ $data->name }}" name="name">
+                                        </div>
 
                                         <div class="form-group mb-3">
                                             <label for="tipo-usuario">Apellido</label>
@@ -46,20 +47,47 @@
                                             </div>
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="tipo-usuario">Telefono</label>
-                                            <input type="text" class="form-control" id="tipo-usuario" value="{{ $data->phone}}" name="phone">
+                                            <label for="tipo-usuario">Teléfono</label>
+                                            <input type="number" class="form-control" id="tipo-usuario" value="{{ $data->phone }}" name="phone">
                                         </div>
+
+                                        <div class="form-group mb-3">
+                                            <label for="tipo-usuario">Biografía</label>
+                                            <textarea class="form-control" name="biography" rows="5">{{ $data->biography }}</textarea>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label mt-2">Foto de perfil:</label>
+                                            <input class="form-control" type="file" name="profile">
+                                        </div>
+
                                         <div class="form-group mb-3">
                                             <label for="tipo-usuario">Redes sociales</label>
-                                            <input type="text" class="form-control" name="facebook">
-                                            <input type="text" class="form-control" name="youtube">
-                                            <input type="text" class="form-control" name="instagram">
-                                            <input type="text" class="form-control" name="twitter">
+
+                                            <div class="d-flex align-items-center gap-2 mt-3">
+                                                <i class="fa-brands fa-facebook fa-2x" style="color: #3b5998;"></i>
+                                                <input type="text" class="form-control" name="facebook" @if ($facebook == null) placeholder="Link de tu Facebook" @else value="{{ $facebook->link }}" @endif>
+                                            </div>
+
+                                            <div class="d-flex align-items-center gap-2 mt-3">
+                                                <i class="fa-brands fa-youtube fa-2x" style="color: #c4302b;"></i>
+                                                <input type="text" class="form-control mb-2" name="youtube" @if ($youtube == null) placeholder="Link de tu canal de Youtube" @else value="{{ $youtube->link }}" @endif>
+                                            </div>
+
+                                            <div class="d-flex align-items-center gap-2 mt-3">
+                                                <i class="fa-brands fa-square-instagram fa-2x" style="color: #E1306C;"></i>
+                                                <input type="text" class="form-control mb-2" name="instagram" @if ($instagram == null) placeholder="Link de tu Instagram" @else value="{{ $instagram->link }}" @endif>
+                                            </div>
+
+                                            <div class="d-flex align-items-center gap-2 mt-3">
+                                                <i class="fa-brands fa-twitter fa-2x" style="color: #00acee;"></i>
+                                                <input type="text" class="form-control mb-2" name="twitter" @if ($twitter == null) placeholder="Link de tu twitter" @else value="{{ $twitter->link }}" @endif>
+                                            </div>
                                         </div>
                                     </div>
                                 @endforeach
                             <div class="form-group mb-3">
-                                <input type="submit" class="btn btn-dark" value="Continuar"> 
+                                <button class="btn btn-dark" type="submit">Guardar cambios</button>
                             </div>
 
                         </form>
