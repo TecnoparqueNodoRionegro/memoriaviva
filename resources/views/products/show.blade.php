@@ -1,5 +1,7 @@
 @extends('layouts.template')
 
+@extends('layouts.nav')
+
 @section('title', $product->name)
 
 @section('content')
@@ -7,11 +9,11 @@
 
         @include('layouts.templateProducts')
 
-        
+
         @section('buttons')
-        
+
         @endsection
 
     </body>
-    
+
 @endsection

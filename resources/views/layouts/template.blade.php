@@ -7,11 +7,6 @@
 
     {{-- estilos --}}
     <link rel="stylesheet" href="{{ asset("styles/style.css") }}">
-    <link rel="stylesheet" href="{{ asset("styles/slider.css") }}">
-
-
-
-
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
@@ -24,10 +19,10 @@
 
     <title>@yield('title')</title>
 </head>
-<body  style="font-family: 'Figtree', sans-serif;">
+<body  style="font-family: 'Figtree', sans-serif; background-image: url('/storage/img/fondo.png'); ">
 
     <!-- header -->
-    <header>@include('layouts.nav')</header>
+   
 
     <!-- body -->
     @yield('content')
