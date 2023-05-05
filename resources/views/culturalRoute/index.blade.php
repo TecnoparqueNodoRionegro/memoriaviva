@@ -1,5 +1,8 @@
 @extends('layouts.template')
 
+@extends('layouts.nav')
+
+@section('title', 'Rutas')
 
 @section('content')
 

@@ -1,5 +1,5 @@
 <div>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row bg-white rounded shadow p-5">
             <div class="col-xxl-6 col-sm-12 mb-3" style="width: 30rem;">
                 <img class="object-fit-scale w-100 h-100" src="{{ $product->files->route }}">
