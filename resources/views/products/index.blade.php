@@ -1,5 +1,7 @@
 @extends('layouts.template')
 
+@extends('layouts.nav')
+
 @section('title', 'Tienda')
 
 @section('content')
@@ -36,7 +38,7 @@
                                 <a class="text-decoration-none" href="{{ route('products.show', $product) }}">
                                     <div class="card my-3">
                                         <div style="height: 200px;">
-                                            <img src="{{ URL::asset($product->files->route) }}" class="object-fit-cover card-img-top w-100 h-100"> 
+                                            <img src="{{ URL::asset($product->files->route) }}" class="object-fit-cover card-img-top w-100 h-100">
                                         </div>
                                         <div class="card-body">
                                             <p class="card-text">$ {{ number_format($product->price, 0, ',', '.')}}</p>

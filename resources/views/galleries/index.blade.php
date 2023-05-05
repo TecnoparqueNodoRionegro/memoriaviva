@@ -1,5 +1,7 @@
 @extends('layouts.template')
 
+@extends('layouts.nav')
+
 @section('title', 'Murales')
 
 @section('content')
@@ -14,7 +16,7 @@
 </div>
 @else
 <div class="container">
-    <div class="w-100 h2 pb-2 mx-auto text-black-50 border-bottom border-secondary">
+    <div class="w-100 h2 pb-2 mx-auto text-white-50 border-bottom border-secondary">
         Albúm de murales
     </div>
     <div class="row">
@@ -41,7 +43,7 @@
 @endif
 
 <div class="container mt-5">
-    <div class="w-100  h2  pb-2  mx-auto text-black-50 border-bottom border-secondary">
+    <div class="w-100  h2  pb-2  mx-auto text-white-50 border-bottom border-secondary">
         Nuestros artistas vinculados
     </div>
         <div class="owl-carousel text-center">
@@ -281,7 +283,7 @@
             </div>
         </div>
     </div>
-    
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
