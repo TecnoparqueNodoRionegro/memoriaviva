@@ -1,9 +1,76 @@
 @extends('layouts.template')
 
+@section('title', 'Inicio')
 
 @section('content')
 
-<div class="container text-center">
+<div class="w-100" style="z-index: 1;">
+    <nav class="navbar navbar-expand-xl">
+        <div class="container-fluid fw-bold fs-5" style="background-color: rgba(0, 0, 0, 0.336);">
+            <div class="col-2 d-flex" style="width: 13vh; height: 13vh; ">
+                <a class="navbar-brand " href="#">
+                    <img src="{{ URL::asset('storage/img/logo.png') }}" class="mx-5 w-100 h-100 object-fit-scale" href="{{ url('/') }}">
+                </a>
+            </div>
+            <button class="navbar-toggler-ml-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse col-8 px-2" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+
+                    @foreach ($menus as $menu)
+
+                    @if ($menu->title == "Carrito")
+                        <li class="nav-item">
+                            <a class="nav-link text-white {{ request()->routeIs($menu->route) ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{route($menu->route)}}"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link text-white {{ request()->routeIs($menu->route) ? 'border-bottom border-warning' : ''  }}"  aria-current="page" href="{{route($menu->route)}}">{{$menu->title}}</a>
+                    </li>
+                    @endif
+                    @endforeach
+                </ul>
+            </div>
+            <div class="2">
+                <a class="btn border border-white text-white" href="{{ route('login') }}">Ingresar</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            {{-- <div class="carousel-item active"  data-bs-interval="10000">
+                <video class="d-block w-100"  autoplay muted playsinline controls>
+                    <source src="{{ URL::asset('storage/img/video1.mp4') }}" type="video/mp4" >
+                </video>
+            </div> --}}
+
+            <div class="carousel-item active">
+                <img src="{{ URL::asset('storage/img/slide1.JPG') }}" class="mw-100 h-auto" alt="...">
+            </div>
+
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="{{ URL::asset('storage/img/slide2.JPG') }}" class="mw-100 h-auto" alt="...">
+            </div>
+
+        </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+</div>
+
+{{-- <div class="container text-center">
     <div class="text">
         <div class="mt-3 flex-col">
             <div style="-webkit-text-stroke: 3px #fdcf00; color: transparent; font-family: 'Noto Sans', sans-serif;">
@@ -26,7 +93,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 @extends('layouts.footer')
 

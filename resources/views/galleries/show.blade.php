@@ -1,5 +1,7 @@
 @extends('layouts.template')
 
+@extends('layouts.nav')
+
 @section('title', $category->description)
 
 @section('content')
@@ -39,7 +41,7 @@
                   </div>
                 </div>
               </div>
-              
+
               @endforeach
           </div>
         </div>
