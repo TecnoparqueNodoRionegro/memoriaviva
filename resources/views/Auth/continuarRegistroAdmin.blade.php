@@ -20,7 +20,7 @@
                                     
                                     <div class="col-md-6">
                                         <h2>Continuar registro usuario</h2>
-                                        <form id="registration-form" action="{{ route('dataUsersAdmin')}}" method="post" onsubmit="return validarRegistro()">
+                                        <form id="registration-form" action="{{ route('dataUsersAdmin')}}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="name" class="form-label">Nombre:</label>
@@ -53,6 +53,12 @@
                                                 <input type="text" name="phone" class="form-control" id="phone" placeholder="Ingrese su telefono">
                                                 <span id="phone-error" class="text-danger"></span>
                                             </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label mt-2">Foto de perfil:</label>
+                                                <input class="form-control" type="file" name="profile">
+                                            </div>
+
                                             <input type="hidden" value="{{ session('id') }}" name="id_user">
                                             <input type="hidden" value="{{ session('user_type_id') }}" name="user_type_id">
                                            

@@ -67,7 +67,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars text-white"></i>
             </button>
-            <div class="collapse navbar-collapse col-8 px-2" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse col-7 px-2" id="navbarSupportedContent">
                 
                 <ul class="navbar-nav">
                 
@@ -90,13 +90,19 @@
                 
             </div>
             @if (auth()->check())
-            <div class="text-white">
-               <p>Bienvenido {{$username = Auth::user()->email }}</p>
-               
+            <div class="text-white col-3 d-flex">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown"><i class="fa-solid fa-gear"></i></button>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('user_profile.edit', Auth::user()->id) }}">Editar perfil</a></li>
+                        <li><a class="dropdown-item" href="{{ route('signOut')}}">Cerrar sesión <i class="fa-solid fa-right-from-bracket mx-1 text-white"></i></a></li>
+                    </ul>
+                </div>
+               <p>Bienvenido {{  Auth::user()->email }}</p>
             </div>
-            <a class="btn border border-white text-white" href="{{ route('signOut')}}">Cerrar Sesión <i class="fa-solid fa-right-from-bracket mx-1 text-white"></i></a>
             @else
-            <div class="2">
+            <div class="col-3">
                 <a class="btn border border-white text-white" href="{{ route('login') }}">Ingresar</a>
             </div>
             @endif

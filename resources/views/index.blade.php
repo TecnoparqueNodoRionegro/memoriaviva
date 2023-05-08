@@ -27,7 +27,10 @@
                 <h1 style="font-size: 60px;">Aumentada</h1>
             </div>
             <a href="{{ route('inicio')}}">
-                <button class="btn fw-bold w-75 mt-4" style="background: linear-gradient(0deg, rgba(247,138,37,1) 0%, rgba(253,207,0,1) 100%); font-size: 20px; border-radius: 100px; border: none !important;">
+            <button class="btn fw-bold w-75" style="background: linear-gradient(0deg, rgba(247,138,37,1) 0%, rgba(253,207,0,1) 100%); font-size: 20px; border-radius: 100px; border: none !important;">
+
+            
+
                     Comencemos el Tour
                 </button>
             </a>

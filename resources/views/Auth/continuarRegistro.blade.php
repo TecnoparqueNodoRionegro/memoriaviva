@@ -11,7 +11,7 @@
           <h2 class="text-center">Continua con tu registro</h2>
         </div>
           <div class="card-body">
-                <form id="registration-form" action="{{ route('dataUsers')}}" method="post" onsubmit="return validarRegistro()">
+                <form id="registration-form" action="{{ route('dataUsers')}}" method="post" enctype="multipart/form-data" onsubmit="return validarRegistro()">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre:</label>
@@ -44,6 +44,12 @@
                 <input type="text" name="phone" class="form-control" id="phone" placeholder="Ingrese su telefono">
                 <span id="phone-error" class="text-danger"></span>
             </div>
+
+            <div class="mb-3">
+              <label class="form-label mt-2">Foto de perfil:</label>
+              <input class="form-control" type="file" name="profile">
+            </div>
+
             <input type="hidden" value="{{ session('id') }}" name="id_user">
             <input type="hidden" value="{{ session('user_type_id') }}" name="user_type_id">
             <input type="hidden" name="formAdmin" value="2">

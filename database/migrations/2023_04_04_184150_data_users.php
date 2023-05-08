@@ -22,11 +22,10 @@ return new class extends Migration
             $table->string('gender');
             $table->string('phone');
             $table->text('biography');
+            $table->string('file')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('file_id');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('file_id')->references('id')->on('files')->onDelete('cascade');
             $table->timestamps();
         });
     }

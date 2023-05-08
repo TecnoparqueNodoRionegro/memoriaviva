@@ -15,12 +15,10 @@ class data_users extends Model
             'phone',
             'biography',
             'user_id',
-            'file_id'
+            'file'
     ];
     public function users(){
-
         return $this->belongsTo(User::class, 'user_id');
     }
-
     
 }

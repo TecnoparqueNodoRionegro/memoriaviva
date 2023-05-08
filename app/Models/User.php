@@ -23,4 +23,8 @@ class User extends Authenticatable
     public function states(){
         return $this->belongsTo(State::class, 'state_id');
     }
+
+    public function data_user(){
+        return $this->hasOne(data_users::class, 'id');
+    }
 }
