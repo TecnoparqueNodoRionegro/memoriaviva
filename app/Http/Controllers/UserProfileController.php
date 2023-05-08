@@ -17,15 +17,18 @@ class UserProfileController extends Controller
         $youtube = SocialLink::where('social_type_id', 2)->where('user_id', Auth::user()->id)->first();
         $instagram = SocialLink::where('social_type_id', 3)->where('user_id', Auth::user()->id)->first();
         $twitter = SocialLink::where('social_type_id', 4)->where('user_id', Auth::user()->id)->first();
-
+        
         return view('user_profile.edit', compact('user', 'data_user', 'facebook', 'youtube', 'instagram', 'twitter'));
     }
-
+    
     public function update(Request $request, User $user){
         $files = $request->file('profile');
+        $data_user = data_users::where('user_id', $user->id)->first();
         $url = '';
 
-        if ($files != null){
+        if ($data_user->file != null) {
+            $url = $data_user->file;
+        } else if ($files != null){
             $route = $files->storeAs('public/img', $files->getClientOriginalName());
             $url = Storage::url($route);
         } else if ($files == null){
@@ -47,8 +50,8 @@ class UserProfileController extends Controller
 
         $request->validate($rules, $customMessages);
 
-        $dataUser = data_users::updateOrCreate([
-            'user_id' => $user->id
+        data_users::updateOrCreate([
+            'user_id' => Auth::user()->id
         ], 
         [
             'name' => $request->name,
@@ -70,7 +73,7 @@ class UserProfileController extends Controller
                         ], [
                             'link' => $request->facebook,
                             'social_type_id' => 1,
-                            'user_id' => $user->id,
+                            'user_id' => Auth::user()->id
                         ]);
                         break;
                     }
@@ -84,7 +87,7 @@ class UserProfileController extends Controller
                         ], [
                             'link' => $request->youtube,
                             'social_type_id' => 2,
-                            'user_id' => $user->id,
+                            'user_id' => Auth::user()->id
                         ]);
                         break;
                     }
@@ -98,7 +101,7 @@ class UserProfileController extends Controller
                         ], [
                             'link' => $request->instagram,
                             'social_type_id' => 3,
-                            'user_id' => $user->id,
+                            'user_id' => Auth::user()->id
                         ]);
                         break;
                     }
@@ -113,7 +116,7 @@ class UserProfileController extends Controller
                         ], [
                             'link' => $request->twitter,
                             'social_type_id' => 4,
-                            'user_id' => $user->id,
+                            'user_id' => Auth::user()->id
                         ]);
                         break;
                     }      
