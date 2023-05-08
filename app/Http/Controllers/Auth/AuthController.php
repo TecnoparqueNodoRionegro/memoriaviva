@@ -68,9 +68,9 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt(['email'=> $request->email, 'password' => $request->password, 'user_type_id' => 1])){
+        if(Auth::attempt(['email'=> $request->email, 'password' => $request->password, 'user_type_id' => 3])){
             return view('admin.admin');
-        }elseif(Auth::attempt(['email'=> $request->email, 'password' => $request->password, 'user_type_id' => 2])){
+        }elseif(Auth::attempt(['email'=> $request->email, 'password' => $request->password, 'user_type_id' => 2, 'user_type_id' => 1])){
             return redirect()->route('products.index');
         }
         return back()->withErrors(['invalid_credentials'=> 'Usuario o Contraseña no valida'])->withInput();

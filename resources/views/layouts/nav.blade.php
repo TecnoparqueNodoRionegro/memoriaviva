@@ -1,4 +1,4 @@
-<section class="section">
+{{-- <section class="section">
     <div class="w-100" style="z-index: 1;">
         <nav class="navbar navbar-expand-xl">
             <div class="container-fluid fw-bold fs-5" style="background-color: rgba(0, 0, 0, 0);">
@@ -46,14 +46,14 @@
             </div>
         </nav>
     </div>
-</section>  
+</section>   --}}
 
 
 
 
 
 
-{{-- <div class="w-100" style="z-index: 1;">
+<div class="w-100" style="z-index: 1;">
     <div style="width: 100%; height: 7rem; position: absolute;">
         <img class="w-100 h-100 object-fit-cover" src="{{ URL::asset('storage/img/fondo.png') }}">
     </div>
@@ -108,4 +108,4 @@
             @endif
         </div>
     </nav>
-</div> --}}
+</div>

@@ -65,7 +65,7 @@
                         <p class="overflow-auto" style="height: 150px;">{{ $artist->biography }}</p>
                         <div class="d-flex justify-content-center gap-4">
                             @forelse ($social as $link)
-                                @if ($link->user_id == $artist->id)
+                                @if ($link->user_id == $artist->users->id)
                                     @switch($link->social_type_id)
                                         @case(1)
                                             <div class="d-flex justify-content-center align-items-center" style="width: 48px; height: 48px; background-color: #120A33; border-radius: 50%;">
