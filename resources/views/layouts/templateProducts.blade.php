@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="my-3">
-            <a href="{{ url()->previous() }}">
+            <a href="{{ route('products.index') }}">
                 <button class="btn btn-dark">Regresar</button>
             </a>
         </div>

@@ -1,5 +1,5 @@
 @extends('layouts.template')
-
+@extends('layouts.nav')
 @section('title', 'Pago')
 
 @section('content')

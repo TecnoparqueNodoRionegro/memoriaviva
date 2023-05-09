@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@extends('layouts.nav')
 @section('content')
     <body class="bg-light">
         <div class="container">

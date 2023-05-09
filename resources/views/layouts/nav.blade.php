@@ -60,8 +60,8 @@
     <nav class="navbar navbar-expand-xl">
         <div class="container-fluid fw-bold fs-5" style="background-color: rgba(0, 0, 0, 0);">
             <div class="col-2 d-flex" style="height: 6.5rem;">
-                <a class="navbar-brand " href="#">
-                    <img src="{{ URL::asset('storage/img/logo.png') }}" class="mx-5 w-100 h-100 object-fit-scale" href="{{ url('/') }}">
+                <a class="navbar-brand " href="{{ route('inicio') }}">
+                    <img src="{{ URL::asset('storage/img/logo.png') }}" class="mx-5 w-100 h-100 object-fit-scale">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

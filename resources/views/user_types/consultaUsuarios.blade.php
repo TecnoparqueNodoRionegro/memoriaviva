@@ -33,9 +33,9 @@
                                                 <th>Apellido</th>
                                                 <th>Genero</th>
                                                 <th>Telefono</th>
+                                                <th>Biografia</th>
                                                 <th>Tipo de usuario</th>
                                                 <th>Estado</th>
-                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>

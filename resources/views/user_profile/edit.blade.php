@@ -1,5 +1,5 @@
 @extends('layouts.template')
-
+@extends('layouts.nav')
 @section('title', 'Editar datos')
 
 @section('content')
@@ -8,6 +8,11 @@
             <div class="container d-flex justify-content-center">
                 <div class="card w-75 col-sm-12">
                     <div class="card-body">
+                        @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                             <form method="post" action="{{ route('user_profile.update', Auth::user()->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')

@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@extends('layouts.nav')
+@include('layouts.nav')
 
 @section('title', 'Rutas')
 
@@ -70,6 +70,6 @@
     </div>
 </div>
 
-@extends('layouts.footer')
+@include('layouts.footer')
 
 @endsection

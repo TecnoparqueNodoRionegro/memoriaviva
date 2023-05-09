@@ -23,7 +23,7 @@
                 <h1 style="font-size: 60px;">Carlos</h1>
             </div>
             <div style="color: white; font-family: 'Noto Sans', sans-serif;">
-                <h1 style="font-size: 60px;">con Realidad</h1>
+                <h1 style="font-size: 60px;">Con Realidad</h1>
                 <h1 style="font-size: 60px;">Aumentada</h1>
             </div>
             <a href="{{ route('inicio')}}">
