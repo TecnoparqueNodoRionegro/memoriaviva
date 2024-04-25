@@ -31,7 +31,7 @@
                     
                                         <div class="col-6" id="file">
                                             <label class="form-label mt-2">Archivo:</label>
-                                            <input class="form-control" type="file" name="routeFiles[]" multiple>
+                                            <input class="form-control" type="file" name="routeFiles[]" accept="image/*" multiple>
                                         </div>
                     
                                         <div class="col-6" id="url">

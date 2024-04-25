@@ -17,7 +17,7 @@ class MenuSeeder extends Seeder
     {
         $inicio = new Menu();
         $inicio->title = "Inicio";
-        $inicio->route = "index";
+        $inicio->route = "inicio";
         $inicio->state_id = 1; 
         $inicio->menu_type_id = 2;
         $inicio->save();
@@ -31,7 +31,7 @@ class MenuSeeder extends Seeder
         
         $rutaCultural = new Menu();
         $rutaCultural->title = "Ruta cultural";
-        $rutaCultural->route = "index";
+        $rutaCultural->route = "cultureRoute";
         $rutaCultural->state_id = 1; 
         $rutaCultural->menu_type_id = 1;
         $rutaCultural->save();
@@ -45,7 +45,7 @@ class MenuSeeder extends Seeder
         
         $iniciarSesion = new Menu();
         $iniciarSesion->title = "Descargar APP";
-        $iniciarSesion->route = "login";
+        $iniciarSesion->route = "app";
         $iniciarSesion->state_id = 1; 
         $iniciarSesion->menu_type_id = 1;
         $iniciarSesion->save();

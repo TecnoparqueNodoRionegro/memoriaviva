@@ -32,6 +32,10 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
+Route::get('/app', function () {
+    return view('app');
+})->name('app');
+
 Route::get('/admin', function () {
     return view('admin.admin');
 });
